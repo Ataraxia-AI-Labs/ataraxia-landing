@@ -412,8 +412,13 @@ document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
 window.addEventListener('scroll',()=>{document.querySelector('nav').style.borderBottomColor=scrollY>100?'rgba(139,92,246,.15)':'rgba(28,28,42,.4)'});
 
 function handleSubmit(e){e.preventDefault();const f=e.target;const d=new FormData(f);const o={};d.forEach((v,k)=>o[k]=v);
-f.innerHTML='<div style="text-align:center;padding:2rem"><div style="font-size:2.5rem;margin-bottom:1rem">✓</div><h3 style="font-family:Playfair Display,serif;color:var(--wh);font-size:1.5rem;margin-bottom:.8rem">¡Demo solicitada!</h3><p style="color:var(--ts);font-weight:300">Te contactaremos en menos de 24 horas al WhatsApp que nos diste.</p></div>';
-console.log('Lead:',o);}
+const btn=f.querySelector('button');btn.textContent='Enviando...';btn.disabled=true;
+const SUPA_URL='https://cvfzdxhkiyrbkptvpuja.supabase.co';
+const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2ZnpkeGhraXlyYmtwdHZwdWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwNzQ2MDMsImV4cCI6MjA4NjY1MDYwM30.hE_BQO7PgWRzmODkSe_aPEGfcbGXhtviZt0FqSQRl8E';
+fetch(SUPA_URL+'/rest/v1/leads',{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Prefer':'return=minimal'},body:JSON.stringify({nombre:o.nombre,email:o.email,clinica:o.clinica||null,whatsapp:o.whatsapp,mensaje:o.mensaje||null,fuente:'landing'})})
+.then(r=>{if(!r.ok)throw new Error(r.status);f.innerHTML='<div style="text-align:center;padding:2rem"><div style="font-size:2.5rem;margin-bottom:1rem">✓</div><h3 style="font-family:Playfair Display,serif;color:var(--wh);font-size:1.5rem;margin-bottom:.8rem">¡Demo solicitada!</h3><p style="color:var(--ts);font-weight:300">Te contactaremos en menos de 24 horas al WhatsApp que nos diste.</p></div>';})
+.catch(err=>{console.error('Error:',err);btn.textContent='Solicitar Demo →';btn.disabled=false;f.insertAdjacentHTML('beforeend','<p style="color:var(--red);font-size:.8rem;text-align:center;margin-top:.5rem">Error al enviar. Intenta de nuevo o escríbenos por WhatsApp.</p>');});
+}
 
 // Chat demo animation
 const msgs=[
