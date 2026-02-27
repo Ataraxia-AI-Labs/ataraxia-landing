@@ -1,3 +1,14 @@
+# System
 .DS_Store
+Thumbs.db
+
+# Vercel
 .vercel
+
+# Dependencies
 node_modules
+
+# Secrets
+.env
+.env.local
+.env*.local
