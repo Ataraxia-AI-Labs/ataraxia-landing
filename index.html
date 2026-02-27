@@ -57,8 +57,11 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXX&ev=PageView&noscript=1"/></noscript>
 -->
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Fonts — preconnect + async load for speed -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--void:#050507;--bg:#08080C;--card:#101018;--card2:#141420;--brd:#1C1C2A;--pur:#8B5CF6;--pur-b:#A78BFA;--pur-d:#6D28D9;--cy:#06D6A0;--cy-b:#34D399;--gld:#F5C842;--red:#EF4444;--wh:#F0EEF5;--tp:#D4D0E0;--ts:#7E7A8E;--tm:#4E4A5E;--gr:linear-gradient(135deg,#8B5CF6,#06D6A0);--gg:linear-gradient(135deg,#F5C842,#F59E0B)}
@@ -85,6 +88,9 @@ html{scroll-behavior:smooth}body{background:var(--void);color:var(--tp);font-fam
 @keyframes badge-in{from{opacity:0;transform:translateY(100px)}to{opacity:1;transform:translateY(0)}}
 @keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
 
+/* Below-fold sections render lazily for faster first paint */
+section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 600px}
+
 /* Reduce animations for users who prefer it + reduce GPU load */
 @media(prefers-reduced-motion:reduce){
 .rv{transition:none!important}.rv.v{opacity:1;transform:none}
@@ -104,10 +110,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 2rem;display:f
 .nr-cta{display:flex;gap:.7rem;align-items:center}
 
 /* TRUST BAR */
-.tb{background:rgba(6,214,160,.04);border-bottom:1px solid rgba(6,214,160,.1);padding:.55rem 2rem;overflow:hidden;position:relative}
+.tb{background:rgba(6,214,160,.04);border-bottom:1px solid rgba(6,214,160,.1);padding:.7rem 2rem;overflow:hidden;position:relative}
 .tb-inner{display:flex;gap:3rem;align-items:center;width:max-content;animation:slide-left 30s linear infinite;will-change:transform;contain:layout}
-.tb-item{display:flex;align-items:center;gap:.5rem;white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--cy-b);opacity:.8}
-.tb-dot{width:4px;height:4px;background:var(--cy);border-radius:50%;animation:pls 2s infinite}
+.tb-item{display:flex;align-items:center;gap:.5rem;white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--cy-b);opacity:.8}
+.tb-dot{width:5px;height:5px;background:var(--cy);border-radius:50%;animation:pls 2s infinite}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:9rem 2rem 5rem;position:relative;overflow:hidden}
@@ -129,9 +135,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 2rem;display:f
 
 /* STATS COUNTER */
 .sc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
-.sc-item{text-align:center;padding:2rem 1rem;background:var(--card);border:1px solid var(--brd);border-radius:12px;transition:all .4s}
+.sc-item{text-align:center;padding:2rem 1rem;background:var(--card);border:1px solid var(--brd);border-radius:12px;transition:all .4s;contain:layout style}
 .sc-item:hover{border-color:rgba(139,92,246,.25);transform:translateY(-3px)}
-.sc-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;display:block}
+.sc-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;display:block;font-variant-numeric:tabular-nums;min-width:4ch;text-align:center}
 .sc-lbl{font-family:'JetBrains Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:2px;color:var(--ts);margin-top:.5rem;display:block}
 
 /* PROBLEMA */
@@ -159,7 +165,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 2rem;display:f
 .sp p{color:var(--ts);font-size:.78rem;font-weight:300;line-height:1.5}
 
 /* CHAT DEMO */
-.chw{max-width:420px;margin:3rem auto 0;background:var(--card);border:1px solid var(--brd);border-radius:16px;overflow:hidden;animation:glow-pulse 4s ease-in-out infinite;will-change:box-shadow}
+.chw{max-width:420px;margin:3rem auto 0;background:var(--card);border:1px solid var(--brd);border-radius:16px;overflow:hidden;animation:glow-pulse 4s ease-in-out infinite}
 .chh{background:var(--card2);padding:1rem 1.2rem;display:flex;align-items:center;gap:.8rem;border-bottom:1px solid var(--brd)}
 .cha{width:36px;height:36px;border-radius:50%;background:var(--gr);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:var(--void)}
 .chi h5{color:var(--wh);font-size:.85rem;font-weight:600;margin:0}
@@ -214,7 +220,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 2rem;display:f
 .roi-slider-group input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--gr);cursor:pointer;transition:transform .2s}
 .roi-slider-group input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2)}
 .roi-result{background:var(--card2);border:1px solid var(--brd);border-radius:12px;padding:1.5rem;text-align:center}
-.roi-result .roi-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.roi-result .roi-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;font-variant-numeric:tabular-nums;min-height:3.5rem}
 .roi-result .roi-lbl{font-size:.82rem;color:var(--ts);margin-top:.3rem}
 .roi-result .roi-mult{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--cy);text-transform:uppercase;letter-spacing:2px;margin-top:.5rem;display:block}
 
@@ -406,13 +412,13 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
 </nav>
 
 <!-- TRUST BAR -->
-<div class="tb" style="margin-top:61px">
+<div class="tb" style="margin-top:64px">
   <div class="tb-inner">
     <span class="tb-item"><span class="tb-dot"></span>Cifrado extremo a extremo</span>
     <span class="tb-item"><span class="tb-dot"></span>Ley 1581 Habeas Data Colombia</span>
     <span class="tb-item"><span class="tb-dot"></span>HIPAA-conscious architecture</span>
     <span class="tb-item"><span class="tb-dot"></span>99.9% uptime SLA</span>
-    <span class="tb-item"><span class="tb-dot"></span>Multi-tenant con RLS en toda query</span>
+    <span class="tb-item"><span class="tb-dot"></span>Aislamiento total entre clinicas</span>
     <span class="tb-item"><span class="tb-dot"></span>Datos de tu clínica nunca se mezclan</span>
     <span class="tb-item"><span class="tb-dot"></span>Respuesta en menos de 3 segundos</span>
     <!-- duplicate for seamless loop -->
@@ -420,7 +426,7 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
     <span class="tb-item"><span class="tb-dot"></span>Ley 1581 Habeas Data Colombia</span>
     <span class="tb-item"><span class="tb-dot"></span>HIPAA-conscious architecture</span>
     <span class="tb-item"><span class="tb-dot"></span>99.9% uptime SLA</span>
-    <span class="tb-item"><span class="tb-dot"></span>Multi-tenant con RLS en toda query</span>
+    <span class="tb-item"><span class="tb-dot"></span>Aislamiento total entre clinicas</span>
     <span class="tb-item"><span class="tb-dot"></span>Datos de tu clínica nunca se mezclan</span>
     <span class="tb-item"><span class="tb-dot"></span>Respuesta en menos de 3 segundos</span>
   </div>
@@ -665,8 +671,8 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
       <div class="t-badge"><span class="t-badge-icon">🇨🇴</span>Ley 1581 Habeas Data</div>
       <div class="t-badge"><span class="t-badge-icon">🛡️</span>HIPAA-Conscious</div>
       <div class="t-badge"><span class="t-badge-icon">✅</span>99.9% Uptime SLA</div>
-      <div class="t-badge"><span class="t-badge-icon">🔐</span>Multi-tenant RLS</div>
-      <div class="t-badge"><span class="t-badge-icon">📊</span>SOC2-level Controls</div>
+      <div class="t-badge"><span class="t-badge-icon">🔐</span>Aislamiento total de datos</div>
+      <div class="t-badge"><span class="t-badge-icon">📊</span>Controles de seguridad avanzados</div>
     </div>
   </div>
 </section>
@@ -674,21 +680,21 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
 <!-- SOFIA FEATURES -->
 <section id="sofia">
   <div class="ctn ct">
-    <span class="tag rv">SofIA V3 — 44 capacidades operativas</span>
+    <span class="tag rv">Capacidades</span>
     <h2 class="tt rv">No es un chatbot. Es el <em>sistema operativo</em> de tu clínica.</h2>
-    <p class="ds rv">Cada módulo diseñado para operar tu clínica sola, capturar revenue y mejorar cada día.</p>
+    <p class="ds rv">Cada modulo disenado para operar tu clinica sola, capturar revenue y mejorar cada dia.</p>
   </div>
   <div class="ctn" style="margin-top:3rem">
     <div class="fg">
-      <div class="fc rv"><div class="fi">🧠</div><h4>Atención Autónoma 24/7</h4><p>Responde por WhatsApp con empatía real. Entrenada con tu catálogo, precios y protocolos. GPT-4o con fallback automático.</p></div>
-      <div class="fc rv"><div class="fi">🎙️</div><span class="nw">V3</span><h4>Voice AI — Voz Natural</h4><p>Llamadas entrantes y salientes con voz humana (Gemini 2.0 Live). Confirma citas, hace follow-up, responde a las 3AM.</p></div>
-      <div class="fc rv"><div class="fi">📅</div><h4>Agendamiento Inteligente</h4><p>Gestiona citas, confirma asistencias, reagenda cancelaciones, llena huecos automáticamente. Sin doble-booking.</p></div>
-      <div class="fc rv"><div class="fi">💳</div><span class="nw">V3</span><h4>Cobros Automáticos</h4><p>Links de pago por WhatsApp. Cobra anticipos antes de confirmar la cita. Tarjeta, PSE, Nequi, Bancolombia.</p></div>
-      <div class="fc rv"><div class="fi">🎯</div><h4>Revenue Engine</h4><p>Detecta 8 tipos de oportunidades en cada conversación: upsell, cross-sell, leads calientes, pacientes VIP.</p></div>
-      <div class="fc rv"><div class="fi">📊</div><span class="nw">V3</span><h4>CRM Visual Completo</h4><p>Pipeline Kanban de 6 etapas. Historial, sentiment, valor por paciente, próxima acción sugerida.</p></div>
-      <div class="fc rv"><div class="fi">🔄</div><h4>15 Sub-Bots Autónomos</h4><p>Hunter bot, Nurse bot, Birthday bot, Reminder 24h, Confirmación 2h, Reactivación. Tu clínica nunca para.</p></div>
-      <div class="fc rv"><div class="fi">🧬</div><span class="nw">V3</span><h4>Fine-tuning por Clínica</h4><p>SofIA se entrena con tu data específica. Cada clínica tiene su propio modelo que mejora cada semana.</p></div>
-      <div class="fc rv"><div class="fi">🌎</div><span class="nw">V3</span><h4>Red Neuronal LATAM</h4><p>Inteligencia colectiva. Más clínicas = SofIA más inteligente para todo el ecosistema. Datos 100% anonimizados.</p></div>
+      <div class="fc rv"><div class="fi">🧠</div><h4>Atencion Autonoma 24/7</h4><p>Responde por WhatsApp con empatia real. Entrenada con tu catalogo, precios y protocolos. Con redundancia automatica.</p></div>
+      <div class="fc rv"><div class="fi">🎙️</div><h4>Voz Natural por Telefono</h4><p>Llamadas entrantes y salientes con voz humana. Confirma citas, hace follow-up, responde a las 3AM.</p></div>
+      <div class="fc rv"><div class="fi">📅</div><h4>Agendamiento Inteligente</h4><p>Gestiona citas, confirma asistencias, reagenda cancelaciones, llena huecos automaticamente. Sin doble-booking.</p></div>
+      <div class="fc rv"><div class="fi">💳</div><h4>Cobros Automaticos</h4><p>Links de pago por WhatsApp. Cobra anticipos antes de confirmar la cita. Multiples medios de pago.</p></div>
+      <div class="fc rv"><div class="fi">🎯</div><h4>Motor de Oportunidades</h4><p>Detecta oportunidades de ingreso en cada conversacion: ventas adicionales, reactivaciones, pacientes de alto valor.</p></div>
+      <div class="fc rv"><div class="fi">📊</div><h4>Panel de Control Total</h4><p>Visualiza todo tu negocio en tiempo real. Historial, analisis de cada paciente, proxima accion sugerida.</p></div>
+      <div class="fc rv"><div class="fi">🔄</div><h4>Automatizaciones Inteligentes</h4><p>Recordatorios, seguimientos, reactivaciones, felicitaciones. Multiples flujos operando en paralelo. Tu clinica nunca para.</p></div>
+      <div class="fc rv"><div class="fi">🧬</div><h4>IA que Aprende de Ti</h4><p>SofIA se adapta a tu clinica especifica. Cada operacion mejora continuamente con base en tus resultados.</p></div>
+      <div class="fc rv"><div class="fi">🌎</div><h4>Inteligencia Regional</h4><p>SofIA aprende del ecosistema completo para ser mas efectiva para todos. Datos 100% anonimizados y protegidos.</p></div>
     </div>
   </div>
 </section>
@@ -867,15 +873,15 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
         <h3>$997 <span>USD / mes</span></h3>
         <p class="pd">Para clínicas que quieren maximizar revenue con IA completa.</p>
         <ul>
-          <li>Todo en Starter, más:</li>
-          <li>Voice AI con voz natural</li>
-          <li>Revenue Engine (8 tipos de oportunidades)</li>
-          <li>Cobros automáticos y links de pago</li>
-          <li>CRM visual Kanban completo</li>
-          <li>15 sub-bots autónomos</li>
+          <li>Todo en Starter, mas:</li>
+          <li>Voz natural por telefono</li>
+          <li>Motor de oportunidades de ingreso</li>
+          <li>Cobros automaticos y links de pago</li>
+          <li>Panel de control visual completo</li>
+          <li>Automatizaciones inteligentes completas</li>
           <li>Conversaciones ilimitadas</li>
-          <li>Fine-tuning propio por clínica</li>
-          <li>Soporte prioritario + Slack directo</li>
+          <li>IA personalizada para tu clinica</li>
+          <li>Soporte prioritario + canal directo</li>
         </ul>
         <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bp" data-cta="pricing-pro">Empezar Gratis →</a>
         <p class="pk-trial-note">7 días gratis · Sin tarjeta · El más elegido</p>
@@ -886,11 +892,11 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
         <h3>Custom</h3>
         <p class="pd">Para grupos de clínicas y operaciones multi-sede.</p>
         <ul>
-          <li>Todo en Pro, más:</li>
-          <li>Múltiples sedes y líneas</li>
-          <li>Red Neuronal LATAM</li>
-          <li>API access completo</li>
+          <li>Todo en Pro, mas:</li>
+          <li>Multiples sedes y lineas</li>
+          <li>Inteligencia regional avanzada</li>
           <li>Integraciones personalizadas</li>
+          <li>Acceso completo a plataforma</li>
           <li>Account manager dedicado</li>
           <li>SLA garantizado 99.9%</li>
         </ul>
@@ -930,12 +936,12 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
   <div class="fql">
     <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Puedo empezar gratis sin tarjeta de crédito?</h4><span class="ar">+</span></div><div class="fqa"><p>Sí. Regístrate en dashboard.ataraxiaialabs.ai/onboarding, configura tu clínica en 5 minutos, y tienes 7 días completos con todas las funcionalidades activas. No te pedimos tarjeta. Al final del trial decides si continúas.</p></div></div>
     <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿SofIA reemplaza a mi equipo?</h4><span class="ar">+</span></div><div class="fqa"><p>No. SofIA amplifica a tu equipo. Se encarga de atención fuera de horario, seguimiento automático y detección de oportunidades — liberando a tu gente para atención presencial de alto valor. Piensa en SofIA como tu mejor empleada digital que nunca duerme.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Cuánto tarda la implementación?</h4><span class="ar">+</span></div><div class="fqa"><p>El onboarding self-service toma 5 minutos. El setup completo con fine-tuning, entrenamiento de catálogo y personalización de voz tarda 7-14 días hábiles. Durante ese tiempo SofIA ya está operando.</p></div></div>
+    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Cuánto tarda la implementación?</h4><span class="ar">+</span></div><div class="fqa"><p>El onboarding toma 5 minutos. El setup completo con entrenamiento de tu catalogo y personalizacion tarda 7-14 dias habiles. Durante ese tiempo SofIA ya esta operando.</p></div></div>
     <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Los pacientes saben que hablan con IA?</h4><span class="ar">+</span></div><div class="fqa"><p>SofIA se presenta como la coordinadora de tu clínica — con el nombre que tú elijas. Tono cálido, empático, profesional. Los pacientes sienten que hablan con alguien que conoce la clínica y se preocupa por ellos. En nuestros datos, más del 90% de pacientes no distingue que habla con IA.</p></div></div>
     <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Cómo funcionan los cobros automáticos?</h4><span class="ar">+</span></div><div class="fqa"><p>SofIA genera links de pago y los envía por WhatsApp al confirmar un procedimiento. Soporta tarjeta crédito/débito, PSE, Nequi y Bancolombia. El paciente paga sin salir de la conversación. La cita solo queda confirmada cuando el pago se procesa.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Qué pasa si SofIA no sabe responder algo?</h4><span class="ar">+</span></div><div class="fqa"><p>Escala automáticamente al equipo humano con contexto completo. Urgencias médicas, reclamos complejos, situaciones emocionales delicadas — SofIA sabe cuándo pedir ayuda. Tiene detección de 11 keywords médicos para escalamiento inmediato y detección de crisis emocionales.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Mis datos son seguros?</h4><span class="ar">+</span></div><div class="fqa"><p>Sí. Arquitectura multi-tenant con Row Level Security en TODA query. Los datos de tu clínica nunca se mezclan con otros. Cumplimos Ley 1581 de Colombia (Habeas Data). Arquitectura HIPAA-conscious. Cifrado en tránsito y en reposo. Sentry monitoring 24/7.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Qué es la Red Neuronal LATAM?</h4><span class="ar">+</span></div><div class="fqa"><p>Inteligencia colectiva con privacidad garantizada. SofIA aprende de todas las clínicas de la red con datos 100% anonimizados para mejorar respuestas y conversiones. Más clínicas en la red = SofIA más inteligente para todos. Es una ventaja competitiva que crece con el tiempo.</p></div></div>
+    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Qué pasa si SofIA no sabe responder algo?</h4><span class="ar">+</span></div><div class="fqa"><p>Escala automaticamente al equipo humano con contexto completo. Urgencias medicas, reclamos complejos, situaciones emocionales delicadas — SofIA sabe cuando pedir ayuda. Tiene deteccion automatica de urgencias para escalamiento inmediato.</p></div></div>
+    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Mis datos son seguros?</h4><span class="ar">+</span></div><div class="fqa"><p>Si. Arquitectura con aislamiento total de datos. Los datos de tu clinica nunca se mezclan con otros. Cumplimos Ley 1581 de Colombia (Habeas Data). Arquitectura HIPAA-conscious. Cifrado en transito y en reposo. Monitoreo continuo 24/7.</p></div></div>
+    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Que es la Inteligencia Regional?</h4><span class="ar">+</span></div><div class="fqa"><p>Inteligencia colectiva con privacidad garantizada. SofIA aprende del ecosistema completo con datos 100% anonimizados para mejorar respuestas y conversiones. Mas clinicas en la red = SofIA mas efectiva para todos. Es una ventaja competitiva que crece con el tiempo.</p></div></div>
     <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Tiene garantía?</h4><span class="ar">+</span></div><div class="fqa"><p>Sí. 30 días sin riesgo. Si no ves resultados medibles — menos no-shows, más citas, revenue recuperado — devolvemos el 100% del setup fee. Sin preguntas. Sin burocracia.</p></div></div>
   </div>
 </section>
@@ -989,14 +995,14 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
       <p class="footer-desc">La infraestructura de IA que hace operar clínicas solas. Bogotá, Colombia.</p>
     </div>
     <div class="footer-links">
-      <a href="mailto:hola@ataraxialabs.com">hola@ataraxialabs.com</a>
+      <a href="mailto:ataraxia.centrodecontrol@gmail.com">ataraxia.centrodecontrol@gmail.com</a>
       <a href="https://dashboard.ataraxiaialabs.ai/onboarding">Prueba Gratis</a>
       <a href="#pricing">Precios</a>
       <a href="#faq">FAQ</a>
     </div>
   </div>
   <div class="footer-copy">
-    © 2026 Ataraxia IA Labs S.A.S. — Colombia — NIT en trámite — <a href="mailto:hola@ataraxialabs.com">hola@ataraxialabs.com</a>
+    © 2026 Ataraxia IA Labs S.A.S. — Colombia — NIT en trámite — <a href="mailto:ataraxia.centrodecontrol@gmail.com">ataraxia.centrodecontrol@gmail.com</a>
     <span style="margin:0 .5rem;color:var(--brd)">·</span>
     Ley 1581 Habeas Data
     <span style="margin:0 .5rem;color:var(--brd)">·</span>
@@ -1104,7 +1110,7 @@ function calcROI(){
 calcROI();
 
 // =============================================
-// FORM SUBMIT → SUPABASE
+// FORM SUBMIT
 // =============================================
 function handleSubmit(e){
   e.preventDefault();
@@ -1130,7 +1136,7 @@ function handleSubmit(e){
     console.error('Error:',err);
     btn.textContent='Solicitar Demo →';
     btn.disabled=false;
-    f.insertAdjacentHTML('beforeend','<p style="color:var(--red);font-size:.8rem;text-align:center;margin-top:.5rem">Error al enviar. Intenta de nuevo o escríbenos a hola@ataraxialabs.com</p>');
+    f.insertAdjacentHTML('beforeend','<p style="color:var(--red);font-size:.8rem;text-align:center;margin-top:.5rem">Error al enviar. Intenta de nuevo o escríbenos a ataraxia.centrodecontrol@gmail.com</p>');
   });
 }
 
