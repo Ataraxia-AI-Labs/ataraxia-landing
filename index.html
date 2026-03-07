@@ -269,7 +269,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 2rem;display:f
 .founder-role{color:var(--ts);font-size:.78rem;font-weight:300;margin-top:.1rem}
 
 /* PRICING */
-.prg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.prg{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
 .pk{background:var(--card);border:1px solid var(--brd);border-radius:16px;padding:2.2rem 1.8rem;position:relative;transition:all .4s}
 .pk:hover{transform:translateY(-4px);border-color:rgba(139,92,246,.25)}
 .pk.ft{border-color:rgba(139,92,246,.35);background:linear-gradient(180deg,rgba(139,92,246,.03) 0%,var(--card) 100%)}
@@ -352,6 +352,7 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
 @media(max-width:768px){
   .nr{display:none}
   .pgr,.fg,.bag,.prg,.roi-sliders{grid-template-columns:1fr}
+  .prg{grid-template-columns:repeat(2,1fr)}
   .stp{grid-template-columns:1fr 1fr}
   .sp::after{display:none}
   .arv{flex-direction:column}
@@ -371,7 +372,7 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
   .sc-grid{grid-template-columns:1fr 1fr}
   .trust-badges{gap:.7rem}
 }
-@media(max-width:480px){.sc-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.sc-grid{grid-template-columns:1fr}.prg{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -849,58 +850,70 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
     <div class="prg">
       <div class="pk rv">
         <span class="pnm">Starter</span>
-        <p class="su">Setup: <strong>$997 USD</strong> (único)</p>
-        <h3>$497 <span>USD / mes</span></h3>
-        <p class="pd">Para clínicas que quieren empezar a operar con inteligencia.</p>
+        <h3>$99.000 <span>COP / mes</span></h3>
+        <p class="pd">Para clínicas que inician con inteligencia artificial.</p>
         <ul>
           <li>SofIA en 1 línea de WhatsApp</li>
           <li>Atención autónoma 24/7</li>
           <li>Agendamiento inteligente</li>
-          <li>Hasta 500 conversaciones/mes</li>
+          <li>Hasta 300 conversaciones/mes</li>
           <li>Dashboard básico</li>
-          <li>Onboarding + entrenamiento incluido</li>
+          <li>1 sede</li>
         </ul>
         <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bg" data-cta="pricing-starter">Empezar Gratis →</a>
         <p class="pk-trial-note">7 días gratis · Sin tarjeta</p>
       </div>
       <div class="pk ft rv">
-        <div class="pkb">Más Popular</div>
+        <div class="pkb">Recomendado</div>
         <span class="pnm">Pro</span>
-        <p class="su">Setup: <strong>$1,997 USD</strong> (único)</p>
-        <h3>$997 <span>USD / mes</span></h3>
-        <p class="pd">Para clínicas que quieren maximizar revenue con IA completa.</p>
+        <h3>$299.000 <span>COP / mes</span></h3>
+        <p class="pd">Maximiza revenue con voz AI y automatizaciones completas.</p>
         <ul>
-          <li>Todo en Starter, mas:</li>
-          <li>Voz natural por telefono</li>
-          <li>Motor de oportunidades de ingreso</li>
-          <li>Cobros automaticos y links de pago</li>
-          <li>Panel de control visual completo</li>
-          <li>Automatizaciones inteligentes completas</li>
+          <li>Todo en Starter, más:</li>
+          <li>Voice AI (100 llamadas/mes)</li>
           <li>Conversaciones ilimitadas</li>
-          <li>IA personalizada para tu clinica</li>
-          <li>Soporte prioritario + canal directo</li>
+          <li>5 bots automáticos</li>
+          <li>Links de pago (Wompi)</li>
+          <li>Pipeline CRM</li>
+          <li>Hasta 3 sedes</li>
         </ul>
         <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bp" data-cta="pricing-pro">Empezar Gratis →</a>
         <p class="pk-trial-note">7 días gratis · Sin tarjeta · El más elegido</p>
       </div>
       <div class="pk rv">
-        <span class="pnm">Enterprise</span>
-        <p class="su">Setup: <strong>Personalizado</strong></p>
-        <h3>Custom</h3>
-        <p class="pd">Para grupos de clínicas y operaciones multi-sede.</p>
+        <span class="pnm">Business</span>
+        <h3>$499.000 <span>COP / mes</span></h3>
+        <p class="pd">Operación completa multicanal con outbound y revenue engine.</p>
         <ul>
-          <li>Todo en Pro, mas:</li>
-          <li>Multiples sedes y lineas</li>
-          <li>Inteligencia regional avanzada</li>
-          <li>Integraciones personalizadas</li>
-          <li>Acceso completo a plataforma</li>
+          <li>Todo en Pro, más:</li>
+          <li>Outbound calls ilimitados</li>
+          <li>Voice AI ilimitada</li>
+          <li>7 bots automáticos</li>
+          <li>Revenue engine completo</li>
+          <li>Data Lake & export</li>
+          <li>Hasta 10 sedes</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bg" data-cta="pricing-business">Empezar Gratis →</a>
+        <p class="pk-trial-note">7 días gratis · Sin tarjeta</p>
+      </div>
+      <div class="pk rv">
+        <span class="pnm">Enterprise</span>
+        <h3>Custom</h3>
+        <p class="pd">Para grupos de clínicas y operaciones a escala.</p>
+        <ul>
+          <li>Todo en Business, más:</li>
+          <li>Sedes ilimitadas</li>
+          <li>API & integraciones custom</li>
+          <li>Fine-tuning IA propietario</li>
+          <li>A/B testing avanzado</li>
           <li>Account manager dedicado</li>
           <li>SLA garantizado 99.9%</li>
         </ul>
         <a href="#cta" class="bn bg" data-cta="pricing-enterprise">Contactar →</a>
       </div>
     </div>
-    <p class="rv" style="color:var(--tm);font-size:.75rem;margin-top:1.2rem">Precios fundadores. El setup incluye entrenamiento con tu catálogo, protocolos y voz de tu clínica.</p>
+    <p class="rv" style="color:var(--tm);font-size:.75rem;margin-top:1.2rem">Precios en COP. Pago anual: 2 meses gratis. Sin setup fee. Sin contratos.</p>
 
     <!-- MID-PAGE URGENCY CTA -->
     <div class="rv" style="margin-top:3rem;background:linear-gradient(135deg,rgba(139,92,246,.06),rgba(6,214,160,.04));border:1px solid rgba(139,92,246,.2);border-radius:16px;padding:2.5rem;text-align:center">
