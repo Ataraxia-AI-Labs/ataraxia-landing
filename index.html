@@ -1121,6 +1121,12 @@ body.annual-pricing .pk h3 .p-annual{display:inline}
 
 <script>
 // =============================================
+// SUPABASE CONFIG (anon key — public by design, RLS enforced)
+// =============================================
+const _SUPA_URL='https://cvfzdxhkiyrbkptvpuja.supabase.co';
+const _SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2ZnpkeGhraXlyYmtwdHZwdWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwNzQ2MDMsImV4cCI6MjA4NjY1MDYwM30.hE_BQO7PgWRzmODkSe_aPEGfcbGXhtviZt0FqSQRl8E';
+
+// =============================================
 // INTERSECTION OBSERVER — REVEAL ON SCROLL
 // =============================================
 const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');// trigger counter if has data-target
@@ -1230,11 +1236,9 @@ function handleSubmit(e){
   const btn=f.querySelector('button');
   btn.textContent='Enviando...';
   btn.disabled=true;
-  const SUPA_URL='https://cvfzdxhkiyrbkptvpuja.supabase.co';
-  const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2ZnpkeGhraXlyYmtwdHZwdWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwNzQ2MDMsImV4cCI6MjA4NjY1MDYwM30.hE_BQO7PgWRzmODkSe_aPEGfcbGXhtviZt0FqSQRl8E';
-  fetch(SUPA_URL+'/rest/v1/leads',{
+  fetch(_SUPA_URL+'/rest/v1/leads',{
     method:'POST',
-    headers:{'Content-Type':'application/json','apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Prefer':'return=minimal'},
+    headers:{'Content-Type':'application/json','apikey':_SUPA_KEY,'Authorization':'Bearer '+_SUPA_KEY,'Prefer':'return=minimal'},
     body:JSON.stringify({nombre:o.nombre,email:o.email,clinica:o.clinica||null,whatsapp:o.whatsapp,mensaje:o.mensaje||null,fuente:'landing'})
   })
   .then(r=>{
@@ -1355,8 +1359,8 @@ function togglePricing(){
 // ANALYTICS TRACKER — Persistent behavioral data
 // =============================================
 (function(){
-  const SU='https://cvfzdxhkiyrbkptvpuja.supabase.co';
-  const SK='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2ZnpkeGhraXlyYmtwdHZwdWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwNzQ2MDMsImV4cCI6MjA4NjY1MDYwM30.hE_BQO7PgWRzmODkSe_aPEGfcbGXhtviZt0FqSQRl8E';
+  const SU=_SUPA_URL;
+  const SK=_SUPA_KEY;
   // Persistent visitor ID
   let vid=localStorage.getItem('_atr_vid');
   if(!vid){vid=crypto.randomUUID();localStorage.setItem('_atr_vid',vid)}
