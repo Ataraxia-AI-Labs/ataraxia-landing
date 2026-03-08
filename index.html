@@ -334,7 +334,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 2rem;display:f
 .spt-name{color:var(--wh);font-weight:500}
 
 /* FOOTER */
-.waf{position:fixed;bottom:2rem;right:2rem;z-index:99;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:justify;box-shadow:0 4px 20px rgba(37,211,102,.3);transition:all .3s;text-decoration:none;opacity:0;animation:fu .6s ease forwards 2s}
+.waf{position:fixed;bottom:2rem;right:2rem;z-index:99;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.3);transition:all .3s;text-decoration:none;opacity:0;animation:fu .6s ease forwards 2s}
 .waf:hover{transform:scale(1.08);box-shadow:0 6px 30px rgba(37,211,102,.4)}
 .waf svg{width:28px;height:28px;fill:#fff;display:flex;align-self:center;margin:auto}
 footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
@@ -373,9 +373,94 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
   .trust-badges{gap:.7rem}
 }
 @media(max-width:480px){.sc-grid{grid-template-columns:1fr}.prg{grid-template-columns:1fr}}
+
+/* ============================================= */
+/* REDESIGN v2 — Premium enhancements            */
+/* ============================================= */
+
+/* Film grain overlay */
+body::after{content:'';position:fixed;inset:0;z-index:10000;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:200px 200px}
+
+/* Cursor-following glow (desktop only) */
+.cursor-glow{position:fixed;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.07),rgba(6,214,160,.02) 40%,transparent 70%);pointer-events:none;z-index:1;transform:translate(-50%,-50%);transition:opacity .3s;opacity:0;will-change:transform}
+.cursor-glow.active{opacity:1}
+@media(max-width:768px){.cursor-glow{display:none}}
+
+/* Button shine sweep */
+.bn{position:relative;overflow:hidden}
+.bn::after{content:'';position:absolute;top:-50%;left:-100%;width:40%;height:200%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);transform:skewX(-20deg);transition:left .6s ease}
+.bn:hover::after{left:150%}
+
+/* Animated gradient border on featured card */
+@property --glow-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes glow-rotate{to{--glow-angle:360deg}}
+.pk.ft{background:var(--card);border:none;isolation:isolate}
+.pk.ft::before{content:'';position:absolute;inset:0;border-radius:16px;padding:1px;background:conic-gradient(from var(--glow-angle),var(--pur),var(--cy),var(--pur-d),var(--cy-b),var(--pur));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:glow-rotate 4s linear infinite;pointer-events:none}
+
+/* Better card hover glow */
+.fc:hover,.pc:hover,.tst-card:hover,.sc-item:hover{box-shadow:0 8px 40px rgba(139,92,246,.08),0 0 0 1px rgba(139,92,246,.15)}
+.pk:hover{box-shadow:0 12px 50px rgba(139,92,246,.1),0 0 0 1px rgba(139,92,246,.2)}
+
+/* Stagger reveal children */
+.stagger .rv:nth-child(1){transition-delay:.05s}.stagger .rv:nth-child(2){transition-delay:.1s}.stagger .rv:nth-child(3){transition-delay:.15s}.stagger .rv:nth-child(4){transition-delay:.2s}.stagger .rv:nth-child(5){transition-delay:.25s}.stagger .rv:nth-child(6){transition-delay:.3s}.stagger .rv:nth-child(7){transition-delay:.35s}.stagger .rv:nth-child(8){transition-delay:.4s}.stagger .rv:nth-child(9){transition-delay:.45s}
+
+/* Hero text shimmer */
+@keyframes text-shimmer{0%{background-position:100% center}100%{background-position:-100% center}}
+.hero h1 em{background:linear-gradient(90deg,#8B5CF6,#06D6A0,#A78BFA,#34D399,#8B5CF6);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:text-shimmer 6s linear infinite}
+
+/* Mobile hamburger */
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:210}
+.ham span{display:block;width:22px;height:2px;background:var(--tp);border-radius:2px;transition:all .3s}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob-menu{display:none;position:fixed;inset:0;z-index:199;background:rgba(5,5,7,.97);backdrop-filter:blur(30px);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mob-menu.open{display:flex}
+.mob-menu a{color:var(--wh);font-size:1.1rem;text-decoration:none;font-weight:500;transition:color .3s}
+.mob-menu a:hover{color:var(--pur-b)}
+.mob-menu .bn{font-size:1rem;padding:.8rem 2rem}
+@media(max-width:768px){.ham{display:flex}.nr,.nr-cta{display:none}}
+
+/* Pricing toggle */
+.price-toggle{display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:1.5rem}
+.price-toggle span{font-size:.82rem;color:var(--ts);font-weight:400;transition:color .3s}
+.price-toggle span.active{color:var(--wh);font-weight:600}
+.toggle-track{width:48px;height:26px;background:var(--card2);border:1px solid var(--brd);border-radius:100px;position:relative;cursor:pointer;transition:all .3s}
+.toggle-track.annual{background:rgba(139,92,246,.15);border-color:rgba(139,92,246,.3)}
+.toggle-knob{width:20px;height:20px;background:var(--pur);border-radius:50%;position:absolute;top:2px;left:2px;transition:transform .3s cubic-bezier(.68,-.55,.27,1.55)}
+.toggle-track.annual .toggle-knob{transform:translateX(22px)}
+.annual-badge{display:inline-block;background:rgba(6,214,160,.1);border:1px solid rgba(6,214,160,.2);color:var(--cy);font-family:'JetBrains Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:1.5px;padding:.2rem .6rem;border-radius:100px;margin-left:.5rem}
+.pk .price-annual{display:none;font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--cy);margin-top:.2rem}
+body.annual-pricing .pk .price-annual{display:block}
+body.annual-pricing .pk h3 .p-monthly{display:none}
+body.annual-pricing .pk h3 .p-annual{display:inline}
+.pk h3 .p-annual{display:none}
+
+/* Section gradient dividers */
+.glow-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.2) 20%,rgba(6,214,160,.15) 80%,transparent);border:none;margin:0}
+
+/* Smooth entrance for sections */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}.rv.v{opacity:1;transform:translateY(0)}
+
+/* WhatsApp FAB fix */
+.waf{justify-content:center}
 </style>
 </head>
 <body>
+
+<!-- CURSOR GLOW -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#problema" onclick="closeMob()">Problema</a>
+  <a href="#como" onclick="closeMob()">Como Funciona</a>
+  <a href="#sofia" onclick="closeMob()">SofIA</a>
+  <a href="#pricing" onclick="closeMob()">Planes</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
+  <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bcy" data-cta="mob-menu-trial" onclick="closeMob()">Prueba Gratis 7 Dias</a>
+  <a href="#cta" class="bn bp" data-cta="mob-menu-demo" onclick="closeMob()">Solicitar Demo</a>
+</div>
 
 <!-- STICKY BOTTOM BAR (aparece tras scroll) -->
 <div class="sbb" id="stickyBar">
@@ -407,6 +492,9 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
     <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bcy" data-cta="nav-primary" style="display:none" id="navTrial">Prueba Gratis</a>
     <a href="#cta" class="bn bp" data-cta="nav-demo">Solicitar Demo</a>
   </div>
+  <button class="ham" id="hamBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- TRUST BAR -->
@@ -577,7 +665,7 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
     <span class="tag rv">Resultados reales</span>
     <h2 class="tt rv">Lo que dicen los médicos que <em>ya lo viven.</em></h2>
     <p class="ds rv">Clínicas reales en Colombia. Resultados reales. Sin exageraciones.</p>
-    <div class="tst-grid">
+    <div class="tst-grid stagger">
       <div class="tst-card rv">
         <div class="tst-stars">
           <span class="tst-star">★</span><span class="tst-star">★</span><span class="tst-star">★</span><span class="tst-star">★</span><span class="tst-star">★</span>
@@ -683,7 +771,7 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
     <p class="ds rv">Cada módulo diseñado para operar tu clínica sola, capturar revenue y mejorar cada día.</p>
   </div>
   <div class="ctn" style="margin-top:3rem">
-    <div class="fg">
+    <div class="fg stagger">
       <div class="fc rv"><div class="fi">🧠</div><h4>Atención Autónoma 24/7</h4><p>Responde por WhatsApp con empatía real. Entrenada con tu catálogo, precios y protocolos. Con redundancia automática.</p></div>
       <div class="fc rv"><div class="fi">🎙️</div><h4>Voz Natural por Teléfono</h4><p>Llamadas entrantes y salientes con voz humana. Confirma citas, hace follow-up, responde a las 3AM.</p></div>
       <div class="fc rv"><div class="fi">📅</div><h4>Agendamiento Inteligente</h4><p>Gestiona citas, confirma asistencias, reagenda cancelaciones, llena huecos automáticamente. Sin doble-booking.</p></div>
@@ -723,7 +811,7 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
         <div class="bar"><span>Cobro de anticipos</span><span>Por WhatsApp, 24/7</span></div>
         <div class="bar"><span>Predicción de no-shows</span><span>6 factores de IA</span></div>
         <div class="bar"><span>Datos de conversión</span><span>Dashboard en tiempo real</span></div>
-        <div class="bar"><span>Costo mensual</span><span>Desde $497 USD</span></div>
+        <div class="bar"><span>Costo mensual</span><span>Desde $99.000 COP</span></div>
       </div>
     </div>
   </div>
@@ -847,10 +935,19 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
     <span class="tag rv">Inversión</span>
     <h2 class="tt rv">Invierte en inteligencia, <em>no en nómina.</em></h2>
     <p class="ds rv">Empieza gratis 7 días. Sin tarjeta. Sin contratos. Cancela cuando quieras.</p>
-    <div class="prg">
+    <div class="price-toggle rv">
+      <span class="active" id="togMonthly">Mensual</span>
+      <div class="toggle-track" id="priceToggle" onclick="togglePricing()">
+        <div class="toggle-knob"></div>
+      </div>
+      <span id="togAnnual">Anual</span>
+      <span class="annual-badge">2 meses gratis</span>
+    </div>
+    <div class="prg stagger">
       <div class="pk rv">
         <span class="pnm">Starter</span>
-        <h3>$99.000 <span>COP / mes</span></h3>
+        <h3><span class="p-monthly">$99.000 <span>COP / mes</span></span><span class="p-annual">$990.000 <span>COP / año</span></span></h3>
+        <p class="price-annual">equiv. $82.500/mes</p>
         <p class="pd">Para clínicas que inician con inteligencia artificial.</p>
         <ul>
           <li>SofIA en 1 línea de WhatsApp</li>
@@ -866,7 +963,8 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
       <div class="pk ft rv">
         <div class="pkb">Recomendado</div>
         <span class="pnm">Pro</span>
-        <h3>$299.000 <span>COP / mes</span></h3>
+        <h3><span class="p-monthly">$299.000 <span>COP / mes</span></span><span class="p-annual">$2.990.000 <span>COP / año</span></span></h3>
+        <p class="price-annual">equiv. $249.167/mes</p>
         <p class="pd">Maximiza revenue con voz AI y automatizaciones completas.</p>
         <ul>
           <li>Todo en Starter, más:</li>
@@ -882,7 +980,8 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
       </div>
       <div class="pk rv">
         <span class="pnm">Business</span>
-        <h3>$499.000 <span>COP / mes</span></h3>
+        <h3><span class="p-monthly">$499.000 <span>COP / mes</span></span><span class="p-annual">$4.990.000 <span>COP / año</span></span></h3>
+        <p class="price-annual">equiv. $415.833/mes</p>
         <p class="pd">Operación completa multicanal con outbound y revenue engine.</p>
         <ul>
           <li>Todo en Pro, más:</li>
@@ -932,7 +1031,7 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
     <div class="gar rv">
       <span style="font-size:2.5rem;display:block;margin-bottom:1rem">🛡️</span>
       <h3>Garantía de 30 Días — Sin Riesgo Absoluto</h3>
-      <p>Si en los primeros 30 días no ves resultados medibles en tu operación, te devolvemos el 100% del setup fee. Sin preguntas, sin letra pequeña, sin burocracia. Si SofIA no genera valor real para tu clínica, no merece tu dinero. Así de simple.</p>
+      <p>Si en los primeros 30 días no ves resultados medibles en tu operación, te devolvemos el 100% de tu dinero. Sin preguntas, sin letra pequeña, sin burocracia. Si SofIA no genera valor real para tu clínica, no merece tu dinero. Así de simple.</p>
     </div>
   </div>
 </section>
@@ -952,7 +1051,7 @@ footer{border-top:1px solid var(--brd);padding:3rem 2rem 2rem}
     <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Qué pasa si SofIA no sabe responder algo?</h4><span class="ar">+</span></div><div class="fqa"><p>Escala automaticamente al equipo humano con contexto completo. Urgencias medicas, reclamos complejos, situaciones emocionales delicadas — SofIA sabe cuando pedir ayuda. Tiene deteccion automatica de urgencias para escalamiento inmediato.</p></div></div>
     <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Mis datos son seguros?</h4><span class="ar">+</span></div><div class="fqa"><p>Si. Arquitectura con aislamiento total de datos. Los datos de tu clinica nunca se mezclan con otros. Cumplimos Ley 1581 de Colombia (Habeas Data). Arquitectura HIPAA-conscious. Cifrado en transito y en reposo. Monitoreo continuo 24/7.</p></div></div>
     <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Que es la Inteligencia Regional?</h4><span class="ar">+</span></div><div class="fqa"><p>Inteligencia colectiva con privacidad garantizada. SofIA aprende del ecosistema completo con datos 100% anonimizados para mejorar respuestas y conversiones. Mas clinicas en la red = SofIA mas efectiva para todos. Es una ventaja competitiva que crece con el tiempo.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Tiene garantía?</h4><span class="ar">+</span></div><div class="fqa"><p>Sí. 30 días sin riesgo. Si no ves resultados medibles — menos no-shows, más citas, revenue recuperado — devolvemos el 100% del setup fee. Sin preguntas. Sin burocracia.</p></div></div>
+    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>¿Tiene garantía?</h4><span class="ar">+</span></div><div class="fqa"><p>Sí. 30 días sin riesgo. Si no ves resultados medibles — menos no-shows, más citas, revenue recuperado — devolvemos el 100% de tu dinero. Sin preguntas. Sin burocracia.</p></div></div>
   </div>
 </section>
 
@@ -1100,7 +1199,7 @@ function calcROI(){
   const upsell=patients*0.08*ticket*0.3; // 8% upsell rate, 30% ticket
   const staffSaving=800;
   const total=Math.round(noShowRecovery+nightRecovery+upsell+staffSaving);
-  const plan=997;
+  const plan=document.body.classList.contains('annual-pricing')?Math.round(2990000/4000):Math.round(299000/4000);
   const mult=(total/plan).toFixed(1);
   const totalEl=document.getElementById('roiTotal');
   const multEl=document.getElementById('roiMult');
@@ -1198,17 +1297,126 @@ chatOb.observe(document.querySelector('.chw'));
 document.querySelectorAll('[data-cta]').forEach(el=>{
   el.addEventListener('click',function(){
     const cta=this.getAttribute('data-cta');
-    // GA4 event (activar cuando se configure GA4)
     if(typeof gtag!=='undefined'){
       gtag('event','cta_click',{event_category:'conversion',event_label:cta});
     }
-    // Meta Pixel event
     if(typeof fbq!=='undefined'){
       fbq('track','Lead',{content_name:cta});
     }
-    console.log('CTA click:',cta);
+    if(window._atr)window._atr.track('cta_click',{cta:cta,text:this.textContent.trim().substring(0,50)});
   });
 });
+
+// =============================================
+// CURSOR GLOW (desktop)
+// =============================================
+const cursorGlow=document.getElementById('cursorGlow');
+if(cursorGlow&&window.innerWidth>768){
+  let glowActive=false;
+  document.addEventListener('mousemove',e=>{
+    if(!glowActive){cursorGlow.classList.add('active');glowActive=true}
+    cursorGlow.style.left=e.clientX+'px';
+    cursorGlow.style.top=e.clientY+'px';
+  },{passive:true});
+  document.addEventListener('mouseleave',()=>{cursorGlow.classList.remove('active');glowActive=false});
+}
+
+// =============================================
+// MOBILE HAMBURGER MENU
+// =============================================
+const hamBtn=document.getElementById('hamBtn');
+const mobMenu=document.getElementById('mobMenu');
+if(hamBtn&&mobMenu){
+  hamBtn.addEventListener('click',()=>{
+    hamBtn.classList.toggle('open');
+    mobMenu.classList.toggle('open');
+    document.body.style.overflow=mobMenu.classList.contains('open')?'hidden':'';
+  });
+}
+function closeMob(){
+  if(hamBtn&&mobMenu){hamBtn.classList.remove('open');mobMenu.classList.remove('open');document.body.style.overflow=''}
+}
+
+// =============================================
+// PRICING TOGGLE (monthly / annual)
+// =============================================
+function togglePricing(){
+  const track=document.getElementById('priceToggle');
+  const body=document.body;
+  const isAnnual=!body.classList.contains('annual-pricing');
+  body.classList.toggle('annual-pricing',isAnnual);
+  track.classList.toggle('annual',isAnnual);
+  document.getElementById('togMonthly').classList.toggle('active',!isAnnual);
+  document.getElementById('togAnnual').classList.toggle('active',isAnnual);
+  calcROI();
+}
+
+// =============================================
+// ANALYTICS TRACKER — Persistent behavioral data
+// =============================================
+(function(){
+  const SU='https://cvfzdxhkiyrbkptvpuja.supabase.co';
+  const SK='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2ZnpkeGhraXlyYmtwdHZwdWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwNzQ2MDMsImV4cCI6MjA4NjY1MDYwM30.hE_BQO7PgWRzmODkSe_aPEGfcbGXhtviZt0FqSQRl8E';
+  // Persistent visitor ID
+  let vid=localStorage.getItem('_atr_vid');
+  if(!vid){vid=crypto.randomUUID();localStorage.setItem('_atr_vid',vid)}
+  // Visit count
+  let vc=parseInt(localStorage.getItem('_atr_vc')||'0')+1;
+  localStorage.setItem('_atr_vc',String(vc));
+  // UTM params
+  const sp=new URLSearchParams(location.search);
+  const utm={source:sp.get('utm_source'),medium:sp.get('utm_medium'),campaign:sp.get('utm_campaign')};
+  // Persist UTMs if present
+  if(utm.source)localStorage.setItem('_atr_utm',JSON.stringify(utm));
+  else{try{const saved=JSON.parse(localStorage.getItem('_atr_utm')||'{}');if(saved.source){utm.source=saved.source;utm.medium=saved.medium;utm.campaign=saved.campaign}}catch(e){}}
+  // Event queue + flush
+  let queue=[];let timer=null;
+  function track(type,data){
+    queue.push({visitor_id:vid,event_type:type,event_data:data||{},page_url:location.href,referrer:document.referrer||null,utm_source:utm.source,utm_medium:utm.medium,utm_campaign:utm.campaign,user_agent:navigator.userAgent,screen_width:window.innerWidth});
+    if(!timer)timer=setTimeout(flush,2500);
+  }
+  function flush(){
+    if(!queue.length)return;
+    const batch=queue.splice(0);timer=null;
+    fetch(SU+'/rest/v1/landing_events',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SK,'Authorization':'Bearer '+SK,'Prefer':'return=minimal'},
+      body:JSON.stringify(batch)
+    }).catch(()=>{});
+  }
+  // Page view
+  track('page_view',{title:document.title,visit_count:vc});
+  // Returning visitor
+  if(vc>1)track('returning_visitor',{visit_count:vc});
+  // Scroll depth milestones
+  let maxScroll=0;const reached=new Set();
+  window.addEventListener('scroll',()=>{
+    const pct=Math.round((scrollY/(document.body.scrollHeight-innerHeight))*100);
+    if(pct>maxScroll)maxScroll=pct;
+    [25,50,75,100].forEach(m=>{if(pct>=m&&!reached.has(m)){reached.add(m);track('scroll_depth',{depth:m})}});
+  },{passive:true});
+  // Section views
+  const secOb=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){track('section_view',{section:e.target.id||e.target.className.substring(0,40)});secOb.unobserve(e.target)}});
+  },{threshold:.3});
+  document.querySelectorAll('section[id]').forEach(s=>secOb.observe(s));
+  // Form interaction
+  const formEl=document.querySelector('.cf');
+  if(formEl){
+    let formStarted=false;
+    formEl.addEventListener('focusin',()=>{if(!formStarted){formStarted=true;track('form_start',{})}});
+  }
+  // Session end — keepalive fetch on visibility hidden
+  const t0=Date.now();
+  function sendExit(){
+    const dur=Math.round((Date.now()-t0)/1000);
+    const payload=JSON.stringify([{visitor_id:vid,event_type:'session_end',event_data:{duration_seconds:dur,max_scroll:maxScroll,visit_count:vc},page_url:location.href,referrer:document.referrer||null,utm_source:utm.source,utm_medium:utm.medium,utm_campaign:utm.campaign,user_agent:navigator.userAgent,screen_width:window.innerWidth}]);
+    try{fetch(SU+'/rest/v1/landing_events',{method:'POST',headers:{'Content-Type':'application/json','apikey':SK,'Authorization':'Bearer '+SK,'Prefer':'return=minimal'},body:payload,keepalive:true}).catch(()=>{})}catch(e){}
+  }
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){flush();sendExit()}});
+  // Expose for CTA tracking
+  window._atr={track:track,flush:flush};
+})();
 </script>
 </body>
 </html>
