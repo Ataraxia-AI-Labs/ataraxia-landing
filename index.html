@@ -1145,7 +1145,7 @@ function onScroll(){
   const newBorderState=s>100;
   if(newBorderState!==navBorderState){navBorderState=newBorderState;navEl.style.borderBottomColor=newBorderState?'rgba(139,92,246,.15)':'rgba(28,28,42,.4)'}
   // Nav trial button
-  const newTrialState=s>400;
+  const newTrialState=s>150;
   if(ntEl&&newTrialState!==navTrialState){navTrialState=newTrialState;ntEl.style.display=newTrialState?'inline-block':'none'}
   // Sticky bottom bar
   if(!sbbDismissed&&sbb){
