@@ -1,0 +1,12 @@
+{
+  "name": "ataraxia-landing-tests",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "serve": "npx serve . -l 4000 -s"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0"
+  }
+}
