@@ -242,7 +242,7 @@ test.describe('Guarantee Section', () => {
   test('guarantee mentions 30 days', async ({ page }) => {
     await page.goto('/')
     const gar = page.locator('.gar')
-    await expect(gar).toContainText('30 Días')
+    await expect(gar).toContainText('30 Dias')
   })
 
   test('guarantee mentions money back', async ({ page }) => {

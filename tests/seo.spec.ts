@@ -3,13 +3,13 @@ import { test, expect } from '@playwright/test'
 test.describe('SEO — Meta Tags', () => {
   test('page has correct title', async ({ page }) => {
     await page.goto('/')
-    await expect(page).toHaveTitle(/Ataraxia IA Labs.*SofIA/)
+    await expect(page).toHaveTitle(/SofIA.*Ataraxia IA Labs/)
   })
 
   test('page has meta description', async ({ page }) => {
     await page.goto('/')
     const desc = page.locator('meta[name="description"]')
-    await expect(desc).toHaveAttribute('content', /SofIA atiende pacientes.*24\/7/)
+    await expect(desc).toHaveAttribute('content', /SofIA es el sistema operativo.*24\/7/)
   })
 
   test('page has lang="es"', async ({ page }) => {
@@ -53,7 +53,7 @@ test.describe('SEO — Open Graph', () => {
   test('has og:description', async ({ page }) => {
     await page.goto('/')
     const og = page.locator('meta[property="og:description"]')
-    await expect(og).toHaveAttribute('content', /IA autónoma/)
+    await expect(og).toHaveAttribute('content', /Sistema operativo de IA/)
   })
 
   test('has og:image with correct dimensions', async ({ page }) => {

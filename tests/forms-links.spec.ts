@@ -44,7 +44,7 @@ test.describe('CTA Buttons', () => {
 
   test('hero CTA links to onboarding', async ({ page }) => {
     await page.goto('/')
-    const heroCta = page.locator('[data-cta="hero-primary"]')
+    const heroCta = page.locator('[data-cta="hero-trial"]')
     await expect(heroCta).toHaveAttribute('href', /onboarding/)
   })
 

@@ -131,7 +131,7 @@ test.describe('Responsive — Tablet', () => {
   test('all main sections visible on tablet', async ({ page }) => {
     await page.setViewportSize(TABLET_VP)
     await page.goto('/')
-    const sections = ['#problema', '#como', '#pricing', '#faq', '#cta']
+    const sections = ['#problema', '#sofia', '#pricing', '#faq', '#cta']
     for (const sel of sections) {
       const el = page.locator(sel)
       await el.scrollIntoViewIfNeeded()

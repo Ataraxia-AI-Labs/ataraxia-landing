@@ -24,22 +24,22 @@ test.describe('Pricing Section', () => {
     await expect(annual).toBeHidden()
   })
 
-  test('starter shows $99.000 COP monthly', async ({ page }) => {
+  test('starter shows $119.000 COP monthly', async ({ page }) => {
     await page.goto('/')
     const price = page.locator('.pk').first().locator('.p-monthly')
-    await expect(price).toContainText('$99.000')
+    await expect(price).toContainText('$119.000')
   })
 
-  test('pro shows $299.000 COP monthly', async ({ page }) => {
+  test('pro shows $319.000 COP monthly', async ({ page }) => {
     await page.goto('/')
     const price = page.locator('.pk.ft .p-monthly')
-    await expect(price).toContainText('$299.000')
+    await expect(price).toContainText('$319.000')
   })
 
-  test('business shows $499.000 COP monthly', async ({ page }) => {
+  test('business shows $549.000 COP monthly', async ({ page }) => {
     await page.goto('/')
     const price = page.locator('.pk').nth(2).locator('.p-monthly')
-    await expect(price).toContainText('$499.000')
+    await expect(price).toContainText('$549.000')
   })
 
   test('enterprise shows Custom', async ({ page }) => {
@@ -68,7 +68,7 @@ test.describe('Pricing Section', () => {
     const notes = page.locator('.pk-trial-note')
     expect(await notes.count()).toBe(3)
     for (let i = 0; i < 3; i++) {
-      await expect(notes.nth(i)).toContainText('7 días gratis')
+      await expect(notes.nth(i)).toContainText('7 dias gratis')
     }
   })
 })
@@ -100,7 +100,7 @@ test.describe('Pricing Toggle', () => {
     await page.locator('#priceToggle').click()
     const annual = page.locator('.pk').first().locator('.p-annual')
     await expect(annual).toBeVisible()
-    await expect(annual).toContainText('$990.000')
+    await expect(annual).toContainText('$1.190.000')
   })
 
   test('monthly prices hidden after toggle', async ({ page }) => {
@@ -114,20 +114,21 @@ test.describe('Pricing Toggle', () => {
     await page.goto('/')
     await page.locator('#priceToggle').click()
     const price = page.locator('.pk.ft .p-annual')
-    await expect(price).toContainText('$2.990.000')
+    await expect(price).toContainText('$3.190.000')
   })
 
   test('business annual shows $4.990.000', async ({ page }) => {
     await page.goto('/')
     await page.locator('#priceToggle').click()
     const price = page.locator('.pk').nth(2).locator('.p-annual')
-    await expect(price).toContainText('$4.990.000')
+    await expect(price).toContainText('$5.490.000')
   })
 
   test('double toggle returns to monthly', async ({ page }) => {
     await page.goto('/')
     const toggle = page.locator('#priceToggle')
     await toggle.click()
+    await page.waitForTimeout(300)
     await toggle.click()
     const isAnnual = await page.evaluate(() => document.body.classList.contains('annual-pricing'))
     expect(isAnnual).toBe(false)
