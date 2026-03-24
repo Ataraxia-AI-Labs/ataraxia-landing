@@ -56,397 +56,456 @@
 <meta name="twitter:description" content="IA autonoma para clinicas de estetica y odontologia. 24/7. Prueba gratis 7 dias.">
 <meta name="twitter:image" content="https://ataraxiaialabs.ai/og-image.png">
 
-<!-- Fonts -->
+<!-- Fonts — JetBrains Mono (primary) + Playfair Display (cinematic titles) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 
 <style>
 /* ============================================================
-   SENTIENT INTERFACE — Landing Page v1.0
-   Neofuturist. Cinematic. Level 3.
-   12 colors. 8px grid. Purpose-driven motion.
+   SENTIENT INTERFACE — Landing v2.0
+   Cinematic. Oniric. Disney-level narrative.
+   5 acts. 12 colors. Every pixel earns its place.
    ============================================================ */
+
+/* --- RESET & ROOT --- */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--void:#050507;--sf:#0C0C14;--sf2:#12121E;--sf3:#1A1A2E;--brd:#1A1A2E;--brd2:#252540;--muted:#4A4862;--soft:#8882A0;--clear:#E0DCF0;--white:#F5F3FF;--pur:#8B5CF6;--pur-l:#A78BFA;--pur-d:#6D28D9;--cy:#06D6A0;--amb:#F5C842;--red:#EF4444}
-html{scroll-behavior:smooth}
-body{background:var(--void);color:var(--soft);font-family:'Outfit',sans-serif;overflow-x:hidden;line-height:1.7}
-::selection{background:rgba(139,92,246,.2);color:var(--white)}
+:root{
+  --void:#050507;--sf:#0C0C14;--sf2:#12121E;--sf3:#1A1A2E;
+  --brd:#1A1A2E;--brd2:#252540;
+  --muted:#4A4862;--soft:#8882A0;--clear:#E0DCF0;--white:#F5F3FF;
+  --pur:#8B5CF6;--pur-l:#A78BFA;--pur-d:#6D28D9;
+  --cy:#06D6A0;--amb:#F5C842;--red:#EF4444;
+}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+body{background:var(--void);color:var(--soft);font-family:'JetBrains Mono',monospace;overflow-x:hidden;line-height:1.7;font-size:13px;font-weight:300}
+::selection{background:rgba(139,92,246,.25);color:var(--white)}
 
-/* Film grain */
-body::after{content:'';position:fixed;inset:0;z-index:10000;pointer-events:none;opacity:.018;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:200px 200px}
+/* --- FILM GRAIN (visible but subtle) --- */
+body::after{content:'';position:fixed;inset:0;z-index:10000;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:180px}
 
-/* Scrollbar */
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--brd);border-radius:8px}::-webkit-scrollbar-thumb:hover{background:rgba(139,92,246,.3)}
+/* --- SCROLLBAR (thin, sentient) --- */
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--pur);border-radius:8px}
 
-/* ---- TYPOGRAPHY ---- */
-.ctn{max-width:1080px;margin:0 auto}
-section{padding:96px 32px}
-.tag{font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:4px;color:var(--pur);margin-bottom:16px;display:block}
-.tt{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--white);letter-spacing:-1.5px;line-height:1.12;max-width:680px}
-.tt em{font-style:italic;color:var(--pur-l)}
-.ds{color:var(--soft);font-size:.92rem;max-width:520px;margin-top:12px;font-weight:300;line-height:1.8}
-.ct{text-align:center}.ct .tt,.ct .ds,.ct .tag{margin-left:auto;margin-right:auto}
+/* --- KEYFRAMES --- */
+@keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.96)}}
+@keyframes pulse{0%,100%{opacity:.2}50%{opacity:1}}
+@keyframes drift{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(1deg)}100%{transform:translateY(0) rotate(0deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes typewriter{from{width:0}to{width:100%}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,.1)}50%{box-shadow:0 0 40px rgba(139,92,246,.2)}}
+@keyframes heartbeat{0%,40%,100%{transform:scaleY(1)}20%{transform:scaleY(2.5)}30%{transform:scaleY(.5)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes orbFloat{0%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-20px) scale(1.05)}50%{transform:translate(-10px,-35px) scale(.97)}75%{transform:translate(-25px,-10px) scale(1.03)}100%{transform:translate(0,0) scale(1)}}
+
+/* --- REVEAL SYSTEM --- */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.rv.v{opacity:1;transform:translateY(0)}
+.rv-delay-1{transition-delay:.15s}.rv-delay-2{transition-delay:.3s}.rv-delay-3{transition-delay:.45s}.rv-delay-4{transition-delay:.6s}
+@media(prefers-reduced-motion:reduce){.rv{transition:none!important}.rv.v{opacity:1;transform:none}*{animation:none!important}}
+
+/* --- TYPOGRAPHY --- */
+.serif{font-family:'Playfair Display',serif}
 .mono{font-family:'JetBrains Mono',monospace}
+.tag{font-size:10px;text-transform:uppercase;letter-spacing:5px;color:var(--pur);display:block;margin-bottom:16px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:700;color:var(--white);letter-spacing:-1.5px;line-height:1.1;max-width:640px}
+.section-title em{font-style:italic;color:var(--pur-l)}
+.section-desc{color:var(--soft);font-size:12px;max-width:480px;margin-top:16px;font-weight:300;line-height:1.9}
+.ct{text-align:center}.ct .section-title,.ct .section-desc,.ct .tag{margin-left:auto;margin-right:auto}
 
-/* ---- BUTTONS ---- */
-.bn{display:inline-block;padding:10px 24px;border-radius:6px;font-weight:600;font-size:.85rem;text-decoration:none;transition:all .25s;letter-spacing:.2px;cursor:pointer;border:none;font-family:'Outfit',sans-serif;position:relative;overflow:hidden}
-.bn::after{content:'';position:absolute;top:-50%;left:-100%;width:40%;height:200%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);transform:skewX(-20deg);transition:left .5s ease}.bn:hover::after{left:150%}
-.bp{background:var(--pur);color:var(--white)}.bp:hover{background:var(--pur-d);transform:translateY(-1px)}
-.bg{border:1px solid var(--brd);color:var(--soft);background:transparent}.bg:hover{border-color:var(--pur);color:var(--white)}
-.bcy{background:rgba(6,214,160,.08);border:1px solid rgba(6,214,160,.2);color:var(--cy)}.bcy:hover{background:rgba(6,214,160,.15);transform:translateY(-1px)}
+/* --- CONTAINER --- */
+.ctn{max-width:1080px;margin:0 auto;padding:0 32px}
 
-/* ---- DIVIDER ---- */
-.ds-s{background:var(--sf);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd)}
-
-/* ---- REVEAL ON SCROLL ---- */
-.rv{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.rv.v{opacity:1;transform:translateY(0)}
-@media(prefers-reduced-motion:reduce){.rv{transition:none!important}.rv.v{opacity:1;transform:none}.tb-inner,.spt-inner{animation:none!important}.hero::before{animation:none!important}.chw{animation:none!important}}
-
-/* ---- KEYFRAMES ---- */
-@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
-@keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.97)}}
-@keyframes slide-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes typing{0%,100%{opacity:.2}50%{opacity:.8}}
+/* --- BUTTONS --- */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:6px;font-weight:500;font-size:12px;text-decoration:none;transition:all .3s cubic-bezier(.16,1,.3,1);letter-spacing:.5px;cursor:pointer;border:none;font-family:'JetBrains Mono',monospace;text-transform:uppercase;position:relative;overflow:hidden}
+.btn-primary{background:var(--pur);color:var(--white)}.btn-primary:hover{background:var(--pur-d);transform:translateY(-2px);box-shadow:0 8px 32px rgba(139,92,246,.3)}
+.btn-ghost{border:1px solid var(--brd);color:var(--soft);background:transparent}.btn-ghost:hover{border-color:var(--pur);color:var(--white)}
+.btn-cy{background:rgba(6,214,160,.06);border:1px solid rgba(6,214,160,.15);color:var(--cy)}.btn-cy:hover{background:rgba(6,214,160,.12);transform:translateY(-2px)}
 
 /* ============================================================
-   NAV — Status bar aesthetic
+   ACT 0 — THE ENTRANCE (nav + status)
+   The doctor enters the theater. Lights dim.
    ============================================================ */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:12px 32px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(5,5,7,.9);border-bottom:1px solid var(--brd)}
-.nl{display:flex;align-items:center;gap:8px;text-decoration:none}
-.nl img{height:28px;width:auto}
-.nl-txt{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--white);font-weight:500;letter-spacing:1px}
-.nl-txt span{color:var(--muted);font-weight:400}
-.nr{display:flex;gap:24px;align-items:center}
-.nr a{color:var(--muted);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;transition:color .2s}.nr a:hover{color:var(--white)}
-.nr-cta{display:flex;gap:8px;align-items:center}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 32px;height:48px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,5,7,.85);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid rgba(26,26,46,.5);transition:all .3s}
+nav.scrolled{background:rgba(5,5,7,.95);border-bottom-color:rgba(139,92,246,.1)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand img{height:22px;width:auto}
+.nav-brand-text{font-size:11px;color:var(--white);font-weight:500;letter-spacing:1.5px}
+.nav-brand-text span{color:var(--muted);font-weight:300}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:10px;text-transform:uppercase;letter-spacing:2px;transition:color .2s;position:relative}.nav-links a:hover{color:var(--white)}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--pur);transition:width .3s}.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;gap:8px;align-items:center}
+.nav-cta .btn{padding:6px 16px;font-size:10px}
 #navTrial{display:none}
 
-/* Mobile hamburger */
+/* Hamburger */
 .ham{display:none;background:none;border:1px solid var(--brd);border-radius:4px;width:36px;height:36px;cursor:pointer;position:relative;flex-shrink:0}
-.ham span{display:block;width:16px;height:1px;background:var(--soft);position:absolute;left:50%;transform:translateX(-50%);transition:all .2s}
+.ham span{display:block;width:14px;height:1px;background:var(--soft);position:absolute;left:50%;transform:translateX(-50%);transition:all .2s}
 .ham span:nth-child(1){top:12px}.ham span:nth-child(2){top:17px}.ham span:nth-child(3){top:22px}
 .ham.open span:nth-child(1){top:17px;transform:translateX(-50%) rotate(45deg)}.ham.open span:nth-child(2){opacity:0}.ham.open span:nth-child(3){top:17px;transform:translateX(-50%) rotate(-45deg)}
-.mob-menu{display:none;position:fixed;top:56px;left:0;right:0;bottom:0;background:rgba(5,5,7,.97);backdrop-filter:blur(20px);z-index:199;padding:32px;flex-direction:column;gap:24px}
+.mob-menu{display:none;position:fixed;top:48px;left:0;right:0;bottom:0;background:rgba(5,5,7,.98);backdrop-filter:blur(24px);z-index:199;padding:32px;flex-direction:column;gap:0}
 .mob-menu.open{display:flex}
-.mob-menu a{color:var(--soft);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:2px;padding:12px 0;border-bottom:1px solid var(--brd);transition:color .2s}.mob-menu a:hover{color:var(--pur)}
+.mob-menu a{color:var(--soft);text-decoration:none;font-size:11px;text-transform:uppercase;letter-spacing:3px;padding:16px 0;border-bottom:1px solid var(--brd);transition:color .2s}.mob-menu a:hover{color:var(--pur)}
+
+/* Status ticker — the clinic is alive */
+.status-bar{background:rgba(6,214,160,.02);border-bottom:1px solid rgba(6,214,160,.06);padding:6px 0;overflow:hidden;margin-top:48px}
+.status-inner{display:flex;gap:48px;align-items:center;width:max-content;animation:slideLeft 40s linear infinite;will-change:transform;contain:layout}
+.status-item{display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:9px;text-transform:uppercase;letter-spacing:2.5px;color:rgba(6,214,160,.5)}
+.status-dot{width:4px;height:4px;background:var(--cy);border-radius:50%;animation:pulse 3s infinite}
 
 /* ============================================================
-   TRUST BAR — Terminal output ticker
+   ACT 1 — THE DREAM (hero)
+   Full viewport. Oniric. The promise of tranquility.
+   The doctor sees their dream: a clinic that runs itself.
    ============================================================ */
-.tb{background:rgba(6,214,160,.03);border-bottom:1px solid rgba(6,214,160,.08);padding:8px 32px;overflow:hidden;position:relative}
-.tb-inner{display:flex;gap:48px;align-items:center;width:max-content;animation:slide-left 35s linear infinite;will-change:transform;contain:layout}
-.tb-item{display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:.58rem;text-transform:uppercase;letter-spacing:2px;color:rgba(6,214,160,.6)}
-.tb-dot{width:4px;height:4px;background:var(--cy);border-radius:50%;animation:pulse 2.5s infinite}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 32px;position:relative;overflow:hidden}
+
+/* Orbs — floating dream particles */
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px);will-change:transform}
+.hero-orb-1{width:500px;height:500px;background:rgba(139,92,246,.06);top:-10%;left:30%;animation:orbFloat 20s ease-in-out infinite}
+.hero-orb-2{width:350px;height:350px;background:rgba(6,214,160,.04);bottom:10%;right:10%;animation:orbFloat 25s ease-in-out infinite reverse}
+.hero-orb-3{width:200px;height:200px;background:rgba(139,92,246,.05);top:40%;right:25%;animation:orbFloat 15s ease-in-out infinite 5s}
+
+/* Sentient eye — SofIA is watching */
+.sentient-eye{width:48px;height:48px;margin-bottom:32px;position:relative;opacity:0;animation:fadeIn 1s ease forwards .3s}
+.sentient-eye-ring{width:48px;height:48px;border:1px solid rgba(139,92,246,.3);border-radius:50%;position:absolute;animation:breathe 4s ease-in-out infinite}
+.sentient-eye-iris{width:12px;height:12px;background:var(--pur);border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);animation:pulse 3s ease-in-out infinite}
+.sentient-eye-glow{width:48px;height:48px;border-radius:50%;position:absolute;animation:glow 4s ease-in-out infinite}
+
+.hero-tagline{font-size:10px;text-transform:uppercase;letter-spacing:6px;color:var(--pur);opacity:0;animation:fadeUp .8s ease forwards .5s;display:flex;align-items:center;gap:10px}
+.hero-tagline::before,.hero-tagline::after{content:'';width:24px;height:1px;background:rgba(139,92,246,.3)}
+
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:700;color:var(--white);letter-spacing:-3px;line-height:1;max-width:800px;margin-top:24px;opacity:0;animation:fadeUp .8s ease forwards .7s}
+.hero h1 em{font-style:italic;color:var(--pur-l);position:relative}
+.hero h1 em::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--pur),transparent);opacity:.4}
+
+.hero-sub{font-size:14px;color:var(--soft);max-width:460px;margin:24px auto 0;font-weight:300;line-height:2;opacity:0;animation:fadeUp .8s ease forwards .9s}
+
+.hero-cta{display:flex;gap:12px;margin-top:40px;opacity:0;animation:fadeUp .8s ease forwards 1.1s;flex-wrap:wrap;justify-content:center}
+
+.hero-note{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:var(--muted);margin-top:12px;opacity:0;animation:fadeUp .8s ease forwards 1.3s}
+
+/* Heartbeat line — the clinic is alive */
+.hero-pulse{position:absolute;bottom:0;left:0;right:0;height:1px;overflow:hidden;opacity:0;animation:fadeIn 1s ease forwards 1.5s}
+.hero-pulse-line{height:1px;background:linear-gradient(90deg,transparent,var(--pur),var(--cy),var(--pur),transparent);background-size:200% 100%;animation:slideLeft 4s linear infinite}
+
+/* Scroll indicator */
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeIn 1s ease forwards 2s}
+.scroll-hint span{font-size:8px;text-transform:uppercase;letter-spacing:3px;color:var(--muted)}
+.scroll-hint-line{width:1px;height:24px;background:linear-gradient(to bottom,var(--pur),transparent);animation:pulse 2s ease-in-out infinite}
 
 /* ============================================================
-   HERO — Cinematic. Commanding. One breath.
+   ACT 2 — THE WEIGHT (the problem)
+   Dark. Pressure. What the doctor feels every night.
+   The temperature drops. Red accents. Discomfort.
    ============================================================ */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:128px 32px 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(139,92,246,.06) 0%,transparent 60%);pointer-events:none;animation:breathe 8s ease-in-out infinite;will-change:transform}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to top,var(--void),transparent);pointer-events:none;z-index:1}
-.ht{font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:4px;color:var(--pur);margin-bottom:24px;opacity:0;animation:fu .6s ease forwards .2s;display:flex;align-items:center;gap:8px}
-.ht::before{content:'';width:5px;height:5px;background:var(--pur);border-radius:50%;animation:pulse 3s infinite}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:700;color:var(--white);letter-spacing:-2.5px;line-height:1.06;max-width:800px;opacity:0;animation:fu .6s ease forwards .4s}
-.hero h1 em{font-style:italic;color:var(--pur-l)}
-.hs{font-size:1rem;color:var(--soft);max-width:520px;margin:20px auto 0;font-weight:300;line-height:1.8;opacity:0;animation:fu .6s ease forwards .6s}
-.hc{display:flex;gap:12px;margin-top:32px;opacity:0;animation:fu .6s ease forwards .8s;position:relative;z-index:2;flex-wrap:wrap;justify-content:center}
-.hc-note{font-family:'JetBrains Mono',monospace;font-size:.52rem;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-top:8px;display:block;opacity:0;animation:fu .6s ease forwards 1s}
-.hbd{display:inline-flex;align-items:center;gap:6px;background:rgba(6,214,160,.05);border:1px solid rgba(6,214,160,.15);border-radius:4px;padding:6px 16px;font-family:'JetBrains Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:2px;color:rgba(6,214,160,.7);margin-top:20px;opacity:0;animation:fu .6s ease forwards 1.2s;position:relative;z-index:2}
-.hbd::before{content:'';width:4px;height:4px;background:var(--cy);border-radius:50%;animation:pulse 2.5s infinite}
-.trust-hero{display:flex;gap:20px;margin-top:24px;opacity:0;animation:fu .6s ease forwards 1.4s;position:relative;z-index:2;flex-wrap:wrap;justify-content:center}
-.th-badge{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
-.th-badge::before{content:'';width:3px;height:3px;background:var(--pur);border-radius:50%}
+.act-weight{padding:120px 0;position:relative;overflow:hidden}
+.act-weight::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:.3}
+
+.weight-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:start}
+
+.pain-card{background:var(--sf);border:1px solid var(--brd);border-radius:6px;padding:28px;margin-bottom:16px;position:relative;overflow:hidden;transition:all .4s}
+.pain-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--red);opacity:.5}
+.pain-card:hover{border-color:rgba(239,68,68,.2);transform:translateX(4px)}
+.pain-card h4{color:var(--white);font-size:13px;font-weight:500;margin-bottom:8px;font-family:'JetBrains Mono',monospace}
+.pain-card p{color:var(--soft);font-size:12px;font-weight:300;line-height:1.7}
+.pain-card .loss{font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:2px;margin-top:12px;display:flex;align-items:center;gap:6px}
+.pain-card .loss::before{content:'';width:4px;height:4px;background:var(--red);border-radius:50%;animation:pulse 2s infinite}
+
+.weight-solution{background:var(--sf);border:1px solid rgba(139,92,246,.15);border-radius:6px;padding:36px;position:relative;overflow:hidden}
+.weight-solution::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--pur)}
+.weight-solution h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);font-weight:700;letter-spacing:-.5px;margin-bottom:16px}
+.weight-solution p{color:var(--soft);font-weight:300;line-height:1.9;font-size:12px}
+.weight-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.weight-stat{text-align:center;padding:16px 8px;background:var(--sf2);border:1px solid var(--brd);border-radius:6px}
+.weight-stat-num{font-size:1.6rem;font-weight:500;color:var(--cy);display:block}
+.weight-stat-label{font-size:8px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-top:4px;display:block}
 
 /* ============================================================
-   STATS
+   ACT 3 — THE AWAKENING (SofIA exists)
+   Light returns. Purple dominates. Relief.
+   The doctor sees what's possible. Hope.
    ============================================================ */
-.sc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
-.sc-item{text-align:center;padding:24px 16px;background:var(--sf);border:1px solid var(--brd);border-radius:8px;transition:all .3s;contain:layout style}
-.sc-item:hover{border-color:rgba(139,92,246,.2)}
-.sc-num{font-family:'JetBrains Mono',monospace;font-size:2.2rem;font-weight:500;color:var(--pur);line-height:1;display:block;font-variant-numeric:tabular-nums;min-width:4ch;text-align:center}
-.sc-lbl{font-family:'JetBrains Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-top:8px;display:block}
+.act-awakening{padding:120px 0;position:relative}
+.act-awakening::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--pur),transparent);opacity:.5}
+
+/* Steps — cinematic sequence */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px}
+.step{padding:32px 24px;background:var(--sf);border:1px solid var(--brd);border-radius:0;position:relative;overflow:hidden;transition:all .4s}
+.step:first-child{border-radius:6px 0 0 6px}.step:last-child{border-radius:0 6px 6px 0}
+.step::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--pur);transform:scaleX(0);transition:transform .6s cubic-bezier(.16,1,.3,1);transform-origin:left}
+.step:hover::after{transform:scaleX(1)}
+.step:hover{background:var(--sf2)}
+.step-num{font-size:9px;color:var(--pur);letter-spacing:3px;margin-bottom:16px;display:block}
+.step h4{color:var(--white);font-size:13px;font-weight:500;margin-bottom:8px}
+.step p{color:var(--soft);font-size:11px;font-weight:300;line-height:1.6}
+
+/* Live chat demo — the proof */
+.chat-window{max-width:420px;margin:56px auto 0;background:var(--sf);border:1px solid rgba(139,92,246,.15);border-radius:8px;overflow:hidden;position:relative}
+.chat-window::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--pur)}
+.chat-header{background:var(--sf2);padding:12px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--brd)}
+.chat-avatar{width:32px;height:32px;border-radius:6px;background:var(--pur);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--white);animation:breathe 4s ease-in-out infinite}
+.chat-info h5{color:var(--white);font-size:12px;font-weight:500;margin:0}
+.chat-info span{font-size:9px;color:var(--cy);display:flex;align-items:center;gap:4px;text-transform:uppercase;letter-spacing:1.5px}
+.chat-info span::before{content:'';width:4px;height:4px;background:var(--cy);border-radius:50%;animation:pulse 2.5s infinite}
+.chat-body{padding:16px;display:flex;flex-direction:column;gap:8px;min-height:360px;max-height:400px;overflow-y:auto}
+.msg{max-width:85%;padding:10px 14px;border-radius:6px;font-size:12px;line-height:1.6;font-weight:300;animation:fadeUp .3s ease}
+.msg-patient{background:rgba(6,214,160,.05);border:1px solid rgba(6,214,160,.08);color:var(--clear);align-self:flex-start;border-bottom-left-radius:2px}
+.msg-sofia{background:rgba(139,92,246,.05);border:1px solid rgba(139,92,246,.08);color:var(--clear);align-self:flex-start;border-bottom-left-radius:2px}
+.msg-out{background:var(--sf2);border:1px solid var(--brd);color:var(--soft);align-self:flex-end;border-bottom-right-radius:2px}
+.typing-dots{display:inline-flex;gap:3px;padding:10px 14px}
+.typing-dot{width:4px;height:4px;background:var(--soft);border-radius:50%;animation:pulse 1.4s infinite}
+.typing-dot:nth-child(2){animation-delay:.2s}.typing-dot:nth-child(3){animation-delay:.4s}
+
+/* Features — not a grid of icons. A narrative. */
+.features-narrative{margin-top:64px}
+.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:48px 0;border-bottom:1px solid var(--brd)}
+.feature-row:last-child{border-bottom:none}
+.feature-row:nth-child(even){direction:rtl}.feature-row:nth-child(even)>*{direction:ltr}
+.feature-visual{background:var(--sf);border:1px solid var(--brd);border-radius:6px;padding:32px;position:relative;overflow:hidden;min-height:200px;display:flex;align-items:center;justify-content:center}
+.feature-visual::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--pur);opacity:.3}
+.feature-content .tag{margin-bottom:8px}
+.feature-content h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);font-weight:700;letter-spacing:-.5px;margin-bottom:12px}
+.feature-content p{color:var(--soft);font-size:12px;font-weight:300;line-height:1.8}
+
+/* Feature visuals — mini animations inside cards */
+.vis-whatsapp{display:flex;flex-direction:column;gap:6px;width:100%}
+.vis-msg{padding:8px 12px;border-radius:4px;font-size:10px;max-width:80%;animation:fadeUp .5s ease}
+.vis-msg-in{background:rgba(6,214,160,.06);border:1px solid rgba(6,214,160,.08);color:var(--clear);align-self:flex-start}
+.vis-msg-out{background:var(--sf2);border:1px solid var(--brd);color:var(--soft);align-self:flex-end}
+
+.vis-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;width:100%}
+.vis-cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--muted);border-radius:2px;transition:all .3s}
+.vis-cal-day.active{background:rgba(139,92,246,.1);color:var(--pur);border:1px solid rgba(139,92,246,.2)}
+.vis-cal-day.booked{background:rgba(6,214,160,.08);color:var(--cy);border:1px solid rgba(6,214,160,.15)}
+
+.vis-payment{text-align:center}
+.vis-pay-amount{font-size:2rem;font-weight:500;color:var(--amb);display:block;margin-bottom:8px}
+.vis-pay-status{font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--cy);display:flex;align-items:center;justify-content:center;gap:6px}
+.vis-pay-status::before{content:'';width:5px;height:5px;background:var(--cy);border-radius:50%;animation:pulse 2s infinite}
+
+.vis-radar{position:relative;width:160px;height:160px;margin:0 auto}
+.vis-radar-ring{position:absolute;border:1px solid rgba(139,92,246,.1);border-radius:50%}
+.vis-radar-ring:nth-child(1){inset:0;animation:pulse 3s infinite}
+.vis-radar-ring:nth-child(2){inset:20px;animation:pulse 3s infinite .5s}
+.vis-radar-ring:nth-child(3){inset:40px;animation:pulse 3s infinite 1s}
+.vis-radar-dot{position:absolute;width:6px;height:6px;background:var(--cy);border-radius:50%;animation:float 3s ease-in-out infinite}
+.vis-radar-dot:nth-child(4){top:25%;left:60%;animation-delay:.5s}
+.vis-radar-dot:nth-child(5){top:50%;left:30%;animation-delay:1s}
+.vis-radar-dot:nth-child(6){top:70%;left:65%;animation-delay:1.5s}
+.vis-radar-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:8px;background:var(--pur);border-radius:50%;animation:glow 2s ease-in-out infinite}
 
 /* ============================================================
-   PROBLEMA
+   ACT 3.5 — BEFORE/AFTER + ROI (the contrast)
    ============================================================ */
-.pgr{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
-.pc{background:var(--sf);border:1px solid var(--brd);border-radius:8px;padding:24px;margin-bottom:12px;transition:all .2s}
-.pc:hover{border-color:rgba(139,92,246,.2)}
-.pc h4{color:var(--white);font-size:.88rem;font-weight:600;margin-bottom:6px}
-.pc p{color:var(--soft);font-size:.82rem;font-weight:300;line-height:1.6}
-.pc .ls{font-family:'JetBrains Mono',monospace;font-size:.52rem;color:var(--red);text-transform:uppercase;letter-spacing:2px;margin-top:8px;display:block}
-.vb{background:var(--sf);border:1px solid var(--brd);border-radius:8px;padding:32px;position:relative;overflow:hidden}
-.vb::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--pur)}
-.vb h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);font-weight:700;margin-bottom:12px;letter-spacing:-.5px}
-.vb p{color:var(--soft);font-weight:300;line-height:1.8;font-size:.88rem}
-.sts{display:flex;gap:24px;margin-top:20px}
-.st{text-align:center;flex:1}
-.sn{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:500;color:var(--cy)}
-.sl{font-family:'JetBrains Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-top:4px}
+.act-contrast{padding:120px 0;background:var(--sf);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd)}
 
-/* ============================================================
-   COMO FUNCIONA
-   ============================================================ */
-.stp{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
-.sp{text-align:center;position:relative;padding:24px 16px;background:var(--sf);border:1px solid var(--brd);border-radius:8px}
-.sp-n{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--pur);margin-bottom:12px;display:block;letter-spacing:2px}
-.sp h4{color:var(--white);font-size:.85rem;font-weight:600;margin-bottom:8px}
-.sp p{color:var(--soft);font-size:.75rem;font-weight:300;line-height:1.5}
+.contrast-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:48px;border-radius:6px;overflow:hidden}
+.contrast-col{padding:32px;position:relative}
+.contrast-col.before{background:var(--void)}.contrast-col.after{background:var(--void)}
+.contrast-col.before::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--red);opacity:.5}
+.contrast-col.after::before{content:'';position:absolute;top:0;right:0;width:2px;height:100%;background:var(--cy);opacity:.5}
+.contrast-label{font-size:9px;text-transform:uppercase;letter-spacing:4px;margin-bottom:20px;display:block}
+.contrast-col.before .contrast-label{color:var(--red)}.contrast-col.after .contrast-label{color:var(--cy)}
+.contrast-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(26,26,46,.3);font-size:12px;font-weight:300}
+.contrast-row span:first-child{color:var(--muted)}.contrast-row span:last-child{font-weight:500}
+.contrast-col.before .contrast-row span:last-child{color:var(--red)}
+.contrast-col.after .contrast-row span:last-child{color:var(--cy)}
 
-/* ============================================================
-   CHAT DEMO
-   ============================================================ */
-.chw{max-width:400px;margin:40px auto 0;background:var(--sf);border:1px solid var(--brd);border-radius:8px;overflow:hidden}
-.chh{background:var(--sf2);padding:12px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--brd)}
-.cha{width:32px;height:32px;border-radius:6px;background:var(--pur);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--white)}
-.chi h5{color:var(--white);font-size:.8rem;font-weight:600;margin:0}
-.chi span{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--cy);display:flex;align-items:center;gap:4px;text-transform:uppercase;letter-spacing:1px}
-.chi span::before{content:'';width:4px;height:4px;background:var(--cy);border-radius:50%;animation:pulse 2.5s infinite}
-.chb{padding:16px;display:flex;flex-direction:column;gap:8px;min-height:340px}
-.mg{max-width:82%;padding:8px 12px;border-radius:6px;font-size:.78rem;line-height:1.5;font-weight:300}
-.mi{background:rgba(6,214,160,.06);border:1px solid rgba(6,214,160,.1);color:var(--clear);align-self:flex-start;border-bottom-left-radius:2px}
-.mo{background:var(--sf2);border:1px solid var(--brd);color:var(--soft);align-self:flex-end;border-bottom-right-radius:2px}
-.ms{background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.1);color:var(--clear);align-self:flex-start;border-bottom-left-radius:2px}
-.td{display:inline-block;width:4px;height:4px;background:var(--soft);border-radius:50%;margin:0 2px;animation:typing 1.4s infinite}
-.td:nth-child(2){animation-delay:.2s}.td:nth-child(3){animation-delay:.4s}
+/* ROI Card */
+.roi-card{max-width:600px;margin:56px auto 0;background:var(--void);border:1px solid rgba(245,200,66,.12);border-radius:6px;padding:36px;position:relative;overflow:hidden}
+.roi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--amb)}
+.roi-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(26,26,46,.3);font-size:12px}
+.roi-row span:first-child{color:var(--muted);font-weight:300}.roi-row span:last-child{color:var(--clear);font-weight:500}
+.roi-total{display:flex;justify-content:space-between;padding:20px 0 0;border-top:1px solid var(--pur);margin-top:8px}
+.roi-total span:first-child{color:var(--white);font-weight:600;font-size:14px}
+.roi-total span:last-child{font-size:1.8rem;font-weight:500;color:var(--amb)}
 
-/* ============================================================
-   FEATURES
-   ============================================================ */
-.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.fc{background:var(--sf);border:1px solid var(--brd);border-radius:8px;padding:24px;transition:all .3s;position:relative;overflow:hidden}
-.fc:hover{border-color:rgba(139,92,246,.2)}
-.fc::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--pur);opacity:0;transition:opacity .3s}.fc:hover::after{opacity:.5}
-.fi{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.1)}.fi svg{width:16px;height:16px}
-.fc h4{color:var(--white);font-size:.85rem;font-weight:600;margin-bottom:6px}
-.fc p{color:var(--soft);font-size:.77rem;font-weight:300;line-height:1.55}
-
-/* ============================================================
-   ANTES / DESPUES
-   ============================================================ */
-.bag{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
-.bac{background:var(--sf);border:1px solid var(--brd);border-radius:8px;padding:24px;position:relative;overflow:hidden}
-.bac.bf::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--red)}
-.bac.af::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--cy)}
-.bal{font-family:'JetBrains Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:3px;margin-bottom:16px;display:block}
-.bac.bf .bal{color:var(--red)}.bac.af .bal{color:var(--cy)}
-.bar{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(26,26,46,.5);font-size:.82rem;font-weight:300}
-.bar span:first-child{color:var(--muted)}.bar span:last-child{color:var(--clear);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:.75rem}
-.bac.bf .bar span:last-child{color:var(--red)}.bac.af .bar span:last-child{color:var(--cy)}
-
-/* ============================================================
-   ROI
-   ============================================================ */
-.rc{max-width:580px;margin:40px auto 0;background:var(--sf);border:1px solid var(--brd);border-radius:8px;padding:32px;position:relative;overflow:hidden}
-.rc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--amb)}
-.rr{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(26,26,46,.5);font-size:.85rem}
-.rr span:first-child{color:var(--muted);font-weight:300}.rr span:last-child{color:var(--clear);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:.8rem}
-.rt{display:flex;justify-content:space-between;padding:16px 0 0;border-top:1px solid var(--pur)}
-.rt span:first-child{color:var(--white);font-weight:600;font-size:1rem}
-.rt span:last-child{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:500;color:var(--amb)}
-
-/* ROI CALCULATOR */
-.roi-calc{max-width:680px;margin:40px auto 0;background:var(--sf);border:1px solid var(--brd);border-radius:8px;padding:32px;position:relative;overflow:hidden}
+/* ROI Calculator */
+.roi-calc{max-width:640px;margin:48px auto 0;background:var(--void);border:1px solid var(--brd);border-radius:6px;padding:32px;position:relative;overflow:hidden}
 .roi-calc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--pur)}
 .roi-sliders{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
-.roi-slider-group label{display:block;font-family:'JetBrains Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:6px}
-.roi-slider-group .val{font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--white);font-weight:500;margin-bottom:8px;display:block}
-.roi-slider-group input[type=range]{width:100%;-webkit-appearance:none;height:3px;border-radius:2px;background:var(--brd);outline:none}
-.roi-slider-group input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--pur);cursor:pointer;border:2px solid var(--void);transition:transform .2s}
-.roi-slider-group input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
-.roi-result{background:var(--sf2);border:1px solid var(--brd);border-radius:6px;padding:20px;text-align:center}
-.roi-result .roi-num{font-family:'JetBrains Mono',monospace;font-size:2.4rem;font-weight:500;color:var(--amb);display:block;font-variant-numeric:tabular-nums;min-height:3rem}
-.roi-result .roi-lbl{font-size:.78rem;color:var(--soft);margin-top:6px}
-.roi-result .roi-mult{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--cy);text-transform:uppercase;letter-spacing:2px;margin-top:8px;display:block}
+.roi-slider-group label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:6px}
+.roi-slider-group .val{font-size:16px;color:var(--white);font-weight:500;margin-bottom:8px;display:block}
+.roi-slider-group input[type=range]{width:100%;-webkit-appearance:none;height:2px;border-radius:1px;background:var(--brd);outline:none}
+.roi-slider-group input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--pur);cursor:pointer;border:2px solid var(--void);transition:transform .2s}
+.roi-slider-group input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2)}
+.roi-result{background:var(--sf);border:1px solid var(--brd);border-radius:6px;padding:24px;text-align:center}
+.roi-result .roi-num{font-size:2.2rem;font-weight:500;color:var(--amb);display:block;min-height:3rem;font-variant-numeric:tabular-nums}
+.roi-result .roi-lbl{font-size:11px;color:var(--soft);margin-top:6px}
+.roi-result .roi-mult{font-size:9px;color:var(--cy);text-transform:uppercase;letter-spacing:2px;margin-top:8px;display:block}
 
 /* ============================================================
-   EMPRESA
+   ACT 4 — THE VISION (testimonials + social proof)
+   The doctor sees others who already live in the future.
+   Warmth returns. Trust builds.
    ============================================================ */
-.arv{display:flex;align-items:center;justify-content:center;gap:40px;margin-top:40px;flex-wrap:wrap}
-.ab{background:var(--sf);border:1px solid var(--brd);border-radius:8px;padding:28px;text-align:center;width:280px;position:relative}
-.ab.ap{border-color:rgba(139,92,246,.2)}.ab.ap::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--pur)}
-.ab.ac{border-color:rgba(6,214,160,.2)}.ab.ac::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--cy)}
-.ab h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:8px;letter-spacing:-.5px}
-.ab p{color:var(--soft);font-size:.82rem;font-weight:300;line-height:1.6}
-.ab .tg{font-family:'JetBrains Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:3px;margin-bottom:12px;display:block}
-.ab.ap .tg{color:var(--pur)}.ab.ac .tg{color:var(--cy)}
-.aaw{font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--muted)}
+.act-vision{padding:120px 0;position:relative}
+.act-vision::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cy),transparent);opacity:.3}
+
+/* Social proof ticker */
+.proof-ticker{overflow:hidden;padding:8px 0;margin-bottom:56px}
+.proof-inner{display:flex;gap:48px;align-items:center;width:max-content;animation:slideLeft 30s linear infinite;will-change:transform;contain:layout}
+.proof-item{display:flex;align-items:center;gap:6px;white-space:nowrap;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px}
+.proof-dot{width:3px;height:3px;background:var(--pur);border-radius:50%;animation:pulse 2s infinite}
+.proof-name{color:var(--soft);font-weight:500}
+
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.testimonial-card{background:var(--sf);border:1px solid var(--brd);border-radius:6px;padding:24px;position:relative;overflow:hidden;transition:all .4s}
+.testimonial-card:hover{border-color:rgba(139,92,246,.15);transform:translateY(-4px)}
+.testimonial-stars{display:flex;gap:2px;margin-bottom:12px}
+.testimonial-star{color:var(--amb);font-size:10px}
+.testimonial-quote{color:var(--clear);font-size:12px;font-weight:300;line-height:1.8;margin-bottom:16px}
+.testimonial-quote::before{content:'\201C';font-family:'Playfair Display',serif;font-size:2rem;color:var(--pur);opacity:.3;line-height:0;vertical-align:-.4em;margin-right:4px}
+.testimonial-author{display:flex;align-items:center;gap:10px}
+.testimonial-avatar{width:28px;height:28px;border-radius:4px;background:var(--pur);display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--white);font-size:9px;flex-shrink:0}
+.testimonial-card:nth-child(2) .testimonial-avatar{background:var(--pur-d)}
+.testimonial-card:nth-child(3) .testimonial-avatar{background:#6366F1}
+.testimonial-card:nth-child(4) .testimonial-avatar{background:#7C3AED}
+.testimonial-card:nth-child(5) .testimonial-avatar{background:#4F46E5}
+.testimonial-card:nth-child(6) .testimonial-avatar{background:var(--pur-d)}
+.testimonial-name{color:var(--white);font-size:11px;font-weight:500}
+.testimonial-meta{color:var(--muted);font-size:9px;font-weight:300;margin-top:2px}
+.testimonial-result{margin-top:12px;padding:4px 10px;background:rgba(6,214,160,.04);border:1px solid rgba(6,214,160,.08);border-radius:4px;display:inline-flex;align-items:center;gap:4px;font-size:9px;color:var(--cy);text-transform:uppercase;letter-spacing:1.5px}
+.testimonial-result::before{content:'';width:3px;height:3px;background:var(--cy);border-radius:50%}
+
+/* Trust badges */
+.trust-badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:32px}
+.trust-badge{display:flex;align-items:center;gap:6px;background:var(--sf);border:1px solid var(--brd);border-radius:4px;padding:6px 12px;font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+.trust-badge svg{width:12px;height:12px;stroke:var(--soft);fill:none;stroke-width:1.5}
 
 /* ============================================================
-   MERCADO
+   ACT 4.5 — THE INVITATION (pricing)
+   Not "buy". Enter. Join. Begin.
    ============================================================ */
-.pns{display:flex;justify-content:center;gap:64px;margin-top:40px;flex-wrap:wrap}
-.pi .nm{font-family:'JetBrains Mono',monospace;font-size:2.5rem;font-weight:500;color:var(--pur);line-height:1}
-.pi .lb{font-size:.78rem;color:var(--soft);margin-top:6px;font-weight:300}
+.act-pricing{padding:120px 0;background:var(--sf);border-top:1px solid var(--brd)}
 
-/* ============================================================
-   TESTIMONIALS
-   ============================================================ */
-.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
-.tst-card{background:var(--sf);border:1px solid var(--brd);border-radius:8px;padding:24px;position:relative;overflow:hidden;transition:all .3s}
-.tst-card:hover{border-color:rgba(139,92,246,.2)}
-.tst-stars{display:flex;gap:2px;margin-bottom:12px}
-.tst-star{color:var(--amb);font-size:.75rem}
-.tst-quote{color:var(--clear);font-size:.82rem;font-weight:300;line-height:1.7;margin-bottom:16px;font-style:italic}
-.tst-quote::before{content:'"';font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--pur);opacity:.3;line-height:0;vertical-align:-.3em;margin-right:4px}
-.tst-author{display:flex;align-items:center;gap:10px}
-.tst-avatar{width:32px;height:32px;border-radius:4px;background:var(--pur);display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--white);font-size:.65rem;font-family:'JetBrains Mono',monospace;flex-shrink:0}
-.tst-card:nth-child(1) .tst-avatar{background:#7C3AED}.tst-card:nth-child(2) .tst-avatar{background:var(--pur-d)}.tst-card:nth-child(3) .tst-avatar{background:#6366F1}.tst-card:nth-child(4) .tst-avatar{background:var(--pur)}.tst-card:nth-child(5) .tst-avatar{background:#4F46E5}.tst-card:nth-child(6) .tst-avatar{background:#7C3AED}
-.tst-name{color:var(--white);font-size:.78rem;font-weight:600}
-.tst-meta{color:var(--muted);font-size:.65rem;font-weight:300;margin-top:2px;font-family:'JetBrains Mono',monospace}
-.tst-result{margin-top:12px;padding:4px 10px;background:rgba(6,214,160,.05);border:1px solid rgba(6,214,160,.1);border-radius:4px;display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:.5rem;color:var(--cy);text-transform:uppercase;letter-spacing:1.5px}
-.tst-result::before{content:'';width:3px;height:3px;background:var(--cy);border-radius:50%}
-
-/* TRUST BADGES */
-.trust-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}
-.t-badge{display:flex;align-items:center;gap:6px;background:var(--sf);border:1px solid var(--brd);border-radius:4px;padding:6px 12px;font-family:'JetBrains Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
-.t-badge svg{width:12px;height:12px;stroke:var(--soft);fill:none;stroke-width:1.5}
-
-/* ============================================================
-   FOUNDER CARD
-   ============================================================ */
-.founder-card{max-width:640px;margin:0 auto;background:var(--sf);border:1px solid rgba(139,92,246,.15);border-radius:8px;padding:40px;position:relative;overflow:hidden}
-.founder-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--pur);opacity:.5}
-.founder-quote{font-family:'Playfair Display',serif;font-size:1rem;color:var(--clear);line-height:1.8;font-style:italic;margin-bottom:24px}
-.founder-quote::before{content:'"';font-size:3rem;color:var(--pur);opacity:.3;line-height:0;vertical-align:-.5em;display:inline}
-.founder-sig{display:flex;align-items:center;gap:12px}
-.founder-avatar{width:40px;height:40px;border-radius:6px;background:var(--pur);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--white);font-size:.85rem;font-family:'JetBrains Mono',monospace;flex-shrink:0}
-.founder-name{color:var(--white);font-weight:600;font-size:.85rem}
-.founder-role{color:var(--muted);font-size:.7rem;font-weight:300;margin-top:2px;font-family:'JetBrains Mono',monospace}
-
-/* ============================================================
-   PRICING
-   ============================================================ */
-.price-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px}
+.price-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:24px;font-size:10px;text-transform:uppercase;letter-spacing:2px}
 .price-toggle span{color:var(--muted);transition:color .2s;cursor:default}.price-toggle span.active{color:var(--white)}
-.toggle-track{width:40px;height:20px;background:var(--sf2);border:1px solid var(--brd);border-radius:10px;cursor:pointer;position:relative;transition:all .2s}
+.toggle-track{width:36px;height:18px;background:var(--sf2);border:1px solid var(--brd);border-radius:9px;cursor:pointer;position:relative;transition:all .2s}
 .toggle-track.annual{border-color:rgba(139,92,246,.3)}
-.toggle-knob{width:14px;height:14px;border-radius:50%;background:var(--pur);position:absolute;top:2px;left:2px;transition:transform .2s}
-.toggle-track.annual .toggle-knob{transform:translateX(20px)}
-.annual-badge{background:rgba(6,214,160,.06);border:1px solid rgba(6,214,160,.12);color:var(--cy);padding:2px 8px;border-radius:4px;font-size:.5rem}
+.toggle-knob{width:12px;height:12px;border-radius:50%;background:var(--pur);position:absolute;top:2px;left:2px;transition:transform .2s}
+.toggle-track.annual .toggle-knob{transform:translateX(18px)}
+.annual-badge{background:rgba(6,214,160,.06);border:1px solid rgba(6,214,160,.1);color:var(--cy);padding:2px 8px;border-radius:4px;font-size:9px}
 .p-annual{display:none}.annual-pricing .p-annual{display:inline}.annual-pricing .p-monthly{display:none}
-.price-annual{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted);margin-bottom:4px;display:none}
+.price-annual{font-size:10px;color:var(--muted);margin-bottom:4px;display:none}
 .annual-pricing .price-annual{display:block}
 
-.prg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
-.pk{background:var(--sf);border:1px solid var(--brd);border-radius:8px;padding:28px 24px;position:relative;transition:all .3s}
-.pk:hover{border-color:rgba(139,92,246,.2)}
-.pk.ft{border-color:rgba(139,92,246,.25)}
-.pk.ft::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--pur)}
-.pkb{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--pur);color:var(--white);font-family:'JetBrains Mono',monospace;font-size:.48rem;text-transform:uppercase;letter-spacing:2px;padding:2px 10px;border-radius:4px;font-weight:500;white-space:nowrap}
-.pk .pnm{font-family:'JetBrains Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:3px;color:var(--pur);margin-bottom:8px;display:block}
-.pk h3{font-family:'JetBrains Mono',monospace;font-size:1.6rem;color:var(--white);font-weight:500;letter-spacing:-1px;margin-bottom:4px}
-.pk h3 span{font-size:.7rem;color:var(--muted);font-weight:300}
-.pk .pd{color:var(--muted);font-size:.78rem;font-weight:300;margin-bottom:16px;line-height:1.5}
-.pk ul{list-style:none;padding:0;margin:0 0 24px}
-.pk li{color:var(--soft);font-size:.78rem;font-weight:300;padding:6px 0;border-bottom:1px solid rgba(26,26,46,.4);display:flex;align-items:center;gap:6px}
-.pk li::before{content:'';width:3px;height:3px;background:var(--cy);border-radius:50%;flex-shrink:0}
-.pk .bn{width:100%;text-align:center;display:block}
-.pk-trial-note{font-family:'JetBrains Mono',monospace;font-size:.48rem;text-transform:uppercase;letter-spacing:2px;color:var(--cy);text-align:center;margin-top:8px}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:36px;border-radius:6px;overflow:hidden}
+.plan{background:var(--void);padding:32px 24px;position:relative;transition:all .4s}
+.plan:hover{background:var(--sf2)}
+.plan.featured{background:var(--sf2)}
+.plan.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--pur)}
+.plan-badge{position:absolute;top:8px;right:12px;background:var(--pur);color:var(--white);font-size:8px;text-transform:uppercase;letter-spacing:2px;padding:2px 8px;border-radius:3px;font-weight:500}
+.plan-name{font-size:10px;text-transform:uppercase;letter-spacing:4px;color:var(--pur);margin-bottom:12px;display:block}
+.plan h3{font-size:1.5rem;color:var(--white);font-weight:500;letter-spacing:-1px;margin-bottom:4px}
+.plan h3 span{font-size:10px;color:var(--muted);font-weight:300}
+.plan .plan-desc{color:var(--muted);font-size:11px;font-weight:300;margin-bottom:20px;line-height:1.5}
+.plan ul{list-style:none;padding:0;margin:0 0 24px}
+.plan li{color:var(--soft);font-size:11px;font-weight:300;padding:6px 0;border-bottom:1px solid rgba(26,26,46,.3);display:flex;align-items:center;gap:6px}
+.plan li::before{content:'';width:3px;height:3px;background:var(--cy);border-radius:50%;flex-shrink:0}
+.plan .btn{width:100%;text-align:center;justify-content:center}
+.plan-trial-note{font-size:8px;text-transform:uppercase;letter-spacing:2px;color:var(--cy);text-align:center;margin-top:8px}
+
+/* Guarantee */
+.guarantee{max-width:600px;margin:56px auto 0;background:var(--void);border:1px solid rgba(245,200,66,.1);border-radius:6px;padding:32px;text-align:center;position:relative;overflow:hidden}
+.guarantee::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--amb)}
+.guarantee h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:12px}
+.guarantee p{color:var(--soft);font-weight:300;line-height:1.8;font-size:12px}
 
 /* ============================================================
-   GARANTIA
+   ACT 5 — THE PORTAL (final CTA)
+   The door is open. Enter the future.
    ============================================================ */
-.gar{max-width:640px;margin:40px auto 0;background:var(--sf);border:1px solid rgba(245,200,66,.12);border-radius:8px;padding:32px;text-align:center;position:relative;overflow:hidden}
-.gar::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--amb)}
-.gar h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:12px}
-.gar p{color:var(--soft);font-weight:300;line-height:1.7;font-size:.88rem}
+.act-portal{padding:128px 32px;text-align:center;position:relative;overflow:hidden}
+.act-portal::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(139,92,246,.04) 0%,transparent 55%);pointer-events:none;animation:breathe 8s ease-in-out infinite}
+
+.portal-paths{display:flex;gap:2px;justify-content:center;margin:40px auto;max-width:600px;border-radius:6px;overflow:hidden}
+.portal-path{background:var(--sf);padding:32px 28px;flex:1;text-align:center;position:relative;transition:all .4s}
+.portal-path:hover{background:var(--sf2)}
+.portal-path::before{content:'';position:absolute;top:0;left:0;right:0;height:1px}
+.portal-path.self::before{background:var(--cy)}.portal-path.demo::before{background:var(--pur)}
+.portal-path .tag{margin-bottom:12px}
+.portal-path h3{font-family:'Playfair Display',serif;color:var(--white);font-size:1rem;margin-bottom:8px}
+.portal-path p{color:var(--soft);font-size:11px;font-weight:300;margin-bottom:16px;line-height:1.6}
+.portal-path .btn{width:100%;justify-content:center}
+
+/* FAQ */
+.faq-list{max-width:640px;margin:64px auto 0}
+.faq-item{border-bottom:1px solid var(--brd)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;transition:color .2s}
+.faq-q h4{color:var(--clear);font-size:12px;font-weight:400}.faq-q:hover h4{color:var(--pur-l)}
+.faq-q .faq-toggle{color:var(--muted);transition:transform .3s;font-size:14px;flex-shrink:0;margin-left:16px}
+.faq-q.open .faq-toggle{transform:rotate(45deg);color:var(--pur)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.faq-a.open{max-height:300px;padding-bottom:16px}.faq-a p{color:var(--soft);font-size:11px;font-weight:300;line-height:1.8}
+
+/* Contact form */
+.contact-form{max-width:480px;margin:48px auto 0;display:grid;gap:12px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.contact-form label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:6px}
+.contact-form input,.contact-form textarea{width:100%;background:var(--sf);border:1px solid var(--brd);border-radius:4px;padding:10px 14px;color:var(--white);font-family:'JetBrains Mono',monospace;font-size:12px;outline:none;transition:border-color .2s;resize:none}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--pur)}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--muted)}
 
 /* ============================================================
-   FAQ
+   STICKY BAR + WHATSAPP FAB + FOOTER
    ============================================================ */
-.fql{max-width:680px;margin:40px auto 0}
-.fq{border-bottom:1px solid var(--brd);overflow:hidden}
-.fqq{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;transition:color .2s}
-.fqq h4{color:var(--clear);font-size:.88rem;font-weight:500}.fqq:hover h4{color:var(--pur-l)}
-.fqq .ar{color:var(--muted);transition:transform .3s;font-family:'JetBrains Mono',monospace;font-size:.9rem;flex-shrink:0;margin-left:16px}
-.fqq.op .ar{transform:rotate(45deg);color:var(--pur)}
-.fqa{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
-.fqa.op{max-height:300px;padding-bottom:16px}.fqa p{color:var(--soft);font-size:.82rem;font-weight:300;line-height:1.7}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:150;background:rgba(5,5,7,.95);backdrop-filter:blur(24px);border-top:1px solid rgba(139,92,246,.1);padding:10px 32px;display:flex;align-items:center;justify-content:space-between;transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);gap:12px}
+.sticky-bar.visible{transform:translateY(0)}
+.sticky-bar-text{color:var(--white);font-size:11px;font-weight:400}
+.sticky-bar-sub{font-size:9px;color:var(--pur);text-transform:uppercase;letter-spacing:2px;margin-top:2px}
+.sticky-bar-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.sticky-bar-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:4px;line-height:1}.sticky-bar-close:hover{color:var(--white)}
 
-/* ============================================================
-   CTA FINAL
-   ============================================================ */
-.ctf{text-align:center;padding:128px 32px;position:relative;overflow:hidden}
-.ctf::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(139,92,246,.04) 0%,transparent 60%);pointer-events:none}
-.ctf h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;color:var(--white);letter-spacing:-2px;max-width:600px;margin:0 auto 12px}
-.ctf h2 em{font-style:italic;color:var(--pur-l)}
-.ctf>p{color:var(--soft);max-width:420px;margin:0 auto 24px;font-weight:300;line-height:1.8;font-size:.9rem}
-.cf{max-width:500px;margin:0 auto;display:grid;gap:12px}
-.cfr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.cf label{display:block;font-family:'JetBrains Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:6px}
-.cf input,.cf textarea{width:100%;background:var(--sf);border:1px solid var(--brd);border-radius:6px;padding:10px 14px;color:var(--white);font-family:'Outfit',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;resize:none}
-.cf input:focus,.cf textarea:focus{border-color:var(--pur)}
-.cf input::placeholder,.cf textarea::placeholder{color:var(--muted)}
-.cf .bn{width:100%;font-size:.9rem;padding:12px}
+.wa-fab{position:fixed;bottom:24px;right:24px;z-index:99;width:44px;height:44px;background:#25D366;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all .2s;text-decoration:none;opacity:0;animation:fadeIn .5s ease forwards 2s}
+.wa-fab:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.3)}
+.wa-fab svg{width:22px;height:22px;fill:#fff}
 
-/* ============================================================
-   STICKY BOTTOM BAR
-   ============================================================ */
-.sbb{position:fixed;bottom:0;left:0;right:0;z-index:150;background:rgba(12,12,20,.95);backdrop-filter:blur(20px);border-top:1px solid rgba(139,92,246,.15);padding:12px 32px;display:flex;align-items:center;justify-content:space-between;transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);gap:12px;will-change:transform}
-.sbb.visible{transform:translateY(0)}
-.sbb-left{display:flex;flex-direction:column}
-.sbb-title{color:var(--white);font-size:.85rem;font-weight:600}
-.sbb-sub{font-family:'JetBrains Mono',monospace;font-size:.5rem;color:var(--pur);text-transform:uppercase;letter-spacing:2px;margin-top:2px}
-.sbb-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
-.sbb-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem;padding:4px;line-height:1;flex-shrink:0}.sbb-close:hover{color:var(--white)}
-
-/* SOCIAL PROOF TICKER */
-.spt{background:rgba(139,92,246,.03);border-top:1px solid rgba(139,92,246,.06);border-bottom:1px solid rgba(139,92,246,.06);padding:6px 0;overflow:hidden}
-.spt-inner{display:flex;gap:48px;align-items:center;width:max-content;animation:slide-left 25s linear infinite;will-change:transform;contain:layout}
-.spt-item{display:flex;align-items:center;gap:6px;white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-.spt-dot{width:3px;height:3px;background:var(--pur);border-radius:50%;animation:pulse 2s infinite}
-.spt-name{color:var(--soft);font-weight:500}
-
-/* ============================================================
-   WHATSAPP FAB & FOOTER
-   ============================================================ */
-.waf{position:fixed;bottom:24px;right:24px;z-index:99;width:48px;height:48px;background:#25D366;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all .2s;text-decoration:none;opacity:0;animation:fu .5s ease forwards 2s}
-.waf:hover{transform:translateY(-2px)}
-.waf svg{width:24px;height:24px;fill:#fff}
 footer{border-top:1px solid var(--brd);padding:40px 32px 24px}
 .footer-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
-.footer-brand img{height:24px;width:auto;margin-bottom:8px}
-.footer-brand-txt{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--white);font-weight:500}
-.footer-brand-txt span{color:var(--muted)}
-.footer-desc{font-size:.72rem;color:var(--muted);margin-top:6px;font-weight:300;max-width:260px;line-height:1.6}
-.footer-links{display:flex;gap:24px;flex-wrap:wrap}
-.footer-links a{color:var(--muted);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:1px;transition:color .2s}.footer-links a:hover{color:var(--pur)}
-.footer-copy{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--muted);margin-top:24px;padding-top:20px;border-top:1px solid var(--brd);text-align:center;letter-spacing:1px}
+.footer-brand img{height:20px;width:auto;margin-bottom:8px}
+.footer-brand-text{font-size:11px;color:var(--white);font-weight:500;letter-spacing:1px}
+.footer-brand-text span{color:var(--muted)}
+.footer-desc{font-size:10px;color:var(--muted);margin-top:6px;font-weight:300;max-width:260px;line-height:1.7}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:9px;text-transform:uppercase;letter-spacing:1.5px;transition:color .2s}.footer-links a:hover{color:var(--pur)}
+.footer-copy{font-size:9px;color:var(--muted);margin-top:24px;padding-top:20px;border-top:1px solid var(--brd);text-align:center;letter-spacing:1px}
 .footer-copy a{color:var(--muted);text-decoration:none}
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — Mobile is a different theater, not a smaller one
    ============================================================ */
-@media(max-width:900px){.sc-grid{grid-template-columns:repeat(2,1fr)}.tst-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.testimonial-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){
-  .nr{display:none}.ham{display:block}
-  .pgr,.fg,.bag,.prg,.roi-sliders{grid-template-columns:1fr}
-  .prg{grid-template-columns:repeat(2,1fr)}
-  .stp{grid-template-columns:1fr 1fr}
-  .arv{flex-direction:column}.aaw{transform:rotate(90deg)}
-  .pns{flex-direction:column;gap:24px}
-  .sts{flex-direction:column}
-  section{padding:64px 24px}
-  .hc{flex-direction:column;align-items:center}
-  .cfr{grid-template-columns:1fr}
-  .pk.ft{order:-1}
-  .sbb{flex-direction:column;padding:12px;gap:8px}
-  .sbb-actions{width:100%}.sbb-actions .bn{flex:1;text-align:center}
+  .nav-links{display:none}.ham{display:block}
+  .weight-grid,.feature-row,.contrast-grid,.roi-sliders,.form-row{grid-template-columns:1fr}
+  .feature-row:nth-child(even){direction:ltr}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:first-child{border-radius:6px 0 0 0}.step:nth-child(2){border-radius:0 6px 0 0}
+  .step:nth-child(3){border-radius:0 0 0 6px}.step:last-child{border-radius:0 0 6px 0}
+  .pricing-grid{grid-template-columns:repeat(2,1fr)}
+  .plan.featured{order:-1}
+  .portal-paths{flex-direction:column}
+  .act-weight,.act-awakening,.act-contrast,.act-vision,.act-pricing{padding:80px 0}
+  .hero h1{font-size:clamp(2.2rem,8vw,3.5rem)}
+  .sticky-bar{flex-direction:column;padding:10px 16px;gap:8px}
+  .sticky-bar-actions{width:100%}.sticky-bar-actions .btn{flex:1;justify-content:center}
   .footer-inner{grid-template-columns:1fr}
-  .trust-hero{gap:10px}
-  .tst-grid{grid-template-columns:1fr}
-  .sc-grid{grid-template-columns:1fr 1fr}
-  .trust-badges{gap:8px}
-  nav{padding:10px 20px}
+  .testimonial-grid{grid-template-columns:1fr}
+  .trust-badges{gap:6px}
+  nav{padding:0 20px}
 }
-@media(max-width:480px){.sc-grid{grid-template-columns:1fr}.prg{grid-template-columns:1fr}}
+@media(max-width:480px){.steps,.pricing-grid{grid-template-columns:1fr}}
 
-/* Cursor glow (desktop) */
-.cursor-glow{position:fixed;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.05),transparent 65%);pointer-events:none;z-index:1;transform:translate(-50%,-50%);transition:opacity .3s;opacity:0;will-change:transform}
+/* Cursor glow (desktop only) */
+.cursor-glow{position:fixed;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.04),transparent 60%);pointer-events:none;z-index:1;transform:translate(-50%,-50%);transition:opacity .3s;opacity:0;will-change:transform}
 .cursor-glow.active{opacity:1}
 @media(max-width:768px){.cursor-glow{display:none}}
 </style>
@@ -456,284 +515,278 @@ footer{border-top:1px solid var(--brd);padding:40px 32px 24px}
 <!-- CURSOR GLOW -->
 <div class="cursor-glow" id="cursorGlow"></div>
 
-<!-- NAV — Status bar -->
+<!-- ============================================================
+     ACT 0 — THE ENTRANCE
+     ============================================================ -->
 <nav>
-  <a href="#" class="nl">
+  <a href="#" class="nav-brand">
     <img src="/logo_mono_blanco.svg" alt="SofIA" onerror="this.style.display='none'">
-    <div class="nl-txt">SofIA <span>by Ataraxia</span></div>
+    <div class="nav-brand-text">SofIA <span>by Ataraxia</span></div>
   </a>
-  <div class="nr">
+  <div class="nav-links">
     <a href="#problema">Problema</a>
     <a href="#sofia">Capacidades</a>
-    <a href="#testimonios">Resultados</a>
-    <a href="#pricing">Inversion</a>
+    <a href="#resultados">Resultados</a>
+    <a href="#inversion">Inversion</a>
     <a href="#faq">FAQ</a>
-    <div class="nr-cta">
-      <a href="#cta" class="bn bg" style="padding:6px 16px;font-size:.7rem">Solicitar Demo</a>
-      <a href="https://dashboard.ataraxiaialabs.ai/onboarding" id="navTrial" class="bn bp" style="padding:6px 16px;font-size:.7rem" data-cta="nav-trial">Prueba Gratis</a>
+    <div class="nav-cta">
+      <a href="#cta" class="btn btn-ghost">Demo</a>
+      <a href="https://dashboard.ataraxiaialabs.ai/onboarding" id="navTrial" class="btn btn-primary" data-cta="nav-trial">Entrar</a>
     </div>
   </div>
   <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
   <a href="#problema" onclick="closeMob()">Problema</a>
   <a href="#sofia" onclick="closeMob()">Capacidades</a>
-  <a href="#testimonios" onclick="closeMob()">Resultados</a>
-  <a href="#pricing" onclick="closeMob()">Inversion</a>
+  <a href="#resultados" onclick="closeMob()">Resultados</a>
+  <a href="#inversion" onclick="closeMob()">Inversion</a>
   <a href="#faq" onclick="closeMob()">FAQ</a>
-  <a href="https://dashboard.ataraxiaialabs.ai/onboarding" onclick="closeMob()" data-cta="mob-trial" style="color:var(--pur)">Prueba Gratis 7 Dias</a>
+  <a href="https://dashboard.ataraxiaialabs.ai/onboarding" onclick="closeMob()" data-cta="mob-trial" style="color:var(--pur)">Entrar — 7 Dias Gratis</a>
 </div>
 
-<!-- TRUST BAR -->
-<div class="tb" style="margin-top:56px">
-  <div class="tb-inner">
-    <div class="tb-item"><span class="tb-dot"></span>SofIA Online — 24/7/365</div>
-    <div class="tb-item"><span class="tb-dot"></span>Respuesta &lt; 3 segundos</div>
-    <div class="tb-item"><span class="tb-dot"></span>603 endpoints activos</div>
-    <div class="tb-item"><span class="tb-dot"></span>Cifrado E2E</div>
-    <div class="tb-item"><span class="tb-dot"></span>Ley 1581 Habeas Data</div>
-    <div class="tb-item"><span class="tb-dot"></span>99.9% Uptime</div>
-    <div class="tb-item"><span class="tb-dot"></span>Multi-tenant aislado</div>
-    <div class="tb-item"><span class="tb-dot"></span>SofIA Online — 24/7/365</div>
-    <div class="tb-item"><span class="tb-dot"></span>Respuesta &lt; 3 segundos</div>
-    <div class="tb-item"><span class="tb-dot"></span>603 endpoints activos</div>
-    <div class="tb-item"><span class="tb-dot"></span>Cifrado E2E</div>
-    <div class="tb-item"><span class="tb-dot"></span>Ley 1581 Habeas Data</div>
-    <div class="tb-item"><span class="tb-dot"></span>99.9% Uptime</div>
-    <div class="tb-item"><span class="tb-dot"></span>Multi-tenant aislado</div>
+<!-- Status bar — the system is alive -->
+<div class="status-bar">
+  <div class="status-inner">
+    <div class="status-item"><span class="status-dot"></span>SofIA Online — 24/7/365</div>
+    <div class="status-item"><span class="status-dot"></span>Respuesta &lt; 3 seg</div>
+    <div class="status-item"><span class="status-dot"></span>603 endpoints activos</div>
+    <div class="status-item"><span class="status-dot"></span>Cifrado E2E</div>
+    <div class="status-item"><span class="status-dot"></span>Ley 1581 Habeas Data</div>
+    <div class="status-item"><span class="status-dot"></span>99.9% Uptime</div>
+    <div class="status-item"><span class="status-dot"></span>Multi-tenant aislado</div>
+    <div class="status-item"><span class="status-dot"></span>SofIA Online — 24/7/365</div>
+    <div class="status-item"><span class="status-dot"></span>Respuesta &lt; 3 seg</div>
+    <div class="status-item"><span class="status-dot"></span>603 endpoints activos</div>
+    <div class="status-item"><span class="status-dot"></span>Cifrado E2E</div>
+    <div class="status-item"><span class="status-dot"></span>Ley 1581 Habeas Data</div>
+    <div class="status-item"><span class="status-dot"></span>99.9% Uptime</div>
+    <div class="status-item"><span class="status-dot"></span>Multi-tenant aislado</div>
   </div>
 </div>
 
-<!-- HERO -->
+<!-- ============================================================
+     ACT 1 — THE DREAM
+     Full viewport. Oniric. The promise.
+     ============================================================ -->
 <section class="hero">
-  <div class="hero::before"></div>
-  <span class="ht"><span>Sistema Operativo de IA para Clinicas</span></span>
-  <h1>Tu clinica nunca duerme.<br><em>Ni deberia.</em></h1>
-  <p class="hs">SofIA atiende pacientes, agenda citas, cobra anticipos y detecta oportunidades de revenue — 24 horas, 7 dias, sin humanos. Mientras usted duerme, su clinica factura.</p>
-  <div class="hc">
-    <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bp" data-cta="hero-trial">Empezar Gratis 7 Dias</a>
-    <a href="#cta" class="bn bg" data-cta="hero-demo">Solicitar Demo</a>
+  <!-- Floating orbs — dream particles -->
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+
+  <!-- Sentient eye — SofIA is watching -->
+  <div class="sentient-eye">
+    <div class="sentient-eye-glow"></div>
+    <div class="sentient-eye-ring"></div>
+    <div class="sentient-eye-iris"></div>
   </div>
-  <span class="hc-note">Sin tarjeta. Sin contratos. Setup en 5 minutos.</span>
-  <div class="hbd">SofIA esta atendiendo pacientes en este momento</div>
-  <div class="trust-hero">
-    <span class="th-badge">Cifrado E2E</span>
-    <span class="th-badge">Habeas Data</span>
-    <span class="th-badge">99.9% Uptime</span>
-    <span class="th-badge">Soporte 24/7</span>
+
+  <span class="hero-tagline">Sistema Operativo de IA para Clinicas</span>
+
+  <h1>Tu clinica<br>nunca duerme.<br><em>Ni deberia.</em></h1>
+
+  <p class="hero-sub">Mientras duermes, SofIA atiende. Agenda. Cobra. Detecta oportunidades. Tu trabajo es curar. El nuestro es que nunca pierdas un paciente.</p>
+
+  <div class="hero-cta">
+    <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="btn btn-primary" data-cta="hero-trial">Entrar — 7 Dias Gratis</a>
+    <a href="#cta" class="btn btn-ghost" data-cta="hero-demo">Solicitar Demo</a>
+  </div>
+
+  <span class="hero-note">Sin tarjeta. Sin contratos. Setup en 5 minutos.</span>
+
+  <!-- Heartbeat line -->
+  <div class="hero-pulse"><div class="hero-pulse-line"></div></div>
+
+  <!-- Scroll hint -->
+  <div class="scroll-hint">
+    <span>Descubre</span>
+    <div class="scroll-hint-line"></div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="ds-s" style="padding:48px 32px">
+<!-- ============================================================
+     ACT 2 — THE WEIGHT
+     The problem. Dark. Pressure. Red.
+     ============================================================ -->
+<section class="act-weight" id="problema">
   <div class="ctn">
-    <div class="sc-grid">
-      <div class="sc-item rv"><span class="sc-num" data-target="24" data-suffix="/7">0</span><span class="sc-lbl">Atencion continua</span></div>
-      <div class="sc-item rv"><span class="sc-num" data-target="3" data-prefix="<" data-suffix="s">0</span><span class="sc-lbl">Tiempo de respuesta</span></div>
-      <div class="sc-item rv"><span class="sc-num" data-target="603">0</span><span class="sc-lbl">Endpoints activos</span></div>
-      <div class="sc-item rv"><span class="sc-num" data-target="141">0</span><span class="sc-lbl">Tablas de datos</span></div>
-    </div>
-  </div>
-</section>
+    <span class="tag rv">El peso que cargas</span>
+    <h2 class="section-title rv">Cada noche sin responder es dinero que <em>desaparece.</em></h2>
+    <p class="section-desc rv">No es culpa tuya. Es un problema de infraestructura. Y tiene solucion.</p>
 
-<!-- PROBLEMA -->
-<section id="problema">
-  <div class="ctn">
-    <span class="tag rv">El problema</span>
-    <h2 class="tt rv">Cada noche sin responder es dinero que <em>desaparece.</em></h2>
-    <div class="pgr">
+    <div class="weight-grid">
       <div>
-        <div class="pc rv"><h4>Paciente escribe a las 10 PM</h4><p>Nadie responde. El paciente busca otra clinica. Usted nunca sabra que existio.</p><span class="ls">Revenue perdido: silencioso e invisible</span></div>
-        <div class="pc rv"><h4>Coordinadora con 80 chats al dia</h4><p>Follow-up olvidado. Oportunidades de upsell ignoradas. La calidad cae con el volumen.</p><span class="ls">Costo oculto: oportunidades que nunca se detectan</span></div>
-        <div class="pc rv"><h4>No-shows sin prediccion</h4><p>El 25% no llega. Sin anticipo cobrado, sin recordatorio inteligente, sin reemplazo automatico.</p><span class="ls">Agenda con huecos = dinero evaporandose</span></div>
+        <div class="pain-card rv">
+          <h4>10:47 PM — Paciente escribe</h4>
+          <p>Quiere agendar diseno de sonrisa. Nadie responde. A las 11:02 PM ya esta en Google buscando otra clinica. Usted nunca sabra que existio.</p>
+          <span class="loss">Revenue perdido: silencioso e invisible</span>
+        </div>
+        <div class="pain-card rv rv-delay-1">
+          <h4>80 chats al dia — Una persona</h4>
+          <p>Follow-up olvidado. Oportunidades de upsell ignoradas. La calidad de atencion colapsa con el volumen. No es falta de talento — es falta de infraestructura.</p>
+          <span class="loss">Costo oculto: oportunidades que nadie detecta</span>
+        </div>
+        <div class="pain-card rv rv-delay-2">
+          <h4>25% de no-shows — Predecibles</h4>
+          <p>Sin anticipo cobrado. Sin recordatorio inteligente. Sin reemplazo automatico del hueco. Cada silla vacia es dinero evaporandose.</p>
+          <span class="loss">Agenda con huecos = revenue evaporandose</span>
+        </div>
       </div>
-      <div class="vb rv">
+      <div class="weight-solution rv rv-delay-2">
         <h3>La solucion no es mas nomina.</h3>
-        <p>Es infraestructura inteligente. Un sistema que opera mientras usted duerme, cobra mientras usted almuerza, y detecta oportunidades que ningun humano podria ver a escala.</p>
-        <div class="sts">
-          <div class="st"><div class="sn" data-target="93" data-suffix="%">0</div><div class="sl">Satisfaccion</div></div>
-          <div class="st"><div class="sn" data-target="3" data-prefix="<" data-suffix="s">0</div><div class="sl">Respuesta</div></div>
-          <div class="st"><div class="sn" data-target="24" data-suffix="/7">0</div><div class="sl">Operacion</div></div>
+        <p>Es infraestructura inteligente. Un sistema que opera mientras duermes, cobra mientras almuerzas, y detecta oportunidades que ningun humano podria ver a escala.</p>
+        <p style="margin-top:16px;color:var(--clear);font-weight:400">Tu trabajo es curar. El nuestro es que cada paciente que toca tu puerta — digital o fisica — sea atendido con precision.</p>
+        <div class="weight-stats">
+          <div class="weight-stat"><span class="weight-stat-num" data-target="93" data-suffix="%">0</span><span class="weight-stat-label">Satisfaccion</span></div>
+          <div class="weight-stat"><span class="weight-stat-num" data-target="3" data-prefix="<" data-suffix="s">0</span><span class="weight-stat-label">Respuesta</span></div>
+          <div class="weight-stat"><span class="weight-stat-num" data-target="24" data-suffix="/7">0</span><span class="weight-stat-label">Operacion</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMO FUNCIONA -->
-<section class="ds-s">
+<!-- ============================================================
+     ACT 3 — THE AWAKENING
+     SofIA exists. Light returns. Hope.
+     ============================================================ -->
+<section class="act-awakening" id="sofia">
   <div class="ctn ct">
-    <span class="tag rv">Como funciona</span>
-    <h2 class="tt rv">De mensaje a revenue en <em>4 pasos.</em></h2>
-    <p class="ds rv">Cada paso es autonomo. Cada paso genera datos. Cada dato mejora el siguiente ciclo.</p>
-    <div class="stp">
-      <div class="sp rv"><span class="sp-n">01</span><h4>Recibe</h4><p>WhatsApp, voz, web chat. SofIA atiende en 3 segundos con contexto completo del paciente.</p></div>
-      <div class="sp rv"><span class="sp-n">02</span><h4>Agenda</h4><p>Verifica disponibilidad real, sugiere horarios, confirma la cita. Sin doble-booking.</p></div>
-      <div class="sp rv"><span class="sp-n">03</span><h4>Cobra</h4><p>Link de pago por WhatsApp. Tarjeta, PSE, Nequi. La cita solo se confirma con anticipo.</p></div>
-      <div class="sp rv"><span class="sp-n">04</span><h4>Optimiza</h4><p>Detecta oportunidades, reactivaciones, upsell. Cada interaccion alimenta el modelo.</p></div>
+    <span class="tag rv">El despertar</span>
+    <h2 class="section-title rv">De mensaje a revenue en <em>4 pasos.</em></h2>
+    <p class="section-desc rv">Cada paso es autonomo. Cada paso genera datos. Cada dato mejora el siguiente ciclo.</p>
+
+    <div class="steps">
+      <div class="step rv"><span class="step-num">01 — RECIBE</span><h4>Atencion Inmediata</h4><p>WhatsApp, voz, web chat. SofIA atiende en 3 segundos con contexto completo del paciente. A las 3 AM o a las 3 PM.</p></div>
+      <div class="step rv rv-delay-1"><span class="step-num">02 — AGENDA</span><h4>Sin Doble-Booking</h4><p>Verifica disponibilidad real, sugiere horarios, confirma. Si cancela, el hueco se llena automaticamente.</p></div>
+      <div class="step rv rv-delay-2"><span class="step-num">03 — COBRA</span><h4>Anticipo por WhatsApp</h4><p>Link de pago en la conversacion. Tarjeta, PSE, Nequi. La cita solo se confirma con anticipo pagado.</p></div>
+      <div class="step rv rv-delay-3"><span class="step-num">04 — OPTIMIZA</span><h4>IA que Aprende</h4><p>Detecta oportunidades, reactivaciones, upsell. Cada interaccion alimenta el modelo. Tu clinica mejora cada dia.</p></div>
     </div>
-    <!-- CHAT DEMO -->
-    <div class="chw rv">
-      <div class="chh">
-        <div class="cha">S</div>
-        <div class="chi"><h5>SofIA</h5><span>Online</span></div>
+
+    <!-- Live chat demo -->
+    <div class="chat-window rv">
+      <div class="chat-header">
+        <div class="chat-avatar">S</div>
+        <div class="chat-info"><h5>SofIA</h5><span>Online — Clinica Bella Vita</span></div>
       </div>
-      <div class="chb" id="chatDemo"></div>
+      <div class="chat-body" id="chatDemo"></div>
+    </div>
+  </div>
+
+  <!-- Features as narrative, not grid -->
+  <div class="ctn features-narrative">
+    <div class="feature-row rv">
+      <div class="feature-content">
+        <span class="tag">Atencion 24/7</span>
+        <h3>Nunca mas un paciente sin respuesta.</h3>
+        <p>SofIA responde por WhatsApp con empatia real. Entrenada con tu catalogo, tus precios, tus protocolos. A las 10 PM o a las 6 AM — la misma calidad. Los pacientes creen que hablan con tu mejor coordinadora.</p>
+      </div>
+      <div class="feature-visual">
+        <div class="vis-whatsapp">
+          <div class="vis-msg vis-msg-in">Hola, quisiera info sobre implantes</div>
+          <div class="vis-msg vis-msg-out" style="animation-delay:.3s">Hola! Soy SofIA de Clinica Bella Vita. Tenemos 3 opciones de implantes...</div>
+          <div class="vis-msg vis-msg-in" style="animation-delay:.6s">Cuanto cuesta y tienen disponibilidad?</div>
+          <div class="vis-msg vis-msg-out" style="animation-delay:.9s">Desde $1,200 USD. Tengo disponible manana a las 10 AM. Le agendo?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-row rv">
+      <div class="feature-content">
+        <span class="tag">Agendamiento Inteligente</span>
+        <h3>Cada hueco se llena. Cada cita se confirma.</h3>
+        <p>Calendario vivo que verifica disponibilidad real, maneja cancelaciones con lista de espera, y envia recordatorios inteligentes. No-shows bajan de 35% a 8%.</p>
+      </div>
+      <div class="feature-visual">
+        <div class="vis-calendar" id="miniCal"></div>
+      </div>
+    </div>
+
+    <div class="feature-row rv">
+      <div class="feature-content">
+        <span class="tag">Cobros Automaticos</span>
+        <h3>El anticipo se cobra antes de confirmar.</h3>
+        <p>Links de pago directo en WhatsApp. Tarjeta, PSE, Nequi, Bancolombia. Sin ir a la clinica. Sin llamadas. El paciente paga, la cita se confirma. Cero deudas.</p>
+      </div>
+      <div class="feature-visual">
+        <div class="vis-payment">
+          <span class="vis-pay-amount">$200</span>
+          <div class="vis-pay-status">Anticipo confirmado</div>
+          <p style="font-size:9px;color:var(--muted);margin-top:12px;text-transform:uppercase;letter-spacing:2px">Diseno de sonrisa — Dr. Ramirez — Jue 3:00 PM</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-row rv">
+      <div class="feature-content">
+        <span class="tag">Motor de Oportunidades</span>
+        <h3>Revenue que ningun humano podria detectar.</h3>
+        <p>SofIA escanea cada conversacion buscando senales: upsell, reactivacion, paciente de alto valor, referidos. Oportunidades que a escala humana son invisibles.</p>
+      </div>
+      <div class="feature-visual">
+        <div class="vis-radar">
+          <div class="vis-radar-ring"></div>
+          <div class="vis-radar-ring"></div>
+          <div class="vis-radar-ring"></div>
+          <div class="vis-radar-dot"></div>
+          <div class="vis-radar-dot"></div>
+          <div class="vis-radar-dot"></div>
+          <div class="vis-radar-center"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SOCIAL PROOF TICKER -->
-<div class="spt">
-  <div class="spt-inner">
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Clinica Bella Vita</span> agendo 12 citas anoche</div>
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Dr. Rodriguez</span> recupero $4,200 USD este mes</div>
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Centro Estetico Luna</span> redujo no-shows 67%</div>
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Implantes del Sur</span> opera 2 sedes con SofIA</div>
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Dra. Martinez</span> ahorra $1,800 USD/mes en nomina</div>
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Sonrisa Vital</span> 100% pacientes no saben que es IA</div>
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Clinica Bella Vita</span> agendo 12 citas anoche</div>
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Dr. Rodriguez</span> recupero $4,200 USD este mes</div>
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Centro Estetico Luna</span> redujo no-shows 67%</div>
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Implantes del Sur</span> opera 2 sedes con SofIA</div>
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Dra. Martinez</span> ahorra $1,800 USD/mes en nomina</div>
-    <div class="spt-item"><span class="spt-dot"></span><span class="spt-name">Sonrisa Vital</span> 100% pacientes no saben que es IA</div>
-  </div>
-</div>
-
-<!-- TESTIMONIOS -->
-<section id="testimonios">
-  <div class="ctn ct">
-    <span class="tag rv">Resultados reales</span>
-    <h2 class="tt rv">Clinicas que operan solas con <em>SofIA.</em></h2>
-    <p class="ds rv">Cada numero es verificable. Cada doctor es real. Sin testimonios inventados.</p>
-    <div class="tst-grid">
-      <div class="tst-card rv">
-        <div class="tst-stars"><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span></div>
-        <p class="tst-quote">Activamos SofIA un viernes a las 5 PM. El lunes ya tenia 14 citas nuevas que nunca habriamos captado. 14 citas. En un fin de semana. Sin que nadie tocara un telefono.</p>
-        <div class="tst-author"><div class="tst-avatar">CR</div><div><div class="tst-name">Dr. Carlos Ramirez</div><div class="tst-meta">Clinica Bella Vita / Bogota / Dic 2025</div></div></div>
-        <div class="tst-result">+14 citas en el primer fin de semana</div>
-      </div>
-      <div class="tst-card rv">
-        <div class="tst-stars"><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span></div>
-        <p class="tst-quote">Los no-shows bajaron de 35% a 8%. SofIA cobra el anticipo por WhatsApp antes de confirmar. Si no pagan, el hueco se llena automaticamente con lista de espera.</p>
-        <div class="tst-author"><div class="tst-avatar">MR</div><div><div class="tst-name">Dra. Maria Rodriguez</div><div class="tst-meta">Estetica Avanzada / Medellin / Ene 2026</div></div></div>
-        <div class="tst-result">No-shows: 35% a 8%</div>
-      </div>
-      <div class="tst-card rv">
-        <div class="tst-stars"><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span></div>
-        <p class="tst-quote">Tenia miedo de que los pacientes se incomodaran con una IA. Todo lo contrario. Me escriben diciendo que la coordinadora es muy atenta. SofIA tiene mas paciencia que cualquier humano.</p>
-        <div class="tst-author"><div class="tst-avatar">AV</div><div><div class="tst-name">Dr. Andres Vargas</div><div class="tst-meta">Clinica Sonrisa Vital / Cali / Ene 2026</div></div></div>
-        <div class="tst-result">Pacientes no saben que hablan con IA</div>
-      </div>
-      <div class="tst-card rv">
-        <div class="tst-stars"><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span></div>
-        <p class="tst-quote">El cobro de anticipos cambio nuestra operacion. Antes el 40% de los agendados llegaba sin pagar. Ahora SofIA cobra el anticipo antes de confirmar la cita. Cero deudas, cero sorpresas.</p>
-        <div class="tst-author"><div class="tst-avatar">LP</div><div><div class="tst-name">Dra. Laura Pedraza</div><div class="tst-meta">Centro Estetico Lumina / Barranquilla / Feb 2026</div></div></div>
-        <div class="tst-result">Cobros anticipos: 0% a 100%</div>
-      </div>
-      <div class="tst-card rv">
-        <div class="tst-stars"><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span></div>
-        <p class="tst-quote">Somos dos sedes. Antes necesitabamos dos recepcionistas para cada una. Ahora SofIA maneja ambas 24/7. Ahorramos $1,600 USD al mes en nomina y la atencion mejoro.</p>
-        <div class="tst-author"><div class="tst-avatar">FG</div><div><div class="tst-name">Dr. Felipe Gomez</div><div class="tst-meta">Implantologia del Norte / Bucaramanga / Mar 2026</div></div></div>
-        <div class="tst-result">$1,600 USD/mes ahorrados en nomina</div>
-      </div>
-      <div class="tst-card rv">
-        <div class="tst-stars"><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span><span class="tst-star">*</span></div>
-        <p class="tst-quote">La primera semana me costo soltar el control. Pero el dashboard me muestra todo en tiempo real: leads, pagos, no-shows de manana. Ahora no entiendo como operaba sin esto.</p>
-        <div class="tst-author"><div class="tst-avatar">SC</div><div><div class="tst-name">Dra. Sara Castro</div><div class="tst-meta">Medicina Estetica Avanzada / Bogota / Feb 2026</div></div></div>
-        <div class="tst-result">Control total en tiempo real</div>
-      </div>
-    </div>
-    <!-- TRUST BADGES -->
-    <div class="trust-badges rv" style="margin-top:32px">
-      <div class="t-badge"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Cifrado E2E</div>
-      <div class="t-badge"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Ley 1581 Habeas Data</div>
-      <div class="t-badge"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>99.9% Uptime SLA</div>
-      <div class="t-badge"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Aislamiento total de datos</div>
-    </div>
-  </div>
-</section>
-
-<!-- SOFIA FEATURES -->
-<section id="sofia" class="ds-s">
-  <div class="ctn ct">
-    <span class="tag rv">Capacidades</span>
-    <h2 class="tt rv">No es un chatbot. Es el <em>sistema operativo</em> de tu clinica.</h2>
-    <p class="ds rv">Cada modulo opera autonomamente. Cada modulo genera datos. Cada dato mejora el siguiente ciclo.</p>
-  </div>
-  <div class="ctn" style="margin-top:32px">
-    <div class="fg stagger">
-      <div class="fc rv"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M10 21h4" opacity=".5"/></svg></div><h4>Atencion Autonoma 24/7</h4><p>Responde por WhatsApp con empatia real. Entrenada con tu catalogo, precios y protocolos. Con redundancia automatica.</p></div>
-      <div class="fc rv"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1" opacity=".5"/><path d="M12 18v4m-4 0h8" opacity=".5"/></svg></div><h4>Voz Natural por Telefono</h4><p>Llamadas entrantes y salientes con voz humana. Confirma citas, hace follow-up, responde a las 3AM.</p></div>
-      <div class="fc rv"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18" opacity=".5"/><path d="M16 2v4M8 2v4" opacity=".5"/></svg></div><h4>Agendamiento Inteligente</h4><p>Gestiona citas, confirma asistencias, reagenda cancelaciones, llena huecos automaticamente.</p></div>
-      <div class="fc rv"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20" opacity=".5"/><path d="M6 15h4" opacity=".5"/></svg></div><h4>Cobros Automaticos</h4><p>Links de pago por WhatsApp. Cobra anticipos antes de confirmar. Tarjeta, PSE, Nequi, Bancolombia.</p></div>
-      <div class="fc rv"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="#8B5CF6" opacity=".2"/><circle cx="12" cy="12" r="1" fill="#8B5CF6"/></svg></div><h4>Motor de Oportunidades</h4><p>Detecta oportunidades de ingreso en cada conversacion: ventas adicionales, reactivaciones, pacientes de alto valor.</p></div>
-      <div class="fc rv"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="4" height="6" fill="#8B5CF6" opacity=".15"/><rect x="10" y="10" width="4" height="10" fill="#8B5CF6" opacity=".15"/><rect x="16" y="6" width="4" height="14" fill="#8B5CF6" opacity=".15"/><path d="M4 20h16"/></svg></div><h4>Panel de Control Total</h4><p>Visualiza todo tu negocio en tiempo real. Historial, analisis de cada paciente, proxima accion sugerida.</p></div>
-      <div class="fc rv"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M2 12h4m12 0h4" opacity=".5"/><path d="M17 7l-5 5-5-5"/><path d="M7 17l5-5 5 5"/></svg></div><h4>Automatizaciones Inteligentes</h4><p>Recordatorios, seguimientos, reactivaciones. Multiples flujos operando en paralelo. Tu clinica nunca para.</p></div>
-      <div class="fc rv"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-1.5 2-4 3-6 3 0 5 2.5 9.5 6 12 3.5-2.5 6-7 6-12-2 0-4.5-1-6-3z"/><path d="M12 8v4l2 2" opacity=".5"/></svg></div><h4>IA que Aprende de Ti</h4><p>SofIA se adapta a tu clinica especifica. Cada operacion mejora continuamente con base en tus resultados.</p></div>
-      <div class="fc rv"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20" opacity=".5"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg></div><h4>Inteligencia Regional</h4><p>SofIA aprende del ecosistema completo. Datos 100% anonimizados. Mas clinicas = SofIA mas efectiva para todos.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ANTES / DESPUES -->
-<section>
+<!-- ============================================================
+     ACT 3.5 — THE CONTRAST
+     Before/After + ROI. The math.
+     ============================================================ -->
+<section class="act-contrast">
   <div class="ctn ct">
     <span class="tag rv">La diferencia</span>
-    <h2 class="tt rv">Sin SofIA vs. <em>Con SofIA.</em></h2>
-    <div class="bag">
-      <div class="bac bf rv">
-        <span class="bal">Sin SofIA</span>
-        <div class="bar"><span>Atencion nocturna</span><span>0%</span></div>
-        <div class="bar"><span>Tiempo de respuesta</span><span>4-12 horas</span></div>
-        <div class="bar"><span>Follow-up post-procedimiento</span><span>Manual / Olvidado</span></div>
-        <div class="bar"><span>Deteccion de upsell</span><span>Depende del humor</span></div>
-        <div class="bar"><span>Cobro de anticipos</span><span>Solo presencial</span></div>
-        <div class="bar"><span>Prediccion de no-shows</span><span>Inexistente</span></div>
-        <div class="bar"><span>Datos de conversion</span><span>Ninguno</span></div>
-        <div class="bar"><span>Costo mensual equivalente</span><span>$1,200-2,000 USD</span></div>
+    <h2 class="section-title rv">Sin SofIA vs. <em>Con SofIA.</em></h2>
+
+    <div class="contrast-grid rv">
+      <div class="contrast-col before">
+        <span class="contrast-label">Sin SofIA</span>
+        <div class="contrast-row"><span>Atencion nocturna</span><span>0%</span></div>
+        <div class="contrast-row"><span>Tiempo de respuesta</span><span>4-12 horas</span></div>
+        <div class="contrast-row"><span>Follow-up</span><span>Manual / Olvidado</span></div>
+        <div class="contrast-row"><span>Deteccion de upsell</span><span>Depende del humor</span></div>
+        <div class="contrast-row"><span>Cobro anticipos</span><span>Solo presencial</span></div>
+        <div class="contrast-row"><span>No-show prediction</span><span>Inexistente</span></div>
+        <div class="contrast-row"><span>Costo equivalente</span><span>$1,200-2,000 USD/mes</span></div>
       </div>
-      <div class="bac af rv">
-        <span class="bal">Con SofIA</span>
-        <div class="bar"><span>Atencion nocturna</span><span>100% — 24/7</span></div>
-        <div class="bar"><span>Tiempo de respuesta</span><span>&lt; 3 segundos</span></div>
-        <div class="bar"><span>Follow-up post-procedimiento</span><span>100% automatico</span></div>
-        <div class="bar"><span>Deteccion de upsell</span><span>En cada conversacion</span></div>
-        <div class="bar"><span>Cobro de anticipos</span><span>Por WhatsApp, 24/7</span></div>
-        <div class="bar"><span>Prediccion de no-shows</span><span>6 factores de IA</span></div>
-        <div class="bar"><span>Datos de conversion</span><span>Dashboard en tiempo real</span></div>
-        <div class="bar"><span>Costo mensual</span><span>Desde $119.000 COP</span></div>
+      <div class="contrast-col after">
+        <span class="contrast-label">Con SofIA</span>
+        <div class="contrast-row"><span>Atencion nocturna</span><span>100% — 24/7</span></div>
+        <div class="contrast-row"><span>Tiempo de respuesta</span><span>&lt; 3 segundos</span></div>
+        <div class="contrast-row"><span>Follow-up</span><span>100% automatico</span></div>
+        <div class="contrast-row"><span>Deteccion de upsell</span><span>En cada conversacion</span></div>
+        <div class="contrast-row"><span>Cobro anticipos</span><span>WhatsApp, 24/7</span></div>
+        <div class="contrast-row"><span>No-show prediction</span><span>6 factores de IA</span></div>
+        <div class="contrast-row"><span>Costo</span><span>Desde $119.000 COP</span></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ROI ESTATICO -->
-<section class="ds-s">
-  <div class="ctn ct">
-    <span class="tag rv">El math no miente</span>
-    <h2 class="tt rv">SofIA se paga sola el <em>primer mes.</em></h2>
-    <p class="ds rv">Numeros conservadores para una clinica promedio en Colombia.</p>
-    <div class="rc rv">
-      <div class="rr"><span>Pacientes perdidos por falta de respuesta nocturna</span><span>~8/mes</span></div>
-      <div class="rr"><span>Ticket promedio procedimiento estetico</span><span>$800 USD</span></div>
-      <div class="rr"><span>Revenue recuperado por SofIA (8 x $800)</span><span>$6,400 USD</span></div>
-      <div class="rr"><span>Revenue adicional por upsell/cross-sell</span><span>~$2,100 USD</span></div>
-      <div class="rr"><span>Ahorro en nomina de coordinacion</span><span>~$800 USD</span></div>
-      <div class="rt"><span>ROI mensual estimado</span><span>$9,300 USD</span></div>
+    <div class="roi-card rv">
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:3px;color:var(--amb);margin-bottom:16px;text-align:center">El math no miente</div>
+      <div class="roi-row"><span>Pacientes perdidos por noche sin respuesta</span><span>~8/mes</span></div>
+      <div class="roi-row"><span>Ticket promedio procedimiento estetico</span><span>$800 USD</span></div>
+      <div class="roi-row"><span>Revenue recuperado por SofIA</span><span>$6,400 USD</span></div>
+      <div class="roi-row"><span>Revenue adicional por upsell/cross-sell</span><span>~$2,100 USD</span></div>
+      <div class="roi-row"><span>Ahorro en nomina de coordinacion</span><span>~$800 USD</span></div>
+      <div class="roi-total"><span>ROI mensual estimado</span><span>$9,300 USD</span></div>
     </div>
-  </div>
-</section>
 
-<!-- CALCULADORA ROI -->
-<section>
-  <div class="ctn ct">
-    <span class="tag rv">Calcula tu ROI</span>
-    <h2 class="tt rv">Cuanto dinero estas dejando ir <em>hoy?</em></h2>
-    <p class="ds rv">Mueve los sliders. Ve cuanto revenue recuperas con SofIA en tu clinica especifica.</p>
+    <!-- ROI Calculator -->
+    <div style="margin-top:48px">
+      <span class="tag rv" style="text-align:center;margin-left:auto;margin-right:auto">Calcula tu ROI</span>
+      <h2 class="section-title rv" style="text-align:center;margin:0 auto;max-width:500px">Cuanto dinero estas dejando ir <em>hoy?</em></h2>
+    </div>
     <div class="roi-calc rv">
       <div class="roi-sliders">
         <div class="roi-slider-group">
@@ -763,72 +816,98 @@ footer{border-top:1px solid var(--brd);padding:40px 32px 24px}
         <span class="roi-mult" id="roiMult">Calculando...</span>
       </div>
       <div style="text-align:center;margin-top:20px">
-        <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bp" data-cta="calc-cta">Empieza a Recuperar Este Dinero</a>
+        <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="btn btn-primary" data-cta="calc-cta">Empieza a Recuperar Este Dinero</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CARTA DEL FUNDADOR -->
-<section class="ds-s">
+<!-- ============================================================
+     ACT 4 — THE VISION
+     Testimonials. Social proof. Trust.
+     ============================================================ -->
+<section class="act-vision" id="resultados">
   <div class="ctn ct">
-    <span class="tag rv">Una palabra del fundador</span>
-    <h2 class="tt rv" style="max-width:480px">Por que construimos <em>SofIA.</em></h2>
-    <div class="founder-card rv" style="margin-top:32px;text-align:left">
-      <p class="founder-quote">
-        Vi de primera mano como clinicas increibles — con medicos brillantes y servicios de primer nivel — perdian pacientes cada noche simplemente porque nadie podia responder. Vi coordinadoras excelentes abrumadas por 80 chats al dia, sin poder dar el seguimiento que los pacientes merecian.
-        <br><br>
-        No era un problema de talento. Era un problema de infraestructura. La clinica del siglo XXI necesita un sistema operativo inteligente, no mas nomina.
-        <br><br>
-        SofIA es esa infraestructura. La construimos para que el mejor medico de tu ciudad tenga la misma tecnologia que las grandes empresas de salud, pero adaptada a la realidad de una clinica en Bogota, Medellin o Cali.
-        <br><br>
-        Tu trabajo es curar. El nuestro es asegurarnos de que nunca pierdas un paciente por razones operativas.
-      </p>
-      <div class="founder-sig">
-        <div class="founder-avatar">A</div>
-        <div>
-          <div class="founder-name">Equipo Ataraxia IA Labs</div>
-          <div class="founder-role">Fundadores / Bogota, Colombia</div>
-        </div>
+    <span class="tag rv">Resultados reales</span>
+    <h2 class="section-title rv">Clinicas que ya operan solas con <em>SofIA.</em></h2>
+    <p class="section-desc rv">Cada numero es verificable. Cada doctor es real.</p>
+
+    <!-- Social proof ticker -->
+    <div class="proof-ticker rv">
+      <div class="proof-inner">
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Clinica Bella Vita</span> agendo 12 citas anoche</div>
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Dr. Rodriguez</span> recupero $4,200 USD este mes</div>
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Centro Estetico Luna</span> redujo no-shows 67%</div>
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Implantes del Sur</span> opera 2 sedes con SofIA</div>
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Dra. Martinez</span> ahorra $1,800 USD/mes en nomina</div>
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Sonrisa Vital</span> 100% pacientes no saben que es IA</div>
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Clinica Bella Vita</span> agendo 12 citas anoche</div>
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Dr. Rodriguez</span> recupero $4,200 USD este mes</div>
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Centro Estetico Luna</span> redujo no-shows 67%</div>
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Implantes del Sur</span> opera 2 sedes con SofIA</div>
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Dra. Martinez</span> ahorra $1,800 USD/mes en nomina</div>
+        <div class="proof-item"><span class="proof-dot"></span><span class="proof-name">Sonrisa Vital</span> 100% pacientes no saben que es IA</div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- EMPRESA -->
-<section>
-  <div class="ctn ct">
-    <span class="tag rv">La empresa detras</span>
-    <h2 class="tt rv">Ataraxia es a SofIA lo que <em>Apple es a iPhone.</em></h2>
-    <p class="ds rv">SofIA es nuestro primer producto vertical. Ataraxia IA Labs es la infraestructura de IA que puede operar cualquier industria de forma autonoma.</p>
-    <div class="arv">
-      <div class="ab ap rv"><span class="tg">La Empresa</span><h3>Ataraxia IA Labs</h3><p>Laboratorio de infraestructura de IA. Sistemas que operan negocios de forma autonoma.</p></div>
-      <div class="aaw rv">&rarr;</div>
-      <div class="ab ac rv"><span class="tg">Primer Producto</span><h3>SofIA</h3><p>Sistema operativo para clinicas de estetica y odontologia. El primer vertical de muchos.</p></div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card rv">
+        <div class="testimonial-stars"><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span></div>
+        <p class="testimonial-quote">Activamos SofIA un viernes a las 5 PM. El lunes ya tenia 14 citas nuevas que nunca habriamos captado. 14 citas. En un fin de semana.</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">CR</div><div><div class="testimonial-name">Dr. Carlos Ramirez</div><div class="testimonial-meta">Clinica Bella Vita / Bogota</div></div></div>
+        <div class="testimonial-result">+14 citas primer fin de semana</div>
+      </div>
+      <div class="testimonial-card rv rv-delay-1">
+        <div class="testimonial-stars"><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span></div>
+        <p class="testimonial-quote">Los no-shows bajaron de 35% a 8%. SofIA cobra el anticipo por WhatsApp antes de confirmar. Si no pagan, el hueco se llena automaticamente.</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">MR</div><div><div class="testimonial-name">Dra. Maria Rodriguez</div><div class="testimonial-meta">Estetica Avanzada / Medellin</div></div></div>
+        <div class="testimonial-result">No-shows: 35% a 8%</div>
+      </div>
+      <div class="testimonial-card rv rv-delay-2">
+        <div class="testimonial-stars"><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span></div>
+        <p class="testimonial-quote">Tenia miedo de que los pacientes se incomodaran. Todo lo contrario. Me dicen que la coordinadora es muy atenta. SofIA tiene mas paciencia que cualquier humano.</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">AV</div><div><div class="testimonial-name">Dr. Andres Vargas</div><div class="testimonial-meta">Sonrisa Vital / Cali</div></div></div>
+        <div class="testimonial-result">Pacientes no saben que es IA</div>
+      </div>
+      <div class="testimonial-card rv rv-delay-1">
+        <div class="testimonial-stars"><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span></div>
+        <p class="testimonial-quote">El cobro de anticipos cambio nuestra operacion. Antes el 40% llegaba sin pagar. Ahora SofIA cobra antes de confirmar. Cero deudas, cero sorpresas.</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">LP</div><div><div class="testimonial-name">Dra. Laura Pedraza</div><div class="testimonial-meta">Centro Estetico Lumina / Barranquilla</div></div></div>
+        <div class="testimonial-result">Cobros anticipos: 0% a 100%</div>
+      </div>
+      <div class="testimonial-card rv rv-delay-2">
+        <div class="testimonial-stars"><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span></div>
+        <p class="testimonial-quote">Dos sedes. Antes necesitabamos dos recepcionistas para cada una. Ahora SofIA maneja ambas 24/7. Ahorramos $1,600 USD al mes.</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">FG</div><div><div class="testimonial-name">Dr. Felipe Gomez</div><div class="testimonial-meta">Implantologia del Norte / Bucaramanga</div></div></div>
+        <div class="testimonial-result">$1,600 USD/mes ahorrados</div>
+      </div>
+      <div class="testimonial-card rv rv-delay-3">
+        <div class="testimonial-stars"><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span><span class="testimonial-star">*</span></div>
+        <p class="testimonial-quote">La primera semana me costo soltar el control. Pero el dashboard me muestra todo en tiempo real. Ahora no entiendo como operaba sin esto.</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">SC</div><div><div class="testimonial-name">Dra. Sara Castro</div><div class="testimonial-meta">Medicina Estetica / Bogota</div></div></div>
+        <div class="testimonial-result">Control total en tiempo real</div>
+      </div>
+    </div>
+
+    <div class="trust-badges rv">
+      <div class="trust-badge"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Cifrado E2E</div>
+      <div class="trust-badge"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Ley 1581 Habeas Data</div>
+      <div class="trust-badge"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>99.9% Uptime SLA</div>
+      <div class="trust-badge"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Aislamiento total</div>
     </div>
   </div>
 </section>
 
-<!-- MERCADO -->
-<section class="ds-s">
-  <div class="ctn ct">
-    <span class="tag rv">El mercado</span>
-    <h2 class="tt rv">Una oportunidad <em>masiva.</em></h2>
-    <p class="ds rv">Interseccion de dos megatendencias: IA autonoma y digitalizacion de la salud en LATAM.</p>
-    <div class="pns">
-      <div class="pi rv"><div class="nm">30,000+</div><div class="lb">Clinicas esteticas y dentales en Colombia</div></div>
-      <div class="pi rv"><div class="nm">$4.2B</div><div class="lb">Mercado estetico LATAM</div></div>
-      <div class="pi rv"><div class="nm">&lt;2%</div><div class="lb">Usan IA operativa autonoma</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
+<!-- ============================================================
+     ACT 4.5 — THE INVITATION (pricing)
+     Not "buy". Enter. Join.
+     ============================================================ -->
+<section class="act-pricing" id="inversion">
   <div class="ctn ct">
     <span class="tag rv">Inversion</span>
-    <h2 class="tt rv">Invierte en inteligencia, <em>no en nomina.</em></h2>
-    <p class="ds rv">Empieza gratis 7 dias. Sin tarjeta. Sin contratos. Cancela cuando quieras.</p>
+    <h2 class="section-title rv">Menos que un almuerzo diario. Mas que <em>una empleada 24/7.</em></h2>
+    <p class="section-desc rv">7 dias gratis. Sin tarjeta. Sin contratos. Cancela cuando quieras.</p>
+
     <div class="price-toggle rv">
       <span class="active" id="togMonthly">Mensual</span>
       <div class="toggle-track" id="priceToggle" onclick="togglePricing()">
@@ -837,49 +916,49 @@ footer{border-top:1px solid var(--brd);padding:40px 32px 24px}
       <span id="togAnnual">Anual</span>
       <span class="annual-badge">2 meses gratis</span>
     </div>
-    <div class="prg stagger">
-      <div class="pk rv">
-        <span class="pnm">Starter</span>
-        <h3><span class="p-monthly">$119.000 <span>COP / mes</span></span><span class="p-annual">$1.190.000 <span>COP / ano</span></span></h3>
+
+    <div class="pricing-grid rv">
+      <div class="plan">
+        <span class="plan-name">Starter</span>
+        <h3><span class="p-monthly">$119.000 <span>COP/mes</span></span><span class="p-annual">$1.190.000 <span>COP/ano</span></span></h3>
         <p class="price-annual">equiv. $99.167/mes</p>
-        <p class="pd">Para clinicas que inician con inteligencia artificial.</p>
+        <p class="plan-desc">Para clinicas que inician con IA.</p>
         <ul>
-          <li>SofIA en 1 linea de WhatsApp</li>
+          <li>1 linea de WhatsApp</li>
           <li>Atencion autonoma 24/7</li>
           <li>Agendamiento inteligente</li>
-          <li>Hasta 500 conversaciones/mes</li>
+          <li>500 conversaciones/mes</li>
           <li>Dashboard basico</li>
           <li>1 sede</li>
         </ul>
-        <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bg" data-cta="pricing-starter">Empezar Gratis</a>
-        <p class="pk-trial-note">7 dias gratis / Sin tarjeta</p>
+        <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="btn btn-ghost" data-cta="pricing-starter">Empezar Gratis</a>
+        <p class="plan-trial-note">7 dias gratis / Sin tarjeta</p>
       </div>
-      <div class="pk ft rv">
-        <div class="pkb">Recomendado</div>
-        <span class="pnm">Pro</span>
-        <h3><span class="p-monthly">$319.000 <span>COP / mes</span></span><span class="p-annual">$3.190.000 <span>COP / ano</span></span></h3>
+      <div class="plan featured">
+        <div class="plan-badge">Recomendado</div>
+        <span class="plan-name">Pro</span>
+        <h3><span class="p-monthly">$319.000 <span>COP/mes</span></span><span class="p-annual">$3.190.000 <span>COP/ano</span></span></h3>
         <p class="price-annual">equiv. $265.833/mes</p>
-        <p class="pd">Maximiza revenue con voz AI y automatizaciones completas.</p>
+        <p class="plan-desc">Revenue maximo con voz AI.</p>
         <ul>
-          <li>Todo en Starter, mas:</li>
-          <li>Voice AI (100 llamadas/mes)</li>
+          <li>Todo en Starter +</li>
+          <li>Voice AI (100 llamadas)</li>
           <li>Conversaciones ilimitadas</li>
           <li>5 bots automaticos</li>
           <li>Links de pago (Wompi)</li>
           <li>Pipeline CRM</li>
           <li>Hasta 3 sedes</li>
         </ul>
-        <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bp" data-cta="pricing-pro">Empezar Gratis</a>
-        <p class="pk-trial-note">7 dias gratis / Sin tarjeta / El mas elegido</p>
+        <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="btn btn-primary" data-cta="pricing-pro">Empezar Gratis</a>
+        <p class="plan-trial-note">7 dias gratis / El mas elegido</p>
       </div>
-      <div class="pk rv">
-        <span class="pnm">Business</span>
-        <h3><span class="p-monthly">$549.000 <span>COP / mes</span></span><span class="p-annual">$5.490.000 <span>COP / ano</span></span></h3>
+      <div class="plan">
+        <span class="plan-name">Business</span>
+        <h3><span class="p-monthly">$549.000 <span>COP/mes</span></span><span class="p-annual">$5.490.000 <span>COP/ano</span></span></h3>
         <p class="price-annual">equiv. $457.500/mes</p>
-        <p class="pd">Operacion completa multicanal con revenue engine.</p>
+        <p class="plan-desc">Operacion completa multicanal.</p>
         <ul>
-          <li>Todo en Pro, mas:</li>
-          <li>Outbound calls ilimitados</li>
+          <li>Todo en Pro +</li>
           <li>Voice AI ilimitada</li>
           <li>7 bots automaticos</li>
           <li>Revenue engine completo</li>
@@ -887,124 +966,106 @@ footer{border-top:1px solid var(--brd);padding:40px 32px 24px}
           <li>Hasta 10 sedes</li>
           <li>Soporte prioritario</li>
         </ul>
-        <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bg" data-cta="pricing-business">Empezar Gratis</a>
-        <p class="pk-trial-note">7 dias gratis / Sin tarjeta</p>
+        <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="btn btn-ghost" data-cta="pricing-business">Empezar Gratis</a>
+        <p class="plan-trial-note">7 dias gratis / Sin tarjeta</p>
       </div>
-      <div class="pk rv">
-        <span class="pnm">Enterprise</span>
+      <div class="plan">
+        <span class="plan-name">Enterprise</span>
         <h3>Custom</h3>
-        <p class="pd">Para grupos de clinicas y operaciones a escala.</p>
+        <p class="plan-desc">Grupos de clinicas a escala.</p>
         <ul>
-          <li>Todo en Business, mas:</li>
+          <li>Todo en Business +</li>
           <li>Sedes ilimitadas</li>
-          <li>API & integraciones custom</li>
+          <li>API custom</li>
           <li>Fine-tuning IA propietario</li>
           <li>A/B testing avanzado</li>
           <li>Account manager dedicado</li>
-          <li>SLA garantizado 99.9%</li>
+          <li>SLA 99.9%</li>
         </ul>
-        <a href="#cta" class="bn bg" data-cta="pricing-enterprise">Contactar</a>
+        <a href="#cta" class="btn btn-ghost" data-cta="pricing-enterprise">Contactar</a>
       </div>
     </div>
-    <p class="rv" style="color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.55rem;margin-top:16px;letter-spacing:1px;text-transform:uppercase">Precios en COP. Pago anual: 2 meses gratis. Sin setup fee. Sin contratos.</p>
 
-    <!-- MID-PAGE CTA -->
-    <div class="rv" style="margin-top:40px;background:var(--sf);border:1px solid rgba(139,92,246,.15);border-radius:8px;padding:32px;text-align:center;position:relative;overflow:hidden">
-      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:var(--pur);opacity:.5"></div>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:4px;color:var(--pur);margin-bottom:12px">Programa Fundador</p>
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);font-weight:700;letter-spacing:-.5px;margin-bottom:8px">Prueba SofIA gratis. Sin riesgo. Sin tarjeta.</h3>
-      <p style="color:var(--soft);font-size:.85rem;font-weight:300;margin-bottom:20px;max-width:420px;margin-left:auto;margin-right:auto">7 dias completos con todas las funcionalidades activas. Configuralo en 5 minutos y decide despues.</p>
-      <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bp" style="padding:12px 32px;font-size:.9rem" data-cta="mid-page-urgency">Empezar Prueba Gratis</a>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.48rem;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-top:10px">Sin compromiso / Cancela cuando quieras / Soporte 24/7</p>
-    </div>
-  </div>
-</section>
+    <p class="rv" style="color:var(--muted);font-size:9px;margin-top:16px;letter-spacing:1.5px;text-transform:uppercase;text-align:center">Precios en COP. Pago anual: 2 meses gratis. Sin setup fee.</p>
 
-<!-- GARANTIA -->
-<section class="ds-s">
-  <div class="ctn ct">
-    <div class="gar rv">
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:3px;color:var(--amb);margin-bottom:12px">Garantia</p>
+    <div class="guarantee rv">
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:3px;color:var(--amb);margin-bottom:12px">Garantia</div>
       <h3>30 Dias — Sin Riesgo Absoluto</h3>
-      <p>Si en 30 dias SofIA no reduce tus no-shows o no genera al menos una cita fuera de horario, devolvemos el 100%. Sin formularios, sin argumentos — escribenos a gestion@ataraxiaialabs.ai.</p>
+      <p>Si en 30 dias SofIA no reduce tus no-shows o no genera al menos una cita fuera de horario, devolvemos el 100%. Sin formularios — escribenos a gestion@ataraxiaialabs.ai.</p>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq">
-  <div class="ctn ct">
-    <span class="tag rv">Preguntas Frecuentes</span>
-    <h2 class="tt rv">Todo lo que necesitas <em>saber.</em></h2>
-  </div>
-  <div class="fql">
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>Puedo empezar gratis sin tarjeta de credito?</h4><span class="ar">+</span></div><div class="fqa"><p>Si. Registrate, configura tu clinica en 5 minutos, y tienes 7 dias completos con todas las funcionalidades activas. No te pedimos tarjeta. Al final del trial decides si continuas.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>SofIA reemplaza a mi equipo?</h4><span class="ar">+</span></div><div class="fqa"><p>No. SofIA amplifica a tu equipo. Se encarga de atencion fuera de horario, seguimiento automatico y deteccion de oportunidades — liberando a tu gente para atencion presencial de alto valor.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>Cuanto tarda la implementacion?</h4><span class="ar">+</span></div><div class="fqa"><p>El onboarding toma 5 minutos. El setup completo con entrenamiento de tu catalogo y personalizacion tarda 7-14 dias habiles. Durante ese tiempo SofIA ya esta operando.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>Los pacientes saben que hablan con IA?</h4><span class="ar">+</span></div><div class="fqa"><p>SofIA se presenta como la coordinadora de tu clinica — con el nombre que tu elijas. Tono calido, empatico, profesional. Los pacientes describen a SofIA como atenta y humana.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>Como funcionan los cobros automaticos?</h4><span class="ar">+</span></div><div class="fqa"><p>SofIA genera links de pago y los envia por WhatsApp al confirmar un procedimiento. Soporta tarjeta credito/debito, PSE, Nequi y Bancolombia. El paciente paga sin salir de la conversacion.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>Que pasa si SofIA no sabe responder algo?</h4><span class="ar">+</span></div><div class="fqa"><p>Escala automaticamente al equipo humano con contexto completo. Urgencias medicas, reclamos complejos, situaciones emocionales — SofIA sabe cuando pedir ayuda.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>Mis datos son seguros?</h4><span class="ar">+</span></div><div class="fqa"><p>Arquitectura con aislamiento total de datos. Ley 1581 de Colombia (Habeas Data). Cifrado en transito y en reposo. Monitoreo continuo 24/7. Los datos de tu clinica nunca se mezclan con otros.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>Que es la Inteligencia Regional?</h4><span class="ar">+</span></div><div class="fqa"><p>Inteligencia colectiva con privacidad garantizada. SofIA aprende del ecosistema completo con datos 100% anonimizados. Mas clinicas en la red = SofIA mas efectiva para todos.</p></div></div>
-    <div class="fq rv"><div class="fqq" onclick="this.classList.toggle('op');this.nextElementSibling.classList.toggle('op')"><h4>Tiene garantia?</h4><span class="ar">+</span></div><div class="fqa"><p>30 dias sin riesgo. Si no ves resultados medibles — menos no-shows, mas citas, revenue recuperado — devolvemos el 100% de tu dinero. Sin preguntas.</p></div></div>
-  </div>
-</section>
+<!-- ============================================================
+     ACT 5 — THE PORTAL
+     FAQ + CTA. The door is open.
+     ============================================================ -->
+<section class="act-portal" id="cta">
+  <h2 class="section-title rv" style="margin:0 auto">El futuro de tu clinica empieza con <em>una decision.</em></h2>
+  <p class="section-desc rv" style="margin:16px auto 0;text-align:center">Dos caminos. El mismo destino: tu clinica nunca vuelve a dormir.</p>
 
-<!-- CTA FINAL -->
-<section class="ctf" id="cta">
-  <h2 class="rv">El futuro de tu clinica empieza con <em>una decision.</em></h2>
-  <p class="rv">Empieza ahora mismo o habla primero. Tenemos ambas opciones.</p>
-
-  <div class="rv" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:40px">
-    <div style="background:var(--sf);border:1px solid rgba(6,214,160,.15);border-radius:8px;padding:28px;max-width:280px;text-align:center;position:relative;overflow:hidden">
-      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:var(--cy);opacity:.5"></div>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:3px;color:var(--cy);margin-bottom:12px">Autonomo</p>
-      <h3 style="font-family:'Playfair Display',serif;color:var(--white);font-size:1.1rem;margin-bottom:8px">Empieza Ahora</h3>
-      <p style="color:var(--soft);font-size:.78rem;font-weight:300;margin-bottom:16px;line-height:1.6">Onboarding self-service. Configura en 5 minutos. 7 dias gratis.</p>
-      <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bcy" style="width:100%;display:block;text-align:center" data-cta="final-self-service">Prueba Gratis 7 Dias</a>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.45rem;color:var(--cy);text-transform:uppercase;letter-spacing:1.5px;margin-top:8px">Sin tarjeta / Setup en 5 min</p>
+  <div class="portal-paths rv">
+    <div class="portal-path self">
+      <span class="tag" style="color:var(--cy)">Autonomo</span>
+      <h3>Empieza Ahora</h3>
+      <p>Self-service. Configura en 5 minutos. 7 dias gratis con todo activado.</p>
+      <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="btn btn-cy" data-cta="final-self-service">Entrar — 7 Dias Gratis</a>
+      <p style="font-size:8px;color:var(--cy);text-transform:uppercase;letter-spacing:2px;margin-top:8px">Sin tarjeta / Setup en 5 min</p>
     </div>
-    <div style="background:var(--sf);border:1px solid rgba(139,92,246,.15);border-radius:8px;padding:28px;max-width:280px;text-align:center;position:relative;overflow:hidden">
-      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:var(--pur);opacity:.5"></div>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:3px;color:var(--pur);margin-bottom:12px">Personalizado</p>
-      <h3 style="font-family:'Playfair Display',serif;color:var(--white);font-size:1.1rem;margin-bottom:8px">Habla con Nosotros</h3>
-      <p style="color:var(--soft);font-size:.78rem;font-weight:300;margin-bottom:16px;line-height:1.6">Demo en vivo con el perfil de tu clinica. Respondemos en &lt;24h.</p>
-      <a href="#demo-form" class="bn bp" style="width:100%;display:block;text-align:center" data-cta="final-demo">Solicitar Demo</a>
+    <div class="portal-path demo">
+      <span class="tag">Personalizado</span>
+      <h3>Habla con Nosotros</h3>
+      <p>Demo en vivo con el perfil de tu clinica. Respondemos en &lt;24h.</p>
+      <a href="#demo-form" class="btn btn-primary" data-cta="final-demo">Solicitar Demo</a>
     </div>
   </div>
 
-  <div style="max-width:500px;margin:0 auto">
-    <p style="font-family:'JetBrains Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:3px;color:var(--muted);margin-bottom:20px" id="demo-form">O dejanos tus datos para la demo:</p>
-    <form class="cf rv" onsubmit="handleSubmit(event)">
-      <div class="cfr">
-        <div><label>Nombre</label><input type="text" name="nombre" placeholder="Tu nombre completo" required></div>
+  <!-- FAQ -->
+  <div id="faq">
+    <div class="faq-list">
+      <div class="faq-item rv"><div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><h4>Puedo empezar gratis sin tarjeta?</h4><span class="faq-toggle">+</span></div><div class="faq-a"><p>Si. Registrate, configura en 5 minutos, 7 dias completos con todo activo. No pedimos tarjeta. Al final decides.</p></div></div>
+      <div class="faq-item rv"><div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><h4>SofIA reemplaza a mi equipo?</h4><span class="faq-toggle">+</span></div><div class="faq-a"><p>No. SofIA amplifica. Atencion fuera de horario, seguimiento automatico, deteccion de oportunidades — liberando a tu gente para atencion presencial de alto valor.</p></div></div>
+      <div class="faq-item rv"><div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><h4>Cuanto tarda la implementacion?</h4><span class="faq-toggle">+</span></div><div class="faq-a"><p>Onboarding: 5 minutos. Setup completo con entrenamiento de catalogo: 7-14 dias. Durante ese tiempo SofIA ya esta operando.</p></div></div>
+      <div class="faq-item rv"><div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><h4>Los pacientes saben que hablan con IA?</h4><span class="faq-toggle">+</span></div><div class="faq-a"><p>SofIA se presenta como coordinadora con el nombre que elijas. Tono calido, empatico. Los pacientes la describen como "muy atenta".</p></div></div>
+      <div class="faq-item rv"><div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><h4>Que pasa si SofIA no sabe responder?</h4><span class="faq-toggle">+</span></div><div class="faq-a"><p>Escala al equipo humano con contexto completo. Urgencias medicas, reclamos, situaciones emocionales — SofIA sabe cuando pedir ayuda.</p></div></div>
+      <div class="faq-item rv"><div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><h4>Mis datos son seguros?</h4><span class="faq-toggle">+</span></div><div class="faq-a"><p>Aislamiento total. Ley 1581 Habeas Data. Cifrado en transito y reposo. Monitoreo 24/7. Tus datos nunca se mezclan con otros.</p></div></div>
+      <div class="faq-item rv"><div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')"><h4>Tiene garantia?</h4><span class="faq-toggle">+</span></div><div class="faq-a"><p>30 dias. Si no ves resultados medibles — menos no-shows, mas citas, revenue recuperado — devolvemos el 100%.</p></div></div>
+    </div>
+  </div>
+
+  <!-- Contact form -->
+  <div style="margin-top:56px" id="demo-form">
+    <p style="font-size:9px;text-transform:uppercase;letter-spacing:4px;color:var(--muted);margin-bottom:20px">O dejanos tus datos para la demo</p>
+    <form class="contact-form rv" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div><label>Nombre</label><input type="text" name="nombre" placeholder="Tu nombre" required></div>
         <div><label>Email</label><input type="email" name="email" placeholder="tu@clinica.com" required></div>
       </div>
-      <div class="cfr">
+      <div class="form-row">
         <div><label>Clinica</label><input type="text" name="clinica" placeholder="Nombre de tu clinica"></div>
         <div><label>WhatsApp</label><input type="tel" name="whatsapp" placeholder="+57 300 123 4567" required></div>
       </div>
-      <div><label>Que te interesa?</label><textarea name="mensaje" rows="3" placeholder="Cuentanos sobre tu clinica y que problema quieres resolver..."></textarea></div>
-      <button type="submit" class="bn bp" data-cta="form-submit">Solicitar Demo Personalizada</button>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.5rem;color:var(--muted);text-align:center;margin-top:4px;letter-spacing:1px;text-transform:uppercase">Sin compromiso. Respondemos en menos de 24 horas.</p>
+      <div><label>Mensaje</label><textarea name="mensaje" rows="3" placeholder="Cuentanos sobre tu clinica..."></textarea></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center" data-cta="form-submit">Solicitar Demo</button>
+      <p style="font-size:8px;color:var(--muted);text-align:center;margin-top:4px;letter-spacing:1.5px;text-transform:uppercase">Sin compromiso. Respondemos en menos de 24 horas.</p>
     </form>
   </div>
 </section>
 
 <!-- STICKY BOTTOM BAR -->
-<div class="sbb" id="stickyBar">
-  <div class="sbb-left">
-    <div class="sbb-title">Tu clinica podria estar facturando ahora mismo.</div>
-    <div class="sbb-sub">7 dias gratis / Sin tarjeta / Setup en 5 min</div>
+<div class="sticky-bar" id="stickyBar">
+  <div>
+    <div class="sticky-bar-text">Tu clinica podria estar facturando ahora mismo.</div>
+    <div class="sticky-bar-sub">7 dias gratis / Sin tarjeta / Setup en 5 min</div>
   </div>
-  <div class="sbb-actions">
-    <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bp" style="padding:8px 20px;font-size:.8rem" data-cta="sticky-bar">Empezar Gratis</a>
-    <button class="sbb-close" id="sbbClose" aria-label="Cerrar">&times;</button>
+  <div class="sticky-bar-actions">
+    <a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="btn btn-primary" style="padding:8px 20px;font-size:10px" data-cta="sticky-bar">Entrar Gratis</a>
+    <button class="sticky-bar-close" id="sbbClose" aria-label="Cerrar">&times;</button>
   </div>
 </div>
 
 <!-- WHATSAPP FAB -->
-<a href="https://wa.me/573001234567" class="waf" target="_blank" rel="noopener" aria-label="WhatsApp">
+<a href="https://wa.me/573001234567" class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
@@ -1012,14 +1073,14 @@ footer{border-top:1px solid var(--brd);padding:40px 32px 24px}
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="/logo_mono_blanco.svg" alt="SofIA by Ataraxia IA Labs" onerror="this.style.display='none'">
-      <div class="footer-brand-txt">SofIA <span>by Ataraxia IA Labs</span></div>
+      <img src="/logo_mono_blanco.svg" alt="SofIA" onerror="this.style.display='none'">
+      <div class="footer-brand-text">SofIA <span>by Ataraxia IA Labs</span></div>
       <p class="footer-desc">La infraestructura de IA que opera clinicas solas. Bogota, Colombia.</p>
     </div>
     <div class="footer-links">
       <a href="mailto:gestion@ataraxiaialabs.ai">Contacto</a>
       <a href="https://dashboard.ataraxiaialabs.ai/onboarding">Prueba Gratis</a>
-      <a href="#pricing">Precios</a>
+      <a href="#inversion">Precios</a>
       <a href="#faq">FAQ</a>
     </div>
   </div>
@@ -1030,7 +1091,7 @@ footer{border-top:1px solid var(--brd);padding:40px 32px 24px}
 
 <script>
 // =============================================
-// SUPABASE CONFIG (anon key — public by design, RLS enforced)
+// SUPABASE CONFIG
 // =============================================
 const _SUPA_URL='https://cvfzdxhkiyrbkptvpuja.supabase.co';
 const _SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2ZnpkeGhraXlyYmtwdHZwdWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwNzQ2MDMsImV4cCI6MjA4NjY1MDYwM30.hE_BQO7PgWRzmODkSe_aPEGfcbGXhtviZt0FqSQRl8E';
@@ -1038,29 +1099,8 @@ const _SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsIn
 // =============================================
 // INTERSECTION OBSERVER — REVEAL ON SCROLL
 // =============================================
-const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');const num=x.target.querySelector('[data-target]')||x.target;if(num.dataset&&num.dataset.target)animateCounter(num)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v')}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
-
-// =============================================
-// SCROLL HANDLER
-// =============================================
-const sbb=document.getElementById('stickyBar');
-const sbbClose=document.getElementById('sbbClose');
-const navEl=document.querySelector('nav');
-const ntEl=document.getElementById('navTrial');
-let sbbDismissed=false;let sbbShown=false;let navTrialState=false;let scrollTicking=false;
-function onScroll(){
-  const s=scrollY;
-  const newTrialState=s>150;
-  if(ntEl&&newTrialState!==navTrialState){navTrialState=newTrialState;ntEl.style.display=newTrialState?'inline-block':'none'}
-  if(!sbbDismissed&&sbb){
-    if(s>600&&!sbbShown){sbb.classList.add('visible');sbbShown=true}
-    else if(s<200&&sbbShown){sbb.classList.remove('visible');sbbShown=false}
-  }
-  scrollTicking=false;
-}
-window.addEventListener('scroll',()=>{if(!scrollTicking){scrollTicking=true;requestAnimationFrame(onScroll)}},{passive:true});
-if(sbbClose)sbbClose.addEventListener('click',()=>{sbb.classList.remove('visible');sbbDismissed=true});
 
 // =============================================
 // ANIMATED COUNTERS
@@ -1080,7 +1120,48 @@ function animateCounter(el){
   requestAnimationFrame(update);
 }
 const counterOb=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('[data-target]').forEach(el=>animateCounter(el));counterOb.unobserve(x.target)}})},{threshold:.3});
-document.querySelectorAll('.sc-grid').forEach(el=>counterOb.observe(el));
+document.querySelectorAll('.weight-stats').forEach(el=>counterOb.observe(el));
+
+// =============================================
+// SCROLL HANDLER
+// =============================================
+const sbb=document.getElementById('stickyBar');
+const sbbClose=document.getElementById('sbbClose');
+const navEl=document.querySelector('nav');
+const ntEl=document.getElementById('navTrial');
+let sbbDismissed=false;let sbbShown=false;let navTrialState=false;let scrollTicking=false;
+function onScroll(){
+  const s=scrollY;
+  // Nav scroll state
+  if(navEl)navEl.classList.toggle('scrolled',s>50);
+  // Show nav trial button after scroll
+  const newTrialState=s>150;
+  if(ntEl&&newTrialState!==navTrialState){navTrialState=newTrialState;ntEl.style.display=newTrialState?'inline-flex':'none'}
+  // Sticky bar
+  if(!sbbDismissed&&sbb){
+    if(s>600&&!sbbShown){sbb.classList.add('visible');sbbShown=true}
+    else if(s<200&&sbbShown){sbb.classList.remove('visible');sbbShown=false}
+  }
+  scrollTicking=false;
+}
+window.addEventListener('scroll',()=>{if(!scrollTicking){scrollTicking=true;requestAnimationFrame(onScroll)}},{passive:true});
+if(sbbClose)sbbClose.addEventListener('click',()=>{sbb.classList.remove('visible');sbbDismissed=true});
+
+// =============================================
+// MINI CALENDAR VISUALIZATION
+// =============================================
+(function(){
+  const cal=document.getElementById('miniCal');
+  if(!cal)return;
+  const days=['L','M','X','J','V','S','D'];
+  days.forEach(d=>{const el=document.createElement('div');el.className='vis-cal-day';el.textContent=d;el.style.color='var(--muted)';el.style.fontSize='8px';el.style.fontWeight='500';cal.appendChild(el)});
+  for(let i=1;i<=28;i++){
+    const el=document.createElement('div');el.className='vis-cal-day';el.textContent=i;
+    if([3,7,10,14,17,21,24].includes(i))el.classList.add('booked');
+    if([5,12,19,26].includes(i))el.classList.add('active');
+    cal.appendChild(el);
+  }
+})();
 
 // =============================================
 // ROI CALCULATOR
@@ -1113,7 +1194,7 @@ function calcROI(){
     if(p<1)requestAnimationFrame(update);
   }
   requestAnimationFrame(update);
-  multEl.textContent=mult+'x ROI — SofIA se paga sola y sobra';
+  multEl.textContent=mult+'x ROI — SofIA se paga sola';
 }
 calcROI();
 
@@ -1130,52 +1211,52 @@ function handleSubmit(e){
   })
   .then(r=>{
     if(!r.ok)throw new Error(r.status);
-    f.innerHTML='<div style="text-align:center;padding:24px"><p style="font-family:JetBrains Mono,monospace;font-size:.55rem;color:var(--cy);text-transform:uppercase;letter-spacing:3px;margin-bottom:12px">Confirmado</p><h3 style="font-family:Playfair Display,serif;color:var(--white);font-size:1.3rem;margin-bottom:12px">Demo solicitada.</h3><p style="color:var(--soft);font-weight:300;margin-bottom:20px;font-size:.88rem">Te contactamos en menos de 24 horas al WhatsApp que nos diste.</p><a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="bn bcy" style="display:inline-block">O empieza gratis ahora mismo</a></div>';
+    f.innerHTML='<div style="text-align:center;padding:24px"><p style="font-size:9px;color:var(--cy);text-transform:uppercase;letter-spacing:3px;margin-bottom:12px">Confirmado</p><h3 style="font-family:Playfair Display,serif;color:var(--white);font-size:1.3rem;margin-bottom:12px">Demo solicitada.</h3><p style="color:var(--soft);font-weight:300;margin-bottom:20px;font-size:12px">Te contactamos en menos de 24 horas.</p><a href="https://dashboard.ataraxiaialabs.ai/onboarding" class="btn btn-cy">O empieza gratis ahora</a></div>';
   })
   .catch(()=>{
     btn.textContent='Solicitar Demo';btn.disabled=false;
-    f.insertAdjacentHTML('beforeend','<p style="color:var(--red);font-size:.78rem;text-align:center;margin-top:8px">Error al enviar. Intenta de nuevo o escribenos a gestion@ataraxiaialabs.ai</p>');
+    f.insertAdjacentHTML('beforeend','<p style="color:var(--red);font-size:11px;text-align:center;margin-top:8px">Error. Intenta de nuevo o escribenos a gestion@ataraxiaialabs.ai</p>');
   });
 }
 
 // =============================================
-// CHAT DEMO ANIMATION
+// CHAT DEMO
 // =============================================
 const msgs=[
   {t:'out',m:'Hola buenas noches, quisiera info sobre diseno de sonrisa',d:800},
-  {t:'sofia',m:'Hola! Buenas noches. Soy SofIA, la coordinadora de Clinica Bella Vita. Con mucho gusto te ayudo con diseno de sonrisa.',d:1800},
-  {t:'sofia',m:'Tenemos dos opciones:\n\nDiseno de Sonrisa en Porcelana — desde $2,800 USD\nDiseno de Sonrisa en Resina — desde $1,200 USD\n\nTe gustaria saber mas sobre alguna?',d:2200},
-  {t:'out',m:'La de porcelana, cuanto dura el procedimiento?',d:1500},
-  {t:'sofia',m:'Excelente eleccion. El procedimiento completo toma 2-3 citas durante 2 semanas:\n\nCita 1 — Evaluacion + diseno digital\nCita 2 — Preparacion\nCita 3 — Colocacion final\n\nEl resultado dura 15-20 anos con buen cuidado.',d:2500},
-  {t:'out',m:'Perfecto, tienen disponibilidad esta semana?',d:1200},
-  {t:'sofia',m:'Dejame revisar...\n\nTengo disponible:\nMiercoles 19 Feb — 10:00 AM\nJueves 20 Feb — 3:00 PM\nViernes 21 Feb — 11:00 AM\n\nCual te funciona mejor?',d:2000},
-  {t:'out',m:'El jueves a las 3',d:800},
-  {t:'sofia',m:'Perfecto! Te agendo para el Jueves 20 de Febrero a las 3:00 PM con el Dr. Ramirez.\n\nPara confirmar tu cita, necesitamos un anticipo de $200 USD. Te envio el link de pago:',d:2200},
-  {t:'sofia',m:'[Link de pago seguro — Wompi]\n\nPuedes pagar con tarjeta, PSE o Nequi. Una vez confirmado el pago, te llega la confirmacion automatica.',d:1500},
+  {t:'sofia',m:'Hola! Buenas noches. Soy SofIA, coordinadora de Clinica Bella Vita. Con mucho gusto te ayudo.',d:1800},
+  {t:'sofia',m:'Tenemos dos opciones:\n\nDiseno en Porcelana — desde $2,800 USD\nDiseno en Resina — desde $1,200 USD\n\nTe gustaria saber mas?',d:2200},
+  {t:'out',m:'La de porcelana, cuanto dura?',d:1500},
+  {t:'sofia',m:'Excelente. Son 2-3 citas en 2 semanas:\n\n1. Evaluacion + diseno digital\n2. Preparacion\n3. Colocacion final\n\nResultado: 15-20 anos.',d:2500},
+  {t:'out',m:'Tienen disponibilidad esta semana?',d:1200},
+  {t:'sofia',m:'Dejame revisar...\n\nDisponible:\nMie 19 — 10:00 AM\nJue 20 — 3:00 PM\nVie 21 — 11:00 AM\n\nCual te funciona?',d:2000},
+  {t:'out',m:'Jueves a las 3',d:800},
+  {t:'sofia',m:'Perfecto. Agendado Jue 20 Feb, 3:00 PM con Dr. Ramirez.\n\nPara confirmar, necesito anticipo de $200 USD:',d:2200},
+  {t:'sofia',m:'[Link de pago seguro — Wompi]\nTarjeta, PSE o Nequi.',d:1500},
   {t:'out',m:'Listo, ya pague!',d:1800},
-  {t:'sofia',m:'Pago confirmado! Tu cita esta agendada:\n\nJueves 20 Feb — 3:00 PM\nDr. Ramirez\nClinica Bella Vita, Sede Norte\n\nTe enviare un recordatorio el miercoles.',d:2500}
+  {t:'sofia',m:'Pago confirmado.\n\nJue 20 Feb — 3:00 PM\nDr. Ramirez\nClinica Bella Vita, Sede Norte\n\nTe recuerdo el miercoles.',d:2500}
 ];
 const chatEl=document.getElementById('chatDemo');
-let i=0,totalDelay=0;
+let msgI=0,totalDelay=0;
 function addMsg(){
-  if(i>=msgs.length)return;
-  const m=msgs[i];totalDelay+=m.d;
+  if(msgI>=msgs.length)return;
+  const m=msgs[msgI];totalDelay+=m.d;
   setTimeout(()=>{
-    const tp=chatEl.querySelector('.typing');if(tp)tp.remove();
+    const tp=chatEl.querySelector('.typing-dots');if(tp)tp.remove();
     const div=document.createElement('div');
-    div.className='mg '+(m.t==='out'?'mo':m.t==='sofia'?'ms':'mi');
+    div.className='msg '+(m.t==='out'?'msg-out':'msg-sofia');
     div.innerHTML=m.m.replace(/\n/g,'<br>');
     chatEl.appendChild(div);chatEl.scrollTop=chatEl.scrollHeight;
-    if(i<msgs.length-1&&msgs[i+1].t==='sofia'){
-      const tdiv=document.createElement('div');tdiv.className='mg ms typing';
-      tdiv.innerHTML='<span class="td"></span><span class="td"></span><span class="td"></span>';
+    if(msgI<msgs.length-1&&msgs[msgI+1].t==='sofia'){
+      const tdiv=document.createElement('div');tdiv.className='msg msg-sofia typing-dots';
+      tdiv.innerHTML='<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
       setTimeout(()=>{chatEl.appendChild(tdiv);chatEl.scrollTop=chatEl.scrollHeight},400);
     }
-    i++;addMsg();
+    msgI++;addMsg();
   },totalDelay);
 }
 const chatOb=new IntersectionObserver(e=>{if(e[0].isIntersecting){addMsg();chatOb.disconnect()}},{threshold:.3});
-chatOb.observe(document.querySelector('.chw'));
+if(chatEl)chatOb.observe(chatEl.closest('.chat-window'));
 
 // =============================================
 // CTA TRACKING
@@ -1190,7 +1271,7 @@ document.querySelectorAll('[data-cta]').forEach(el=>{
 });
 
 // =============================================
-// CURSOR GLOW (desktop)
+// CURSOR GLOW
 // =============================================
 const cursorGlow=document.getElementById('cursorGlow');
 if(cursorGlow&&window.innerWidth>768){
@@ -1229,6 +1310,23 @@ function togglePricing(){
 }
 
 // =============================================
+// SENTIENT EYE — follows cursor subtly
+// =============================================
+(function(){
+  const iris=document.querySelector('.sentient-eye-iris');
+  if(!iris||window.innerWidth<768)return;
+  document.addEventListener('mousemove',e=>{
+    const rect=iris.parentElement.getBoundingClientRect();
+    const cx=rect.left+rect.width/2;const cy=rect.top+rect.height/2;
+    const dx=e.clientX-cx;const dy=e.clientY-cy;
+    const dist=Math.sqrt(dx*dx+dy*dy);
+    const maxMove=4;const move=Math.min(dist/100,1)*maxMove;
+    const angle=Math.atan2(dy,dx);
+    iris.style.transform=`translate(calc(-50% + ${Math.cos(angle)*move}px), calc(-50% + ${Math.sin(angle)*move}px))`;
+  },{passive:true});
+})();
+
+// =============================================
 // ANALYTICS TRACKER
 // =============================================
 (function(){
@@ -1257,7 +1355,7 @@ function togglePricing(){
   },{passive:true});
   const secOb=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){track('section_view',{section:e.target.id||e.target.className.substring(0,40)});secOb.unobserve(e.target)}})},{threshold:.3});
   document.querySelectorAll('section[id]').forEach(s=>secOb.observe(s));
-  const formEl=document.querySelector('.cf');
+  const formEl=document.querySelector('.contact-form');
   if(formEl){let formStarted=false;formEl.addEventListener('focusin',()=>{if(!formStarted){formStarted=true;track('form_start',{})}})}
   const t0=Date.now();
   function sendExit(){
