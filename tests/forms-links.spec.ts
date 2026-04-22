@@ -156,10 +156,10 @@ test.describe('Footer', () => {
     await expect(footer).toContainText('Ataraxia IA Labs')
   })
 
-  test('footer has email link', async ({ page }) => {
+  test('footer contact link scrolls to form (no mailto, no Outlook)', async ({ page }) => {
     await page.goto('/')
-    const email = page.locator('footer a[href*="mailto"]')
-    await expect(email.first()).toHaveAttribute('href', 'mailto:gestion@ataraxiaialabs.ai')
+    const contact = page.locator('footer a', { hasText: 'Contacto' })
+    await expect(contact.first()).toHaveAttribute('href', '#cta')
   })
 
   test('footer has nav links', async ({ page }) => {

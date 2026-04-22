@@ -56,5 +56,5 @@ Vercel auto-deploys from `main`.
 
 ```
 Ataraxia IA Labs SAS · Colombia
-gestion@ataraxiaialabs.ai
+ataraxia.centrodecontrol@gmail.com
 ```
