@@ -1,4 +1,9 @@
 {
+  "redirects": [
+    { "source": "/legal/privacidad", "destination": "https://dashboard.ataraxiaialabs.ai/legal/privacidad", "permanent": false },
+    { "source": "/legal/terminos", "destination": "https://dashboard.ataraxiaialabs.ai/legal/terminos", "permanent": false },
+    { "source": "/legal/(.*)", "destination": "https://dashboard.ataraxiaialabs.ai/legal/$1", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
