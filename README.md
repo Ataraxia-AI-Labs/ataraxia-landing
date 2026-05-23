@@ -20,9 +20,9 @@ Vercel            Hosting + CDN
 
 ```
 index.html          Main landing page (single file, cinematic design)
-brand/              Brand assets and documentation
-  03_BRAND_MINDSET.md   Sentient Interface source of truth
-  04_LANDING_GUIDE.md   Landing page design guide
+logo_mono_blanco.svg  Brand logo (v3, mono white)
+og-image.png        Open Graph share image
+favicon.ico         Favicon
 tests/
   playwright/       248 E2E tests across 5 spec files
 ```
